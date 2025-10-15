@@ -2,109 +2,201 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
-import { FaExclamation, FaExclamationCircle } from "react-icons/fa";
 
-interface Agent {
-  id: number;
-  src: string;
-  audio: string;
+interface AgentTranslations {
   name: string;
   role: string;
   description: string;
   specialty: string;
 }
 
+interface Agent {
+  id: number;
+  src: string;
+  audio: string;
+  en: AgentTranslations;
+  nl: AgentTranslations;
+}
+
+const translations = {
+  en: {
+    specialtyLabel: "Specialty"
+  },
+  nl: {
+    specialtyLabel: "Specialiteit"
+  }
+};
+
 const agents: Agent[] = [
   {
     id: 1,
     src: "images/ai-voice/Amira.png",
     audio: "audio/ai-voice/Amira.mpeg",
-    name: "Amira - Receptionist Agent",
-    role: "Support Agent",
-    description: "Amira delivers fast, friendly help with a personal touch.",
-    specialty: "24/7 Customer Support",
+    en: {
+      name: "Amira - Receptionist Agent",
+      role: "Support Agent",
+      description: "Amira delivers fast, friendly help with a personal touch.",
+      specialty: "24/7 Customer Support",
+    },
+    nl: {
+      name: "Amira - Receptioniste Agent",
+      role: "Ondersteuningsagent",
+      description: "Amira biedt snelle, vriendelijke hulp met een persoonlijke touch.",
+      specialty: "24/7 Klantenondersteuning",
+    },
   },
   {
     id: 2,
-
     src: "images/ai-voice/Casper.png",
     audio: "audio/ai-voice/Casper.mpeg",
-    name: "Casper - Support Agent",
-    role: "Receptionist Agent",
-    description: "Casper quickly fixes and automates technical issues.",
-    specialty: "System Diagnostics & Automation",
+    en: {
+      name: "Casper - Support Agent",
+      role: "Receptionist Agent",
+      description: "Casper quickly fixes and automates technical issues.",
+      specialty: "System Diagnostics & Automation",
+    },
+    nl: {
+      name: "Casper - Ondersteuningsagent",
+      role: "Receptionist Agent",
+      description: "Casper lost technische problemen snel op en automatiseert ze.",
+      specialty: "Systeemdiagnose & Automatisering",
+    },
   },
   {
     id: 3,
     src: "images/ai-voice/Thalina.png",
     audio: "audio/ai-voice/Thalina.mpeg",
-    name: "Thalina - Sales Agent",
-    role: "Sales Agent",
-    description: "Thalina guides customers with smart product suggestions.",
-    specialty: "Product Recommendations & Upselling",
+    en: {
+      name: "Thalina - Sales Agent",
+      role: "Sales Agent",
+      description: "Thalina guides customers with smart product suggestions.",
+      specialty: "Product Recommendations & Upselling",
+    },
+    nl: {
+      name: "Thalina - Verkoopagent",
+      role: "Verkoopagent",
+      description: "Thalina begeleidt klanten met slimme productsuggesties.",
+      specialty: "Productaanbevelingen & Upselling",
+    },
   },
   {
     id: 4,
     src: "images/ai-voice/Heleen.png",
     audio: "audio/ai-voice/Heleen.mpeg",
-    name: "Heleen - Promotion Agent",
-    role: "Promotion Agent",
-    description: "Heleen turns data into insights for better decisions.",
-    specialty: "Business Intelligence & Reporting",
+    en: {
+      name: "Heleen - Promotion Agent",
+      role: "Promotion Agent",
+      description: "Heleen turns data into insights for better decisions.",
+      specialty: "Business Intelligence & Reporting",
+    },
+    nl: {
+      name: "Heleen - Promotie Agent",
+      role: "Promotie Agent",
+      description: "Heleen zet data om in inzichten voor betere beslissingen.",
+      specialty: "Business Intelligence & Rapportage",
+    },
   },
   {
     id: 5,
     src: "images/ai-voice/Zelda.png",
     audio: "audio/ai-voice/Zelda.mpeg",
-    name: "Zelda - Client Service Agent",
-    role: "Client Service Agent",
-    description: "Zelda builds loyalty through warm, engaging chats.",
-    specialty: "Customer Retention & Loyalty",
+    en: {
+      name: "Zelda - Client Service Agent",
+      role: "Client Service Agent",
+      description: "Zelda builds loyalty through warm, engaging chats.",
+      specialty: "Customer Retention & Loyalty",
+    },
+    nl: {
+      name: "Zelda - Klantenservice Agent",
+      role: "Klantenservice Agent",
+      description: "Zelda bouwt loyaliteit op door warme, boeiende gesprekken.",
+      specialty: "Klantbehoud & Loyaliteit",
+    },
   },
   {
     id: 6,
     src: "images/ai-voice/Carla.png",
     audio: "audio/ai-voice/Carla.mpeg",
-    name: "Carla - Onboarding Agent",
-    role: "Onboarding Agent",
-    description: "Carla makes onboarding easy and effortless.",
-    specialty: "User Activation & Training",
+    en: {
+      name: "Carla - Onboarding Agent",
+      role: "Onboarding Agent",
+      description: "Carla makes onboarding easy and effortless.",
+      specialty: "User Activation & Training",
+    },
+    nl: {
+      name: "Carla - Onboarding-agent",
+      role: "Onboarding Agent",
+      description: "Carla maakt onboarding eenvoudig en moeiteloos.",
+      specialty: "Gebruikersactivatie & Training",
+    },
   },
   {
     id: 7,
     src: "images/ai-voice/Selena.png",
     audio: "audio/ai-voice/Selena.mpeg",
-    name: "Selena - AI Trainer",
-    role: "AI Trainer",
-    description: "Selena fine-tunes models for smarter performance.",
-    specialty: "Model Optimization & Learning",
+    en: {
+      name: "Selena - AI Trainer",
+      role: "AI Trainer",
+      description: "Selena fine-tunes models for smarter performance.",
+      specialty: "Model Optimization & Learning",
+    },
+    nl: {
+      name: "Selena - AI Trainer",
+      role: "AI Trainer",
+      description: "Selena fijn-tuned modellen voor slimmere prestaties.",
+      specialty: "Model Optimalisatie & Leren",
+    },
   },
   {
     id: 8,
     src: "images/ai-voice/Tirza.png",
     audio: "audio/ai-voice/Tirza.mpeg",
-    name: "Tirza - Product Sales Agent",
-    role: "Product Sales Agent",
-    description: "Tirza streamlines workflows for smooth operations.",
-    specialty: "Process Automation & Efficiency",
+    en: {
+      name: "Tirza - Product Sales Agent",
+      role: "Product Sales Agent",
+      description: "Tirza streamlines workflows for smooth operations.",
+      specialty: "Process Automation & Efficiency",
+    },
+    nl: {
+      name: "Tirza - Productverkoop Agent",
+      role: "Productverkoop Agent",
+      description: "Tirza stroomlijnt workflows voor soepele operaties.",
+      specialty: "Procesautomatisering & Efficiëntie",
+    },
   },
   {
     id: 9,
     src: "images/ai-voice/Bella.png",
     audio: "audio/ai-voice/Bella.mpeg",
-    name: "Bella - Marketing Agent",
-    role: "Marketing Agent",
-    description: "Bella drives engagement with creative campaigns.",
-    specialty: "Campaign Management & Outreach",
+    en: {
+      name: "Bella - Marketing Agent",
+      role: "Marketing Agent",
+      description: "Bella drives engagement with creative campaigns.",
+      specialty: "Campaign Management & Outreach",
+    },
+    nl: {
+      name: "Bella - Marketing Agent",
+      role: "Marketing Agent",
+      description: "Bella stimuleert betrokkenheid met creatieve campagnes.",
+      specialty: "Campagnebeheer & Outreach",
+    },
   },
   {
     id: 10,
     src: "images/ai-voice/Bastian.png",
     audio: "audio/ai-voice/Bastian.mpeg",
-    name: "Bastian - AI Customer Support",
-    role: "AI Customer Support",
-    description: "Bastian solves customer queries with care and accuracy.",
-    specialty: "Empathetic Real-time Support",
+    en: {
+      name: "Bastian - AI Customer Support",
+      role: "AI Customer Support",
+      description: "Bastian solves customer queries with care and accuracy.",
+      specialty: "Empathetic Real-time Support",
+    },
+    nl: {
+      name: "Bastian - AI Klantenondersteuning",
+      role: "AI Klantenondersteuning",
+      description: "Bastian lost klantvragen op met zorg en nauwkeurigheid.",
+      specialty: "Empathische Real-time Ondersteuning",
+    },
   },
 ];
 
@@ -112,9 +204,39 @@ const VocalChatAgentCarousel: React.FC = () => {
   const [current, setCurrent] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [showDetail, setShowDetail] = useState<boolean>(false);
+  const [language, setLanguage] = useState<"en" | "nl">("nl");
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const detailRef = useRef<HTMLDivElement | null>(null);
+
+  // Get language from localStorage on mount
+  useEffect(() => {
+    const storedLang = localStorage.getItem("language");
+    if (storedLang === "en" || storedLang === "nl") {
+      setLanguage(storedLang);
+    }
+  }, []);
+
+  // Listen for localStorage changes (when header updates language)
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const storedLang = localStorage.getItem("language");
+      if (storedLang === "en" || storedLang === "nl") {
+        setLanguage(storedLang);
+      }
+    };
+
+    // Listen for custom event from header
+    window.addEventListener("languageChange", handleStorageChange);
+    
+    // Also listen for storage events (if changed in another tab)
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("languageChange", handleStorageChange);
+      window.removeEventListener("storage", handleStorageChange);
+    };
+  }, []);
 
   const prevSlide = (): void => {
     setShowDetail(false);
@@ -174,6 +296,7 @@ const VocalChatAgentCarousel: React.FC = () => {
           {agents.map((agent, idx) => {
             const pos = getPosition(idx);
             const isCenter = pos === "center";
+            const agentData = agent[language];
 
             let transformValue = "";
             let opacityValue = 0;
@@ -212,7 +335,7 @@ const VocalChatAgentCarousel: React.FC = () => {
                 >
                   <img
                     src={agent.src}
-                    alt={agent.name}
+                    alt={agentData.name}
                     className="w-full h-full object-cover"
                   />
 
@@ -229,7 +352,7 @@ const VocalChatAgentCarousel: React.FC = () => {
                   {isCenter && (
                     <div
                       ref={detailRef}
-                      className="absolute left-1/2 top-1/2 flex flex-col items-start text-left px-4 py-25 transition-all duration-500 ease-out border border-gray-100"
+                      className="absolute left-1/2 top-1/2 flex flex-col items-start text-left px-4 pt-4 pb-48 transition-all duration-500 ease-out border border-gray-100"
                       onMouseLeave={() => setShowDetail(false)}
                       style={{
                         transform: showDetail
@@ -243,20 +366,20 @@ const VocalChatAgentCarousel: React.FC = () => {
                       }}
                     >
                       <h4 className="text-[14px] font-medium mb-1 text-gray-800">
-                        {agent.name}
+                        {agentData.name}
                       </h4>
                       <p className="text-[12px] text-purple-500 font-medium mb-2">
-                        {agent.role}
+                        {agentData.role}
                       </p>
                       <p className="text-[10px] text-gray-600 mb-3 leading-snug">
-                        {agent.description}
+                        {agentData.description}
                       </p>
                       <div className="pt-2 border-t border-gray-300 w-full">
                         <p className="text-[9px] font-semibold text-gray-700">
-                          Specialty
+                          {translations[language].specialtyLabel}
                         </p>
                         <p className="text-[10px] text-gray-800">
-                          {agent.specialty}
+                          {agentData.specialty}
                         </p>
                       </div>
                     </div>
@@ -274,7 +397,7 @@ const VocalChatAgentCarousel: React.FC = () => {
                   <button
                     className="px-2 py-[8px] text-[10px] sm:text-[11px] md:text-[13px] lg:text-base font-medium rounded-[12px] bg-white border border-[#1111114D] text-gray-700 whitespace-nowrap flex items-center gap-x-2 hover:bg-gray-50 hover:shadow-md transition-all duration-300"
                   >
-                    {agents[current].name}
+                    {agents[current][language].name}
                   </button>
                 </div>
               )}

@@ -15,6 +15,18 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Initialize language from localStorage on mount
+  useEffect(() => {
+    const storedLang = localStorage.getItem("language");
+    if (storedLang === "en" || storedLang === "nl") {
+      setLanguage(storedLang);
+      i18n.changeLanguage(storedLang);
+    } else {
+      // Set default language
+      localStorage.setItem("language", "nl");
+    }
+  }, []);
+
   // Close mobile menu on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +39,15 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [menuOpen]);
 
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language]);
+  // Handle language change
+  const handleLanguageChange = (lang: "en" | "nl") => {
+    setLanguage(lang);
+    localStorage.setItem("language", lang);
+    i18n.changeLanguage(lang);
+    
+    // Dispatch custom event to notify other components
+    window.dispatchEvent(new Event("languageChange"));
+  };
 
   const navLinks = [
     { name: t("header.home"), href: "/" },
@@ -61,7 +79,6 @@ export default function Header() {
             />
             <motion.h3
               className="text-xl sm:text-xl md:text-xl lg:text-2xl font-bold tracking-wide text-black"
-              // whileHover={{ scale: 1.05 }}
             >
               Pionier
             </motion.h3>
@@ -89,27 +106,22 @@ export default function Header() {
               target="_blank"
               rel="noopener"
               className={sharedButtonStyle}
-              // whileHover={{ scale: 1.05 }}
             >
               Book a Call
             </motion.a>
 
-            <motion.div
-              className={sharedButtonStyle}
-              // whileHover={{ scale: 1.05 }}
-            >
+            <motion.div className={sharedButtonStyle}>
               <Globe className="w-6 h-6 text-black mr-1" />
               <div className="flex items-center bg-gray-100 rounded-full overflow-hidden">
                 {["nl", "en"].map((lang) => (
                   <motion.button
                     key={lang}
-                    onClick={() => setLanguage(lang)}
+                    onClick={() => handleLanguageChange(lang as "en" | "nl")}
                     className={`px-2 py-0.5 text-[14px] font-medium transition-all ${
                       language === lang
                         ? "bg-black text-white"
                         : "text-gray-700 hover:text-black"
                     }`}
-                    // whileHover={{ scale: 1.05 }}
                   >
                     {lang.toUpperCase()}
                   </motion.button>
@@ -178,7 +190,7 @@ export default function Header() {
                     {["nl", "en"].map((lang) => (
                       <motion.button
                         key={lang}
-                        onClick={() => setLanguage(lang)}
+                        onClick={() => handleLanguageChange(lang as "en" | "nl")}
                         className={`px-2 py-0.5 text-[11px] font-medium transition-all ${
                           language === lang
                             ? "bg-black text-white"

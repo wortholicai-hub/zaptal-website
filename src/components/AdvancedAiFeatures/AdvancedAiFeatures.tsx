@@ -202,11 +202,11 @@ export const AdvancedAiFeatures = () => {
           </div>
 
           {/* ✅ Image (No scroll issues, responsive and contained) */}
-          <div className="flex justify-center items-center w-full md:w-auto p-2">
+          <div className="flex justify-center items-center w-full md:w-auto bg-amber-500">
             <img
-              src="/images/ai-features/integration-tools2.png"
+              src="/images/ai-features/integration-tools.png"
               alt="Switch"
-              className="w-64 sm:w-80 md:w-[320px] lg:w-[320px] object-contain max-w-full h-auto"
+              className="w-64 sm:w-80 md:w-[320px] lg:w-[380px] object-contain max-w-full h-auto"
             />
           </div>
         </div>

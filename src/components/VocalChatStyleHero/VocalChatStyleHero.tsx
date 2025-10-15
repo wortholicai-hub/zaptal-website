@@ -56,7 +56,7 @@ const VocalChatStyleHero: React.FC = () => {
       >
         {/* Left Column: Title */}
         <motion.div
-          className="text-left lg:text-left w-full md:w-[95%]"
+          className="text-left lg:text-left w-full md:w-[90%]"
           variants={itemVariants}
         >
           <h2 className="text-black text-left font-semibold text-[36px] sm:text-4xl lg:text-[54px]">
