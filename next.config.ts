@@ -1,11 +1,11 @@
-/** @type {import('next').NextConfig} */
-const { i18n } = require("./next-i18next.config");
+import type { NextConfig } from "next";
+import i18nConfig from "./next-i18next.config";
 
-const nextConfig = {
-  i18n,
+const nextConfig: NextConfig = {
+  i18n: i18nConfig.i18n,
   images: {
     domains: ["randomuser.me"],
-    dangerouslyAllowSVG: true, // optional if you have SVGs
+    dangerouslyAllowSVG: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -23,4 +23,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
