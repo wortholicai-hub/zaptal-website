@@ -15,7 +15,7 @@ export default function ComparisonSection() {
   }) as string[];
 
   return (
-    <section className="w-full py-8 md:py-20 px-[4%] sm:px-[3%] lg:px-[8%] flex flex-col items-center justify-center overflow-hidden">
+    <section className="w-full overflow-hidden px-4 py-12 sm:px-6 md:py-16 lg:px-2 flex flex-col items-center justify-center">
       <div className="max-w-[1200px] mx-auto w-full flex flex-col items-center justify-center">
         {/* Heading */}
         <div className="w-full mb-10 px-0 flex justify-center text-center">

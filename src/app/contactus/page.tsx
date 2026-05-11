@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import {
+  ArrowUpRight,
   Building2,
   CalendarCheck,
   CheckCircle2,
@@ -12,6 +13,7 @@ import {
   Route,
   Send,
   ShieldCheck,
+  Sparkles,
   User,
 } from "lucide-react";
 
@@ -43,6 +45,12 @@ const demoChecklist = [
   "CRM, PMS, and custom integration requirements",
 ];
 
+const contactSignals = [
+  { value: "30 min", label: "workflow review" },
+  { value: "4", label: "systems mapped" },
+  { value: "1 day", label: "typical response" },
+];
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -71,19 +79,33 @@ export default function ContactPage() {
         <div className="grid w-full grid-cols-1 items-start gap-4 lg:grid-cols-[65%_35%]">
           <div className="w-full text-left md:w-[90%]">
             <h1 className="text-left text-[36px] font-semibold leading-[1.08] sm:text-4xl lg:text-[54px]">
-            <span className="block">Build patient communication</span>
-            <span className="block">that works while</span>
-            <span className="block">your team is busy.</span>
-          </h1>
+              <span className="block">Build patient communication</span>
+              <span className="block">that works while</span>
+              <span className="block">your team is busy.</span>
+            </h1>
           </div>
-          <div className="flex h-full flex-col items-start gap-4 text-left">
-            <p className="mb-2 text-lg leading-8 text-gray-900 md:text-[20px]">
+          <div className="relative flex h-full flex-col overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf9ff_56%,#f5f0ff_100%)] p-5 text-left shadow-[0_18px_70px_rgba(0,0,0,0.07)] sm:p-6">
+            <div className="pointer-events-none absolute right-[-90px] top-[-100px] h-56 w-56 rounded-full bg-purple-300/25 blur-3xl" />
+            <p className="relative z-10 mb-5 text-lg leading-8 text-gray-900 md:text-[20px]">
               Tell us about your calls, bookings, recalls, and integrations so
               we can map the best Zaptal workflow.
             </p>
+            <div className="relative z-10 grid gap-2 sm:grid-cols-3 lg:grid-cols-1">
+              {contactSignals.map((signal) => (
+                <div
+                  key={signal.label}
+                  className="rounded-[14px] border border-black/10 bg-white/80 px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                >
+                  <p className="text-lg font-semibold leading-none text-black">
+                    {signal.value}
+                  </p>
+                  <p className="mt-1 text-xs text-gray-600">{signal.label}</p>
+                </div>
+              ))}
+            </div>
             <a
               href="#demo-form"
-              className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+              className="relative z-10 mt-5 inline-flex w-fit items-center justify-center rounded-full bg-black px-7 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
             >
               Book Demo
             </a>
@@ -91,19 +113,22 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid w-full max-w-[1200px] gap-8 px-4 pb-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <section className="mx-auto grid w-full max-w-[1200px] gap-8 px-4 pb-20 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-2">
         <aside className="space-y-5">
-          <div className="rounded-[30px] border border-black/10 bg-black p-6 text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] sm:p-8">
-            <div className="flex items-start justify-between gap-4">
+          <div className="relative overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-6 text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] sm:p-8">
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(168,85,247,0.36),transparent_35%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_44%)]" />
+            <div className="relative z-10 flex items-start justify-between gap-4">
               <div>
-                <p className="text-sm text-white/60">Demo conversation</p>
+                <p className="inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white/65">
+                  Demo conversation
+                </p>
                 <h2 className="mt-3 text-2xl font-semibold leading-tight">
                   What we review with you
                 </h2>
               </div>
-              <Route className="h-9 w-9 text-purple-300" strokeWidth={1.5} />
+              <Sparkles className="h-9 w-9 text-purple-300" strokeWidth={1.5} />
             </div>
-            <div className="mt-7 space-y-4">
+            <div className="relative z-10 mt-7 space-y-4">
               {demoChecklist.map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-300" />
@@ -119,11 +144,11 @@ export default function ContactPage() {
               return (
                 <div
                   key={card.title}
-                  className="rounded-[24px] border border-black/10 bg-black/[0.03] p-5 transition-all duration-300 hover:border-purple-300 hover:bg-purple-50/60"
+                  className="group rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#f8f6ff_100%)] p-5 shadow-[0_14px_45px_rgba(0,0,0,0.045)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-300"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="rounded-2xl bg-white p-3 shadow-[0_10px_40px_rgba(0,0,0,0.06)]">
-                      <Icon className="h-6 w-6 text-black" strokeWidth={1.5} />
+                    <div className="rounded-[14px] bg-black p-3 text-white shadow-[0_10px_40px_rgba(0,0,0,0.1)] transition-colors duration-300 group-hover:bg-purple-700">
+                      <Icon className="h-6 w-6" strokeWidth={1.5} />
                     </div>
                     <div>
                       <h3 className="text-base font-semibold text-black">
@@ -146,16 +171,22 @@ export default function ContactPage() {
         <form
           id="demo-form"
           onSubmit={handleSubmit}
-          className="rounded-[32px] border border-black/10 bg-white p-6 shadow-[0_24px_80px_rgba(0,0,0,0.08)] sm:p-8"
+          className="relative overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(180deg,#ffffff_0%,#fbfbfd_100%)] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.08)] sm:p-8"
         >
-          <div className="mb-7">
-            <h2 className="text-3xl font-semibold leading-tight">
-              Share your clinic workflow.
-            </h2>
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-purple-300/70 to-transparent" />
+          <div className="mb-7 flex items-start justify-between gap-5">
+            <div>
+              <h2 className="text-3xl font-semibold leading-tight">
+                Share your clinic workflow.
+              </h2>
             <p className="mt-3 text-sm leading-7 text-gray-700">
               We will use this context to prepare a relevant demo instead of a
               generic product walkthrough.
             </p>
+            </div>
+            <span className="hidden h-11 w-11 flex-shrink-0 items-center justify-center rounded-[14px] bg-black text-white sm:flex">
+              <ArrowUpRight className="h-5 w-5" strokeWidth={1.7} />
+            </span>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2">
@@ -163,7 +194,7 @@ export default function ContactPage() {
               <span className="mb-2 block text-sm font-medium text-black">
                 Full name
               </span>
-              <span className="flex items-center gap-3 rounded-2xl border border-black/15 bg-black/[0.02] p-4 transition-colors focus-within:border-purple-400">
+              <span className="flex items-center gap-3 rounded-[16px] border border-black/15 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-all focus-within:border-purple-400 focus-within:shadow-[0_12px_35px_rgba(124,58,237,0.12)]">
                 <User className="h-5 w-5 text-gray-500" />
                 <input
                   type="text"
@@ -181,7 +212,7 @@ export default function ContactPage() {
               <span className="mb-2 block text-sm font-medium text-black">
                 Work email
               </span>
-              <span className="flex items-center gap-3 rounded-2xl border border-black/15 bg-black/[0.02] p-4 transition-colors focus-within:border-purple-400">
+              <span className="flex items-center gap-3 rounded-[16px] border border-black/15 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-all focus-within:border-purple-400 focus-within:shadow-[0_12px_35px_rgba(124,58,237,0.12)]">
                 <Mail className="h-5 w-5 text-gray-500" />
                 <input
                   type="email"
@@ -199,7 +230,7 @@ export default function ContactPage() {
               <span className="mb-2 block text-sm font-medium text-black">
                 Phone
               </span>
-              <span className="flex items-center gap-3 rounded-2xl border border-black/15 bg-black/[0.02] p-4 transition-colors focus-within:border-purple-400">
+              <span className="flex items-center gap-3 rounded-[16px] border border-black/15 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-all focus-within:border-purple-400 focus-within:shadow-[0_12px_35px_rgba(124,58,237,0.12)]">
                 <Phone className="h-5 w-5 text-gray-500" />
                 <input
                   type="tel"
@@ -216,7 +247,7 @@ export default function ContactPage() {
               <span className="mb-2 block text-sm font-medium text-black">
                 Clinic type
               </span>
-              <span className="flex items-center gap-3 rounded-2xl border border-black/15 bg-black/[0.02] p-4 transition-colors focus-within:border-purple-400">
+              <span className="flex items-center gap-3 rounded-[16px] border border-black/15 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-all focus-within:border-purple-400 focus-within:shadow-[0_12px_35px_rgba(124,58,237,0.12)]">
                 <Building2 className="h-5 w-5 text-gray-500" />
                 <select
                   name="clinicType"
@@ -239,7 +270,7 @@ export default function ContactPage() {
             <span className="mb-2 block text-sm font-medium text-black">
               What should Zaptal automate first?
             </span>
-            <span className="flex items-start gap-3 rounded-2xl border border-black/15 bg-black/[0.02] p-4 transition-colors focus-within:border-purple-400">
+            <span className="flex items-start gap-3 rounded-[16px] border border-black/15 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-all focus-within:border-purple-400 focus-within:shadow-[0_12px_35px_rgba(124,58,237,0.12)]">
               <MessageSquareText className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
               <textarea
                 name="message"
@@ -260,7 +291,7 @@ export default function ContactPage() {
             </div>
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-8 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-9 py-3.5 text-sm text-white transition-all duration-300 hover:bg-purple-700"
             >
               Send Request <Send className="h-4 w-4" />
             </button>

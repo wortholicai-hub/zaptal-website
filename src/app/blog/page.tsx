@@ -23,6 +23,24 @@ const featured = {
   readTime: "8 min read",
 };
 
+const heroTopics = [
+  {
+    icon: PhoneCall,
+    title: "Missed-call recovery",
+    detail: "Capture demand before patients call another clinic.",
+  },
+  {
+    icon: Calendar,
+    title: "Appointment conversion",
+    detail: "Turn intake, reminders, and reschedules into cleaner booking flow.",
+  },
+  {
+    icon: BarChart3,
+    title: "Operator metrics",
+    detail: "Track response speed, booked appointments, and workflow gaps.",
+  },
+];
+
 const posts = [
   {
     icon: PhoneCall,
@@ -87,42 +105,55 @@ export default function BlogPage() {
         <div className="grid w-full grid-cols-1 items-start gap-4 lg:grid-cols-[65%_35%]">
           <div className="w-full text-left md:w-[90%]">
             <h1 className="text-left text-[36px] font-semibold leading-[1.08] sm:text-4xl lg:text-[54px]">
-            <span className="block">Ideas for clinics</span>
-            <span className="block">building faster</span>
-            <span className="block">patient communication.</span>
-          </h1>
+              <span className="block">Ideas for clinics</span>
+              <span className="block">building faster</span>
+              <span className="block">patient communication.</span>
+            </h1>
           </div>
-          <div className="flex h-full flex-col items-start gap-4 text-left">
-            <p className="text-lg leading-8 text-gray-900 md:text-[20px]">
+          <div className="relative flex h-full flex-col overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf9ff_56%,#f5f0ff_100%)] p-5 text-left shadow-[0_18px_70px_rgba(0,0,0,0.07)] sm:p-6">
+            <div className="pointer-events-none absolute right-[-95px] top-[-105px] h-56 w-56 rounded-full bg-purple-300/25 blur-3xl" />
+            <p className="relative z-10 text-lg leading-8 text-gray-900 md:text-[20px]">
               Strategy, automation guides, and growth playbooks for healthcare
               teams adopting AI receptionist systems.
             </p>
-            <div className="grid w-full gap-3 pt-1">
-              {[
-                "AI receptionist strategy",
-                "Appointment automation",
-                "Healthcare growth playbooks",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="border-l-2 border-purple-400 pl-4 text-sm font-medium text-gray-700"
-                >
-                  {item}
-                </div>
-              ))}
+            <div className="relative z-10 mt-5 grid gap-3">
+              {heroTopics.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.title}
+                    className="flex gap-3 rounded-[14px] border border-black/10 bg-white/80 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                  >
+                    <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[11px] bg-black text-white">
+                      <Icon className="h-4.5 w-4.5" strokeWidth={1.6} />
+                    </span>
+                    <span>
+                      <span className="block text-sm font-semibold text-black">
+                        {item.title}
+                      </span>
+                      <span className="mt-1 block text-xs leading-5 text-gray-600">
+                        {item.detail}
+                      </span>
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 pb-12 sm:px-6 lg:px-8">
-        <article className="grid overflow-hidden rounded-[32px] border border-black/10 bg-black text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex min-h-[320px] flex-col justify-between bg-[radial-gradient(circle_at_20%_20%,rgba(168,85,247,0.42),transparent_38%),linear-gradient(135deg,#111111,#221033)] p-6 sm:p-8">
+      <section className="mx-auto w-full max-w-[1200px] px-4 pb-12 sm:px-6 lg:px-2">
+        <article className="group grid overflow-hidden rounded-[16px] border border-black/10 bg-black text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_95px_rgba(92,35,150,0.2)] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="relative flex min-h-[320px] flex-col justify-between overflow-hidden bg-[radial-gradient(circle_at_20%_20%,rgba(168,85,247,0.42),transparent_38%),linear-gradient(135deg,#111111,#221033)] p-6 sm:p-8">
+            <div className="pointer-events-none absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-purple-200/50 to-transparent lg:bottom-auto lg:left-auto lg:right-0 lg:top-8 lg:h-[calc(100%-4rem)] lg:w-px lg:bg-gradient-to-b" />
             <div className="flex justify-end">
               <Stethoscope className="h-10 w-10 text-purple-200" strokeWidth={1.5} />
             </div>
             <div className="mt-16">
-              <p className="text-sm text-purple-200">{featured.category}</p>
+              <p className="inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-purple-100">
+                {featured.category}
+              </p>
               <h2 className="mt-3 max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
                 {featured.title}
               </h2>
@@ -139,7 +170,7 @@ export default function BlogPage() {
                   <Calendar className="h-4 w-4" /> May 2026
                 </span>
               </div>
-              <button className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm text-black transition-all duration-300 hover:bg-purple-200">
+              <button className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm text-black transition-all duration-300 hover:bg-purple-200">
                 Read Brief <ArrowRight className="h-4 w-4" />
               </button>
             </div>
@@ -147,59 +178,68 @@ export default function BlogPage() {
         </article>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-          <div>
-            <h2 className="text-3xl font-semibold sm:text-4xl">
+      <section className="relative w-full overflow-hidden bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-2">
+        <div className="relative z-10 mx-auto w-full max-w-[1200px]">
+          <div className="mb-10 text-center">
+            <h2 className="mx-auto text-center text-[24px] font-medium leading-tight text-white min-[420px]:text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] whitespace-nowrap">
               Healthcare automation, written for operators.
             </h2>
           </div>
-          <p className="max-w-xl text-sm leading-7 text-gray-600">
-            Practical writing for operators who want cleaner patient access,
-            stronger appointment conversion, and measurable automation.
-          </p>
-        </div>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => {
-            const Icon = post.icon;
-            return (
-              <article
-                key={post.title}
-                className="group flex min-h-[300px] flex-col rounded-[26px] border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-300"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="rounded-2xl bg-purple-50 p-3">
-                    <Icon className="h-7 w-7 text-purple-700" strokeWidth={1.5} />
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {posts.map((post, index) => {
+              const Icon = post.icon;
+              return (
+                <article
+                  key={post.title}
+                  className="group relative overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_80px_rgba(124,58,237,0.26),0_22px_55px_rgba(0,0,0,0.5)]"
+                >
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.13),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-purple-300/35 to-transparent" />
+                  <span className="pointer-events-none absolute right-6 top-4 text-[58px] font-semibold leading-none text-white/20 transition-colors duration-300 group-hover:text-white sm:text-[68px]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div className="relative z-10 flex items-center gap-4">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-[14px] bg-purple-400/15 text-purple-300">
+                      <Icon className="h-6 w-6" strokeWidth={1.5} />
+                    </div>
+                    <p className="max-w-[58%] text-[10px] font-semibold uppercase tracking-[0.12em] text-purple-200">
+                      {post.category}
+                    </p>
                   </div>
-                  <p className="text-right text-[10px] font-semibold uppercase tracking-[0.12em] text-purple-700">
-                    {post.category}
+
+                  <h3 className="relative z-10 mt-6 text-xl font-normal leading-snug text-white">
+                    {post.title}
+                  </h3>
+                  <p className="relative z-10 mt-3 text-sm leading-7 text-gray-400">
+                    {post.excerpt}
                   </p>
-                </div>
-                <h3 className="mt-6 text-xl font-semibold leading-snug text-black">
-                  {post.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-7 text-gray-700">
-                  {post.excerpt}
-                </p>
-                <div className="mt-6 flex items-center justify-between border-t border-black/10 pt-4 text-xs text-gray-500">
-                  <span>{post.date}</span>
-                  <span>{post.readTime}</span>
-                </div>
-              </article>
-            );
-          })}
+                  <div className="relative z-10 mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs text-white/50">
+                    <span>{post.date}</span>
+                    <span>{post.readTime}</span>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 pb-20 pt-10 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-[32px] border border-black/10 bg-black/[0.03] p-6 sm:p-8 md:grid-cols-[1fr_auto] md:items-center">
+      <section className="relative w-full overflow-hidden bg-white px-4 py-20 sm:px-6 md:py-24 lg:px-2">
+        <div className="relative z-10 mx-auto flex min-h-[380px] w-full max-w-[1200px] flex-col justify-between gap-10 overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf8ff_50%,#f2ecff_100%)] p-8 shadow-[0_30px_95px_rgba(0,0,0,0.1)] sm:p-10 lg:p-12">
+          <div className="pointer-events-none absolute right-[-130px] top-[-150px] h-80 w-80 rounded-full bg-purple-300/25 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-[-180px] left-[-160px] h-80 w-80 rounded-full bg-black/[0.04] blur-3xl" />
           <div>
-            <TrendingUp className="h-9 w-9 text-purple-700" strokeWidth={1.5} />
-            <h2 className="mt-5 text-3xl font-semibold leading-tight">
-              Want a clinic automation strategy for your own business?
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-gray-700">
+            <div className="relative z-10 flex max-w-[1100px] items-start gap-3 sm:gap-4">
+              <span className="mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[12px] bg-black text-white">
+                <TrendingUp className="h-4.5 w-4.5" strokeWidth={1.7} />
+              </span>
+              <h2 className="min-w-0 text-[23px] font-semibold leading-tight text-black sm:text-[28px] lg:text-[30px]">
+                Want a clinic automation strategy for your own business?
+              </h2>
+            </div>
+            <p className="relative z-10 mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg">
               Book a conversation with Zaptal and we will map how AI reception,
               scheduling, missed-call recovery, and follow-ups can fit your
               patient workflow.
@@ -207,7 +247,7 @@ export default function BlogPage() {
           </div>
           <Link
             href="/contactus"
-            className="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+            className="relative z-10 ml-auto inline-flex w-fit items-center justify-center rounded-full bg-black px-9 py-3.5 text-sm text-white transition-all duration-300 hover:bg-purple-700"
           >
             Contact Sales
           </Link>

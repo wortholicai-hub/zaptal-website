@@ -40,11 +40,11 @@ export default function WorkflowSection() {
   return (
     <section
       id="workflow"
-      className="w-full overflow-hidden bg-white px-[4%] py-14 md:py-20"
+      className="w-full overflow-hidden bg-white px-4 py-12 sm:px-6 md:py-16 lg:px-2"
     >
       <div className="relative mx-auto min-h-[620px] w-full max-w-[1200px]">
         <div className="pointer-events-none absolute bottom-[-4px] right-[-2%] top-[92px] hidden w-[58%] items-center justify-end md:flex">
-          <div className="relative flex h-full w-full items-center justify-end overflow-hidden rounded-[34px] border border-purple-100/80 bg-white/55 shadow-[0_24px_90px_rgba(108,71,255,0.13)] backdrop-blur-xl">
+          <div className="relative flex h-full w-full items-center justify-end overflow-hidden rounded-[16px] border border-purple-100/80 bg-white/55 shadow-[0_24px_90px_rgba(108,71,255,0.13)] backdrop-blur-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-50/80 via-white/45 to-purple-100/35" />
             <div className="absolute left-8 top-8 h-40 w-40 rounded-full bg-purple-300/25 blur-3xl" />
             <div className="absolute bottom-8 right-10 h-52 w-52 rounded-full bg-violet-400/18 blur-3xl" />

@@ -48,8 +48,8 @@ const Review: React.FC = () => {
   }, [testimonials.length]);
 
   return (
-    <section className="py-10 overflow-hidden">
-      <div className="w-full max-w-[1200px] mx-auto px-[4%] sm:px-[0%] lg:px-[0%]">
+    <section className="overflow-hidden px-4 py-12 sm:px-6 md:py-16 lg:px-2">
+      <div className="w-full max-w-[1200px] mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight">

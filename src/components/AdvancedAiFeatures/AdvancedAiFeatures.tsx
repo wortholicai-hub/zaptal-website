@@ -142,7 +142,7 @@ export const AdvancedAiFeatures = () => {
   return (
     <section
       id="features"
-      className="flex flex-col items-center justify-center py-10 px-[4%] md:px-[0%] bg-white"
+      className="flex flex-col items-center justify-center bg-white px-4 py-12 sm:px-6 md:py-16 lg:px-2"
     >
       <div className="w-full max-w-[1200px] mx-auto">
         {/* ===== Heading ===== */}

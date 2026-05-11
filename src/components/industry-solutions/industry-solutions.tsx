@@ -72,7 +72,7 @@ export default function IndustrySolutions() {
     );
 
   return (
-    <section className="relative py-8 md:py-20 overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-white px-4 py-12 sm:px-6 md:py-16 lg:px-2">
       {/* Wave Card Animations */}
       <style>{`
         .wave-card {

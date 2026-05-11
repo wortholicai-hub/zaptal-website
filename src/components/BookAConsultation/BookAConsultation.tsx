@@ -26,9 +26,9 @@ const ConsultationSection: React.FC = () => {
   );
 
   return (
-    <div className="w-full bg-white pb-8 md:pb-20 pt-4 md:pt-12 px-4">
+    <div className="w-full bg-white px-4 pb-12 pt-12 sm:px-6 md:pb-16 md:pt-16 lg:px-2">
       <div className="max-w-[1200px] mx-auto">
-        <div className="relative rounded-[48px] bg-black p-12 md:p-12 overflow-hidden">
+        <div className="relative rounded-[16px] bg-black p-8 md:p-10 overflow-hidden">
           {/* Phone Icon */}
           <div className="flex gap-1 pb-12">
             <Phone className="w-12 h-12 text-gray-600 ml-4 mt-1" />

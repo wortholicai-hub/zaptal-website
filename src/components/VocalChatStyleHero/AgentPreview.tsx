@@ -25,7 +25,7 @@ export default function CallNotification() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center py-10 md:py-14 px-[4%] md:px-[3%] lg:px-[0%] overflow-x-hidden">
+    <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center px-4 py-12 sm:px-6 md:py-14 lg:px-2 overflow-x-hidden">
       {/* ====== SECTION HEADING ====== */}
       <div className="w-full max-w-[1200px] mx-auto text-center mb-12">
         <h2 className="text-black font-medium text-[30px] sm:text-[34px] lg:text-[42px] leading-tight">

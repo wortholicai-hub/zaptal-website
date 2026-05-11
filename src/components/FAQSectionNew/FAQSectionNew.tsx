@@ -29,11 +29,11 @@ const FAQSectionNew: React.FC = () => {
   };
 
   return (
-    <section className="bg-white pt-8 md:pt-20 overflow-hidden">
-      <div className="w-full max-w-[1200px] mx-auto px-[4%] sm:px-[0%] lg:px-[0%]">
+    <section className="overflow-hidden bg-white px-4 pt-12 sm:px-6 md:pt-16 lg:px-2">
+      <div className="w-full max-w-[1200px] mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10"
           // initial={{ opacity: 0, y: 30 }}
           // whileInView={{ opacity: 1, y: 0 }}
           // transition={{ duration: 0.6 }}

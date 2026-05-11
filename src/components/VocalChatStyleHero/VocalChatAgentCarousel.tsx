@@ -200,7 +200,7 @@ const VocalChatAgentCarousel: React.FC = () => {
   return (
     <section
       className="relative w-full min-h-[500px] md:min-h-[560px] h-full flex flex-col items-center justify-center overflow-hidden
-                        px-[4%] md:px-[0%] mb-9"
+                        px-4 sm:px-6 lg:px-2 mb-9"
     >
       <div className="relative w-full h-full max-w-[1200px] mx-auto flex flex-col items-center justify-center z-[1] bg-transparent">
         <div className="relative flex items-center justify-center w-full">

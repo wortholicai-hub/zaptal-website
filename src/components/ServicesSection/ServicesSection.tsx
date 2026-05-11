@@ -32,10 +32,10 @@ export default function CustomAISolutions() {
   ];
 
   return (
-    <div className="py-8 md:py-20 px-[4%] sm:px-[3%] lg:px-[5%] overflow-hidden">
+    <div className="overflow-hidden px-4 py-12 sm:px-6 md:py-16 lg:px-2">
       <div className="max-w-[1200px] mx-auto w-full">
         {/* Header */}
-        <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight text-center mb-12">
+        <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight text-center mb-10">
           {t("customAI.headerLine1")} {t("customAI.headerLine2")}
         </h2>
 

@@ -45,13 +45,13 @@ const VocalChatStyleHero: React.FC = () => {
 
   return (
     <motion.section
-      className="flex items-center justify-center px-[4%] md:px-[0%] pt-16 sm:pt-20 lg:pt-20"
+      className="flex items-center justify-center px-4 pt-16 sm:px-6 sm:pt-20 lg:px-2 lg:pt-20"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
       <motion.div
-        className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-[65%_35%] gap-4 items-left lg:px-2 px-4"
+        className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-[65%_35%] gap-4 items-left"
         variants={itemVariants}
       >
         {/* Left Column: Title */}

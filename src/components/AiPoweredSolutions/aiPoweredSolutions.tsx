@@ -64,7 +64,7 @@ export const AIPoweredSolution = () => {
   return (
     <section
       id="ai-services"
-      className="relative flex flex-col items-center justify-center overflow-hidden bg-black px-[4%] py-14 md:px-[0%] md:py-20"
+      className="relative flex flex-col items-center justify-center overflow-hidden bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-2"
     >
       {/* Background glow */}
       {/* <div className="absolute inset-0 pointer-events-none">

@@ -40,7 +40,7 @@ export default function FeaturesSection() {
   return (
     <section
       id="learnmore"
-      className="w-full py-8 md:py-20 px-[4%] md:px-[0%] overflow-hidden"
+      className="w-full overflow-hidden px-4 py-12 sm:px-6 md:py-16 lg:px-2"
     >
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}

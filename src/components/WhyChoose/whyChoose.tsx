@@ -50,10 +50,10 @@ export const WhyChoose = () => {
   ];
 
   return (
-    <section className="relative py-8 md:py-20 px-[4%] md:px-[0%] overflow-hidden bg-white">
+    <section className="relative overflow-hidden bg-white px-4 py-12 sm:px-6 md:py-16 lg:px-2">
       <div className="container max-w-[1200px] mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight tracking-tight">
             {t("Why Zaptal Leads Growth")}
           </h2>

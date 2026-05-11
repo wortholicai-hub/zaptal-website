@@ -43,7 +43,7 @@ export default function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="relative container mx-auto flex items-center justify-between px-[4%] md:px-[0%]">
+        <div className="relative mx-auto flex w-full max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-2">
           <Link href="/" className="flex items-center gap-0 sm:gap-0">
             <Image
               src="/images/logo/logo.png"

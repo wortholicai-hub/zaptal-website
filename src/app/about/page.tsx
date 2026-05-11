@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import {
+  Activity,
+  ArrowUpRight,
   BarChart3,
   Bot,
   CalendarClock,
@@ -9,6 +11,7 @@ import {
   GitBranch,
   Headphones,
   Lock,
+  PhoneCall,
   Plug,
   Route,
   ShieldCheck,
@@ -17,9 +20,15 @@ import {
 } from "lucide-react";
 
 const metrics = [
-  { value: "24/7", label: "patient response coverage" },
-  { value: "0", label: "missed calls left unmanaged" },
-  { value: "HIPAA", label: "security-first implementation" },
+  { icon: Activity, value: "24/7", label: "patient response coverage" },
+  { icon: PhoneCall, value: "0", label: "missed calls left unmanaged" },
+  { icon: ShieldCheck, value: "HIPAA", label: "security-first implementation" },
+];
+
+const heroSignals = [
+  "Live call coverage",
+  "Booking recovery",
+  "Staff handoff",
 ];
 
 const principles = [
@@ -82,11 +91,47 @@ const platform = [
   },
 ];
 
-const process = [
-  "Map front-desk and patient communication workflows",
-  "Configure voice agents, automations, routing, and integrations",
-  "Launch with clinic-specific scripts, safeguards, and escalation logic",
-  "Optimize booking rates, follow-up timing, and operational reporting",
+const launchRoadmap = [
+  {
+    title: "Workflow Mapping",
+    description: "Front-desk routines, patient journeys, and escalation paths are reviewed before automation is configured.",
+    features: [
+      "Call-flow review",
+      "Patient intake mapping",
+      "Scheduling rules",
+      "Escalation logic",
+    ],
+  },
+  {
+    title: "Agent Configuration",
+    description: "Voice agents, routing, automations, and integrations are shaped around how the clinic actually operates.",
+    features: [
+      "AI agent behavior",
+      "Routing rules",
+      "Recall workflows",
+      "System connections",
+    ],
+  },
+  {
+    title: "Clinic Launch",
+    description: "The system goes live with approved scripts, safeguards, staff visibility, and clear handoff rules.",
+    features: [
+      "Approved scripts",
+      "Launch support",
+      "Staff handoffs",
+      "Safety controls",
+    ],
+  },
+  {
+    title: "Growth Optimization",
+    description: "Performance is reviewed so booking rates, follow-up timing, and patient recovery keep improving.",
+    features: [
+      "Booking insights",
+      "Recall tuning",
+      "Follow-up timing",
+      "Revenue reporting",
+    ],
+  },
 ];
 
 export default function AboutPage() {
@@ -102,30 +147,43 @@ export default function AboutPage() {
             </h1>
           </div>
 
-          <div className="flex h-full flex-col items-start gap-4 text-left">
-            <p className="mb-2 text-lg leading-8 text-gray-900 md:text-[20px]">
-              AI reception, scheduling, follow-up, and workflow automation for
-              dental, medical, wellness, and healthcare teams.
-            </p>
-            <div className="flex flex-wrap justify-start gap-3">
-              <Link
-                href="/contactus"
-                className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
-              >
-                Book Demo
-              </Link>
-              <Link
-                href="/#workflow"
-                className="inline-flex items-center justify-center rounded-full border border-black/20 px-7 py-3 text-sm text-black transition-all duration-300 hover:border-purple-300 hover:bg-purple-50"
-              >
-                See Workflow
-              </Link>
+          <div className="relative flex h-full flex-col items-start overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf9ff_56%,#f5f0ff_100%)] p-5 text-left shadow-[0_18px_70px_rgba(0,0,0,0.07)] sm:p-6">
+            <div className="pointer-events-none absolute right-[-90px] top-[-100px] h-56 w-56 rounded-full bg-purple-300/25 blur-3xl" />
+            <div className="relative z-10">
+              <p className="mb-5 text-lg leading-8 text-gray-900 md:text-[20px]">
+                AI reception, scheduling, follow-up, and workflow automation for
+                dental, medical, wellness, and healthcare teams.
+              </p>
+              <div className="grid w-full gap-2 sm:grid-cols-3 lg:grid-cols-1">
+                {heroSignals.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[14px] border border-black/10 bg-white/80 px-4 py-3 text-sm font-medium text-black shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 flex flex-wrap justify-start gap-3">
+                <Link
+                  href="/contactus"
+                  className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+                >
+                  Book Demo
+                </Link>
+                <Link
+                  href="/#workflow"
+                  className="inline-flex items-center justify-center rounded-full border border-black/20 bg-white/70 px-7 py-3 text-sm text-black transition-all duration-300 hover:border-purple-300 hover:bg-purple-50"
+                >
+                  See Workflow
+                </Link>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
-          <div className="rounded-[32px] border border-black/10 bg-black p-6 text-left text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] sm:p-8">
+          <div className="rounded-[16px] border border-black/10 bg-black p-6 text-left text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] sm:p-8">
             <div className="flex items-center justify-between border-b border-white/10 pb-6">
               <div>
                 <p className="text-sm text-white/60">Platform focus</p>
@@ -149,22 +207,31 @@ export default function AboutPage() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
-            {metrics.map((metric) => (
+            {metrics.map((metric) => {
+              const Icon = metric.icon;
+              return (
               <div
                 key={metric.label}
-                className="rounded-[24px] border border-black/10 bg-black/[0.03] p-5 text-left"
+                className="group relative overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#f8f6ff_100%)] p-5 text-left shadow-[0_16px_50px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-300"
               >
-                <p className="text-3xl font-semibold text-black">{metric.value}</p>
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-300/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="flex items-start justify-between gap-4">
+                  <p className="text-3xl font-semibold text-black">{metric.value}</p>
+                  <span className="flex h-10 w-10 items-center justify-center rounded-[12px] bg-black text-white transition-colors duration-300 group-hover:bg-purple-700">
+                    <Icon className="h-5 w-5" strokeWidth={1.6} />
+                  </span>
+                </div>
                 <p className="mt-2 text-sm leading-6 text-gray-600">
                   {metric.label}
                 </p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-2">
         <div className="relative overflow-hidden rounded-[16px] border border-black/10 bg-black p-5 text-white sm:p-7 md:p-8">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_0%,rgba(147,51,234,0.32),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)]" />
 
@@ -234,7 +301,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-2">
         <div className="mb-8 text-center">
           <h2 className="mx-auto max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
             Everything a clinic needs to respond, book, route, and follow up.
@@ -247,9 +314,15 @@ export default function AboutPage() {
             return (
               <article
                 key={item.title}
-                className="rounded-[24px] border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-300"
+                className="group relative overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(180deg,#ffffff_0%,#fbfbfb_100%)] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300 hover:shadow-[0_24px_75px_rgba(89,32,154,0.14)]"
               >
-                <Icon className="h-8 w-8 text-black" strokeWidth={1.5} />
+                <div className="pointer-events-none absolute right-0 top-0 h-24 w-24 rounded-bl-[60px] bg-purple-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="relative z-10 flex items-center justify-between">
+                  <Icon className="h-8 w-8 text-black transition-colors duration-300 group-hover:text-purple-700" strokeWidth={1.5} />
+                  <span className="text-xs font-semibold uppercase tracking-[0.16em] text-black/30">
+                    {String(platform.indexOf(item) + 1).padStart(2, "0")}
+                  </span>
+                </div>
                 <h3 className="mt-5 text-lg font-semibold text-black">
                   {item.title}
                 </h3>
@@ -262,45 +335,77 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
-        <div className="rounded-[32px] border border-black/10 bg-black p-6 text-white sm:p-8 md:p-10">
-          <div className="grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:items-center">
-            <div>
-              <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
-                From front-desk mapping to live AI automation.
-              </h2>
-            </div>
-            <div className="grid gap-3">
-              {process.map((step, index) => (
-                <div
-                  key={step}
-                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.06] p-4"
-                >
-                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-300 text-sm font-semibold text-black">
-                    {index + 1}
-                  </span>
-                  <p className="text-sm leading-7 text-white/80">{step}</p>
+      <section className="relative w-full overflow-hidden bg-black px-4 py-12 sm:px-6 md:py-16 lg:px-2">
+        <div className="relative z-10 mx-auto w-full max-w-[1200px]">
+          <div className="mb-10 text-center">
+            <h2 className="mx-auto text-center text-[24px] font-medium leading-tight text-white min-[420px]:text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] whitespace-nowrap">
+              From front-desk mapping to live AI automation.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {launchRoadmap.map((step, index) => (
+              <article
+                key={step.title}
+                className="group relative overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_80px_rgba(124,58,237,0.26),0_22px_55px_rgba(0,0,0,0.5)]"
+              >
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.13),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="pointer-events-none absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-purple-300/35 to-transparent" />
+                <span className="pointer-events-none absolute right-6 top-4 text-[64px] font-semibold leading-none text-white/20 transition-colors duration-300 group-hover:text-white sm:text-[76px]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <div className="relative z-10 max-w-[72%]">
+                  <h3 className="text-[18px] font-normal text-white sm:text-2xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-gray-400 sm:text-base">
+                    {step.description}
+                  </p>
                 </div>
-              ))}
-            </div>
+
+                <div className="relative z-10 mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {step.features.map((feature) => (
+                    <div
+                      key={feature}
+                      className="flex items-center text-[14px] font-normal text-white"
+                    >
+                      <span className="mr-2 h-1.5 w-1.5 rounded-full bg-purple-400" />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 pb-20 pt-10 text-center sm:px-6 lg:px-8">
-        <h2 className="mx-auto max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
-          Ready to modernize patient communication without overloading your team?
-        </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-700">
-          Talk with Zaptal about your clinic workflow, appointment goals, and
-          automation opportunities.
-        </p>
-        <Link
-          href="/contactus"
-          className="mt-8 inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
-        >
-          Contact Sales
-        </Link>
+      <section className="relative w-full overflow-hidden bg-white px-4 py-20 sm:px-6 md:py-24 lg:px-2">
+        <div className="relative z-10 mx-auto flex min-h-[380px] w-full max-w-[1200px] flex-col justify-between gap-10 overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf8ff_50%,#f2ecff_100%)] p-8 shadow-[0_30px_95px_rgba(0,0,0,0.1)] sm:p-10 lg:p-12">
+          <div className="pointer-events-none absolute right-[-130px] top-[-150px] h-80 w-80 rounded-full bg-purple-300/25 blur-3xl" />
+          <div className="pointer-events-none absolute bottom-[-180px] left-[-160px] h-80 w-80 rounded-full bg-black/[0.04] blur-3xl" />
+          <div>
+            <div className="relative z-10 flex max-w-[1100px] items-start gap-3 sm:gap-4">
+              <span className="mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[12px] bg-black text-white">
+                <ArrowUpRight className="h-4.5 w-4.5" strokeWidth={1.7} />
+              </span>
+              <h2 className="min-w-0 text-[23px] font-semibold leading-tight text-black sm:text-[28px] lg:text-[30px]">
+                Ready to modernize patient communication without overloading your team?
+              </h2>
+            </div>
+            <p className="relative z-10 mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg">
+              Talk with Zaptal about your clinic workflow, appointment goals,
+              and automation opportunities.
+            </p>
+          </div>
+          <Link
+            href="/contactus"
+            className="relative z-10 ml-auto inline-flex w-fit items-center justify-center rounded-full bg-black px-9 py-3.5 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+          >
+            Contact Sales
+          </Link>
+        </div>
       </section>
     </main>
   );
