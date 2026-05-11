@@ -7,7 +7,6 @@ interface AgentDetails {
   name: string;
   role: string;
   description: string;
-  specialty: string;
 }
 
 interface Agent {
@@ -26,7 +25,6 @@ const agents: Agent[] = [
       name: "Amira - AI Receptionist",
       role: "Clinic Reception Agent",
       description: "Amira answers patient calls, collects intent, and routes requests clearly.",
-      specialty: "24/7 Patient Call Coverage",
     },
   },
   {
@@ -37,7 +35,6 @@ const agents: Agent[] = [
       name: "Casper - Scheduling Agent",
       role: "Appointment Coordinator",
       description: "Casper helps patients book, reschedule, and confirm appointments.",
-      specialty: "Calendar and PMS Scheduling",
     },
   },
   {
@@ -48,7 +45,6 @@ const agents: Agent[] = [
       name: "Thalina - Recall Agent",
       role: "Patient Recall Agent",
       description: "Thalina follows up with overdue patients and unfinished treatment plans.",
-      specialty: "Treatment Recall Automation",
     },
   },
   {
@@ -59,7 +55,6 @@ const agents: Agent[] = [
       name: "Heleen - Analytics Agent",
       role: "Clinic Insights Agent",
       description: "Heleen turns call and booking data into clear operational insights.",
-      specialty: "Revenue and Booking Analytics",
     },
   },
   {
@@ -70,7 +65,6 @@ const agents: Agent[] = [
       name: "Zelda - Patient Care Agent",
       role: "Follow-up Agent",
       description: "Zelda keeps patients informed with reminders and post-visit check-ins.",
-      specialty: "Patient Follow-up Workflows",
     },
   },
   {
@@ -81,7 +75,6 @@ const agents: Agent[] = [
       name: "Carla - Intake Agent",
       role: "New Patient Intake",
       description: "Carla gathers key details before the visit and guides patients to next steps.",
-      specialty: "Digital Intake and Forms",
     },
   },
   {
@@ -92,7 +85,6 @@ const agents: Agent[] = [
       name: "Selena - Routing Agent",
       role: "Smart Transfer Agent",
       description: "Selena identifies urgency and routes patients to the right team member.",
-      specialty: "Smart Routing and Escalation",
     },
   },
   {
@@ -103,7 +95,6 @@ const agents: Agent[] = [
       name: "Tirza - Workflow Agent",
       role: "Automation Coordinator",
       description: "Tirza updates tasks, reminders, and connected systems after each call.",
-      specialty: "Clinic Workflow Automation",
     },
   },
   {
@@ -114,7 +105,6 @@ const agents: Agent[] = [
       name: "Bella - Reactivation Agent",
       role: "Patient Growth Agent",
       description: "Bella re-engages inactive patients with timely voice and message outreach.",
-      specialty: "Patient Reactivation Campaigns",
     },
   },
   {
@@ -125,7 +115,6 @@ const agents: Agent[] = [
       name: "Bastian - Support Agent",
       role: "Patient Support Agent",
       description: "Bastian answers routine questions with calm, consistent clinic-approved guidance.",
-      specialty: "Patient FAQ and Support",
     },
   },
 ];
@@ -137,18 +126,35 @@ const VocalChatAgentCarousel: React.FC = () => {
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const detailRef = useRef<HTMLDivElement | null>(null);
+  const controlsRef = useRef<HTMLDivElement | null>(null);
 
   const prevSlide = (): void => {
-    setShowDetail(false);
+    setShowDetail(true);
     setCurrent((p) => (p === 0 ? agents.length - 1 : p - 1));
   };
 
   const nextSlide = (): void => {
-    setShowDetail(false);
+    setShowDetail(true);
     setCurrent((p) => (p === agents.length - 1 ? 0 : p + 1));
   };
 
-  const togglePlay = (): void => setIsPlaying((prev) => !prev);
+  const hideDetailUnlessMovingWithinCarousel = (
+    nextTarget: EventTarget | null
+  ): void => {
+    if (
+      nextTarget instanceof Node &&
+      (detailRef.current?.contains(nextTarget) ||
+        controlsRef.current?.contains(nextTarget))
+    ) {
+      return;
+    }
+    setShowDetail(false);
+  };
+
+  const togglePlay = (): void => {
+    setShowDetail(true);
+    setIsPlaying((prev) => !prev);
+  };
 
   const getPosition = (i: number): "center" | "left" | "right" | "hidden" => {
     if (i === current) return "center";
@@ -159,7 +165,12 @@ const VocalChatAgentCarousel: React.FC = () => {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent): void => {
-      if (detailRef.current && !detailRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (
+        detailRef.current &&
+        !detailRef.current.contains(target) &&
+        !controlsRef.current?.contains(target)
+      ) {
         setShowDetail(false);
       }
     };
@@ -188,7 +199,7 @@ const VocalChatAgentCarousel: React.FC = () => {
 
   return (
     <section
-      className="relative w-full min-h-[540px] md:min-h-[620px] h-full flex flex-col items-center justify-center overflow-hidden
+      className="relative w-full min-h-[500px] md:min-h-[560px] h-full flex flex-col items-center justify-center overflow-hidden
                         px-[4%] md:px-[0%] mb-9"
     >
       <div className="relative w-full h-full max-w-[1200px] mx-auto flex flex-col items-center justify-center z-[1] bg-transparent">
@@ -203,15 +214,15 @@ const VocalChatAgentCarousel: React.FC = () => {
             let zIndexValue = 0;
 
             if (pos === "center") {
-              transformValue = "translateX(0) scale(1.4)";
+              transformValue = "translateX(0) scale(1.28)";
               opacityValue = 1;
               zIndexValue = 30;
             } else if (pos === "left") {
-              transformValue = "translateX(-360px) scale(1)";
+              transformValue = "translateX(-305px) scale(0.92)";
               opacityValue = 0.3;
               zIndexValue = 30;
             } else if (pos === "right") {
-              transformValue = "translateX(360px) scale(1)";
+              transformValue = "translateX(305px) scale(0.92)";
               opacityValue = 0.3;
               zIndexValue = 30;
             }
@@ -228,10 +239,12 @@ const VocalChatAgentCarousel: React.FC = () => {
                 }}
               >
                 <div
-                  className="relative w-[300px] h-[400px] md:h-[460px] overflow-hidden "
-                  style={{ borderRadius: "28px" }}
+                  className="relative h-[340px] w-[250px] overflow-hidden md:h-[390px] md:w-[260px]"
+                  style={{ borderRadius: "22px" }}
                   onMouseOver={() => setShowDetail(true)}
-                  onMouseLeave={() => setShowDetail(false)}
+                  onMouseLeave={(e) =>
+                    hideDetailUnlessMovingWithinCarousel(e.relatedTarget)
+                  }
                 >
                   <img
                     src={agent.src}
@@ -251,36 +264,31 @@ const VocalChatAgentCarousel: React.FC = () => {
                   {isCenter && (
                     <div
                       ref={detailRef}
-                      className="absolute left-1/2 top-1/2 flex flex-col items-start text-left px-4 pt-4 pb-48 transition-all duration-500 ease-out border border-gray-100"
-                      onMouseLeave={() => setShowDetail(false)}
+                      className="absolute inset-0 flex flex-col items-start justify-start overflow-hidden px-4 pt-4 text-left transition-all duration-500 ease-out"
+                      onMouseLeave={(e) =>
+                        hideDetailUnlessMovingWithinCarousel(e.relatedTarget)
+                      }
                       style={{
                         transform: showDetail
-                          ? "translate(-50%, -50%) scale(1)"
-                          : "translate(-50%, -40%) scale(0.95)",
+                          ? "scale(1)"
+                          : "scale(0.96)",
                         opacity: showDetail ? 1 : 0,
-                        background: "rgba(255,255,255,0.35)",
+                        background:
+                          "linear-gradient(to bottom, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0.34) 58%, rgba(255,255,255,0.16) 78%, rgba(255,255,255,0) 100%)",
                         backdropFilter: "blur(6px)",
-                        width: "80%",
-                        borderRadius: "10px",
+                        borderRadius: "22px",
+                        WebkitMaskImage:
+                          "linear-gradient(to bottom, black 0%, black 58%, rgba(0,0,0,0.55) 76%, transparent 100%)",
+                        maskImage:
+                          "linear-gradient(to bottom, black 0%, black 58%, rgba(0,0,0,0.55) 76%, transparent 100%)",
                       }}
                     >
-                      <h4 className="text-[14px] font-medium mb-1 text-gray-800">
-                        {agentData.name}
-                      </h4>
-                      <p className="text-[12px] text-purple-500 font-medium mb-2">
+                      <p className="mb-2 text-[15px] font-semibold text-purple-500">
                         {agentData.role}
                       </p>
-                      <p className="text-[10px] text-gray-600 mb-3 leading-snug">
+                      <p className="mb-3 text-[13px] leading-snug text-gray-600">
                         {agentData.description}
                       </p>
-                      <div className="pt-2 border-t border-gray-300 w-full">
-                        <p className="text-[9px] font-semibold text-gray-700">
-                          Specialty
-                        </p>
-                        <p className="text-[10px] text-gray-800">
-                          {agentData.specialty}
-                        </p>
-                      </div>
                     </div>
                   )}
                 </div>
@@ -288,36 +296,46 @@ const VocalChatAgentCarousel: React.FC = () => {
             );
           })}
 
-          <div className="absolute mt-[20rem] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30">
+          <div
+            ref={controlsRef}
+            className="absolute mt-[17.5rem] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30"
+            onMouseEnter={() => setShowDetail(true)}
+            onMouseLeave={(e) =>
+              hideDetailUnlessMovingWithinCarousel(e.relatedTarget)
+            }
+          >
             <div className="h-[40px] flex items-center justify-center">
-              {!showDetail && (
-                <div className="border px-[1px] py-[1px] rounded-[14px] border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
-                  <button className="px-2 py-[8px] text-[10px] sm:text-[11px] md:text-[13px] lg:text-base font-medium rounded-[12px] bg-white border border-[#1111114D] text-gray-700 whitespace-nowrap flex items-center gap-x-2 hover:bg-gray-50 hover:shadow-md transition-all duration-300">
-                    {agents[current].details.name}
-                  </button>
-                </div>
-              )}
+              <div className="border px-[1px] py-[1px] rounded-[14px] border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+                <button
+                  onMouseEnter={() => setShowDetail(true)}
+                  className="flex items-center gap-x-2 whitespace-nowrap rounded-[12px] border border-[#1111114D] bg-white px-3 py-[8px] text-[11px] font-medium text-gray-700 transition-all duration-300 hover:bg-gray-50 hover:shadow-md sm:text-[12px] md:text-[13px] lg:text-[15px]"
+                >
+                  {agents[current].details.name}
+                </button>
+              </div>
             </div>
 
             <div className="flex flex-row gap-3 items-center">
               <div className="border px-[4px] py-[1px] rounded-[10px] border-gray-300 hover:scale-95 transition  shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
                 <button
                   onClick={prevSlide}
-                  className="px-2 py-1 border border-gray-400 rounded-[8px] bg-white mt-[2px] "
+                  onMouseEnter={() => setShowDetail(true)}
+                  className="px-3 py-2 border border-gray-400 rounded-[8px] bg-white mt-[2px] "
                 >
-                  <ChevronLeft className="w-4 h-4 text-gray-600" />
+                  <ChevronLeft className="w-5 h-5 text-gray-600" />
                 </button>
               </div>
 
               <div className="border px-[4px] py-[1px] rounded-[10px] border-gray-300 hover:scale-95 transition  shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
                 <button
                   onClick={togglePlay}
-                  className="px-2 py-1 border border-gray-400 rounded-[8px] bg-white mt-[2px]"
+                  onMouseEnter={() => setShowDetail(true)}
+                  className="px-3 py-2 border border-gray-400 rounded-[8px] bg-white mt-[2px]"
                 >
                   {isPlaying ? (
-                    <Pause className="w-4 h-4 text-gray-600" />
+                    <Pause className="w-5 h-5 text-gray-600" />
                   ) : (
-                    <Play className="w-4 h-4 text-gray-600" />
+                    <Play className="w-5 h-5 text-gray-600" />
                   )}
                 </button>
               </div>
@@ -325,9 +343,10 @@ const VocalChatAgentCarousel: React.FC = () => {
               <div className="border px-[4px] py-[1px] rounded-[10px] border-gray-300 hover:scale-95 transition  shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
                 <button
                   onClick={nextSlide}
-                  className="px-2 py-1 border border-gray-400 rounded-[8px] bg-white mt-[2px]"
+                  onMouseEnter={() => setShowDetail(true)}
+                  className="px-3 py-2 border border-gray-400 rounded-[8px] bg-white mt-[2px]"
                 >
-                  <ChevronRight className="w-4 h-4 text-gray-600" />
+                  <ChevronRight className="w-5 h-5 text-gray-600" />
                 </button>
               </div>
             </div>
