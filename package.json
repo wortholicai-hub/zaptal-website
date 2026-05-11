@@ -12,8 +12,7 @@
     "gsap": "^3.13.0",
     "i18next": "^25.5.2",
     "lucide-react": "^0.544.0",
-    "next": "15.5.4",
-    "next-i18next": "^15.4.2",
+    "next": "15.5.18",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-i18next": "^16.0.0",
@@ -26,5 +25,10 @@
     "@types/react-dom": "^19",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "next": {
+      "postcss": "8.5.10"
+    }
   }
 }
