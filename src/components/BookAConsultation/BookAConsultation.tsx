@@ -38,9 +38,7 @@ const ConsultationSection: React.FC = () => {
           <div className="relative z-10">
             <p className="text-gray-400 text-[38px] md:mb-2">Let's talk.</p>
             <h2 className="text-white text-[38px] font-bold mb-8">
-              Book a free
-              <br />
-              consultation
+              Book a free consultation
             </h2>
 
             {/* Animated dots */}

@@ -1,8 +1,8 @@
 const config = {
   i18n: {
-    defaultLocale: "nl", // Dutch as default
-    locales: ["nl", "en"], // supported locales
-    localeDetection: false, // optional: detect browser language
+    defaultLocale: "en",
+    locales: ["en"],
+    localeDetection: false,
   },
 };
 

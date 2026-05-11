@@ -38,7 +38,7 @@ const FAQSectionNew: React.FC = () => {
           // whileInView={{ opacity: 1, y: 0 }}
           // transition={{ duration: 0.6 }}
         >
-          <h2 className="leading-tight">
+          <h2 className="no-doto leading-tight font-sans normal-case tracking-normal">
             <span className="text-[34px] sm:text-4xl lg:text-5xl font-medium">
               {t("vocalchat.questionsTitle1")}{" "}
             </span>
@@ -53,13 +53,13 @@ const FAQSectionNew: React.FC = () => {
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="bg-transparent rounded-4xl md:rounded-[48px] border border-gray-300 p-2 md:p-8 overflow-hidden"
+              className="no-doto bg-transparent rounded-4xl md:rounded-[48px] border border-gray-300 p-2 md:p-6 overflow-hidden"
             >
               <button
-                className="w-full px-4 md:px-6 py-4 text-left flex justify-between items-center cursor-pointer"
+                className="no-doto-button w-full px-4 md:px-5 py-3 text-left flex justify-between items-center cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="text-black font-light text-base md:text-[28px] leading-snug">
+                <span className="text-black font-light text-base md:text-[24px] leading-snug">
                   {t(faq.questionKey)}
                 </span>
                 <motion.div

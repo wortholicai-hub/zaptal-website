@@ -1,11 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 export default function PrivacyPolicy() {
-  const { t } = useTranslation();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,7 +46,7 @@ export default function PrivacyPolicy() {
             <motion.section variants={itemVariants}>
               <h2 className="text-2xl font-bold text-black mb-4">1. Information We Collect</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Pioneer Automation Agency collects information you provide directly to us, such as when you:
+                Zaptal collects information you provide directly to us, such as when you:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li>Fill out contact forms on our website</li>
@@ -110,7 +107,7 @@ export default function PrivacyPolicy() {
               <p className="text-gray-700 leading-relaxed">
                 If you have any questions about this Privacy Policy, please contact us at:
                 <br />
-                <span className="text-black">contact@pioneerautomation.com</span>
+                <span className="text-black">hello@zaptal.ai</span>
               </p>
             </motion.section>
 

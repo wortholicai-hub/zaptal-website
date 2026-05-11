@@ -1,11 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslation } from "react-i18next";
 
 export default function TermsOfService() {
-  const { t } = useTranslation();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,21 +46,21 @@ export default function TermsOfService() {
             <motion.section variants={itemVariants}>
               <h2 className="text-2xl font-bold text-black mb-4">1. Acceptance of Terms</h2>
               <p className="text-gray-700 leading-relaxed">
-                By accessing and using Pioneer Automation Agency's services, you accept and agree to be bound by the terms and provision of this agreement. These terms apply to all users of our automation services, including Voice AI agents, CRM integrations, and custom automation solutions.
+                By accessing and using Zaptal's services, you accept and agree to be bound by the terms and provisions of this agreement. These terms apply to users of our AI receptionist, appointment scheduling, patient communication, integration, and workflow automation services.
               </p>
             </motion.section>
 
             <motion.section variants={itemVariants}>
               <h2 className="text-2xl font-bold text-black mb-4">2. Services Description</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Pioneer Automation Agency provides:
+                Zaptal provides:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
-                <li>Voice AI agent development and implementation</li>
-                <li>CRM automation and integration services</li>
-                <li>Social media automation solutions</li>
-                <li>Custom business process automation</li>
-                <li>GoHighLevel expert snapshots and implementations</li>
+                <li>AI receptionist setup and implementation</li>
+                <li>Appointment scheduling and missed-call recovery automation</li>
+                <li>Patient follow-up, recall, SMS, and WhatsApp workflows</li>
+                <li>PMS, EHR, CRM, calendar, and phone-system integrations</li>
+                <li>Custom healthcare workflow automation</li>
                 <li>Ongoing support and optimization services</li>
               </ul>
             </motion.section>
@@ -98,14 +95,14 @@ export default function TermsOfService() {
             <motion.section variants={itemVariants}>
               <h2 className="text-2xl font-bold text-black mb-4">5. Intellectual Property</h2>
               <p className="text-gray-700 leading-relaxed">
-                All content, software, and materials provided by Pioneer Automation Agency remain our intellectual property. You are granted a limited license to use our services for your business purposes only. Custom automation solutions developed specifically for your business will be owned by you upon full payment.
+                All content, software, and materials provided by Zaptal remain our intellectual property. You are granted a limited license to use our services for your business purposes only. Custom automation solutions developed specifically for your organization will be owned by you upon full payment unless otherwise agreed in writing.
               </p>
             </motion.section>
 
             <motion.section variants={itemVariants}>
               <h2 className="text-2xl font-bold text-black mb-4">6. Limitation of Liability</h2>
               <p className="text-gray-700 leading-relaxed">
-                Pioneer Automation Agency shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services. Our total liability is limited to the amount paid for services in the preceding 12 months.
+                Zaptal shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our services. Our total liability is limited to the amount paid for services in the preceding 12 months.
               </p>
             </motion.section>
 
@@ -135,7 +132,7 @@ export default function TermsOfService() {
               <p className="text-gray-700 leading-relaxed">
                 For questions about these terms, contact us at:
                 <br />
-                <span className="text-black font-semibold">legal@pioneerautomation.com</span>
+                <span className="text-black font-semibold">legal@zaptal.ai</span>
               </p>
             </motion.section>
 

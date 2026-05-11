@@ -1,199 +1,292 @@
 "use client";
 
+import Link from "next/link";
 import {
-  Target,
-  Rocket,
-  Handshake,
-  Zap,
-  Lock,
-  TrendingUp,
-  Mic,
-  Briefcase,
-  RefreshCw,
-  Bot,
   BarChart3,
-  Users,
+  Bot,
+  CalendarClock,
+  CheckCircle2,
+  GitBranch,
+  Headphones,
+  Lock,
+  Plug,
+  Route,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
 } from "lucide-react";
-import { useTranslation } from "react-i18next";
+
+const metrics = [
+  { value: "24/7", label: "patient response coverage" },
+  { value: "0", label: "missed calls left unmanaged" },
+  { value: "HIPAA", label: "security-first implementation" },
+];
+
+const principles = [
+  {
+    icon: ShieldCheck,
+    title: "Designed for healthcare trust",
+    description:
+      "Every deployment is planned around secure intake, responsible data handling, and clear escalation rules for clinical teams.",
+  },
+  {
+    icon: Route,
+    title: "Built around real clinic flow",
+    description:
+      "Zaptal adapts to front-desk routines, provider schedules, recall programs, and patient communication preferences.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Focused on measurable growth",
+    description:
+      "We help clinics recover lost demand, book more appointments, reduce manual work, and understand performance in one place.",
+  },
+];
+
+const platform = [
+  {
+    icon: Headphones,
+    title: "AI Receptionist",
+    description:
+      "Answer patient calls, qualify requests, capture details, and route urgent needs without making patients wait.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Appointment Scheduling",
+    description:
+      "Coordinate booking requests, confirmations, reminders, cancellations, and reschedules across clinic workflows.",
+  },
+  {
+    icon: GitBranch,
+    title: "Workflow Automation",
+    description:
+      "Automate follow-ups, treatment recalls, missed-call recovery, lead nurturing, and internal notifications.",
+  },
+  {
+    icon: Plug,
+    title: "CRM and PMS Integrations",
+    description:
+      "Connect patient communication with practice systems, CRMs, messaging tools, and custom operational software.",
+  },
+  {
+    icon: BarChart3,
+    title: "Performance Dashboard",
+    description:
+      "Track call outcomes, booked appointments, response speed, patient demand, and revenue opportunities.",
+  },
+  {
+    icon: Lock,
+    title: "Security and Compliance",
+    description:
+      "Support compliant operating standards with controlled access, audit-ready workflows, and protected data handling.",
+  },
+];
+
+const process = [
+  "Map front-desk and patient communication workflows",
+  "Configure voice agents, automations, routing, and integrations",
+  "Launch with clinic-specific scripts, safeguards, and escalation logic",
+  "Optimize booking rates, follow-up timing, and operational reporting",
+];
 
 export default function AboutPage() {
-  const { t } = useTranslation();
-
-  const values = [
-    {
-      icon: Target,
-      title: t("about.values.strategic_focus.title"),
-      description: t("about.values.strategic_focus.description"),
-    },
-    {
-      icon: Rocket,
-      title: t("about.values.innovation_first.title"),
-      description: t("about.values.innovation_first.description"),
-    },
-    {
-      icon: Handshake,
-      title: t("about.values.true_partnership.title"),
-      description: t("about.values.true_partnership.description"),
-    },
-    {
-      icon: Zap,
-      title: t("about.values.execution_excellence.title"),
-      description: t("about.values.execution_excellence.description"),
-    },
-    {
-      icon: Lock,
-      title: t("about.values.security_reliability.title"),
-      description: t("about.values.security_reliability.description"),
-    },
-    {
-      icon: TrendingUp,
-      title: t("about.values.scalable_solutions.title"),
-      description: t("about.values.scalable_solutions.description"),
-    },
-  ];
-
-  const services = [
-    {
-      icon: Mic,
-      title: t("about.services.ai_voice.title"),
-      description: t("about.services.ai_voice.description"),
-    },
-    {
-      icon: Briefcase,
-      title: t("about.services.crm_automation.title"),
-      description: t("about.services.crm_automation.description"),
-    },
-    {
-      icon: RefreshCw,
-      title: t("about.services.custom_workflows.title"),
-      description: t("about.services.custom_workflows.description"),
-    },
-    {
-      icon: Bot,
-      title: t("about.services.ai_integration.title"),
-      description: t("about.services.ai_integration.description"),
-    },
-    {
-      icon: BarChart3,
-      title: t("about.services.data_intelligence.title"),
-      description: t("about.services.data_intelligence.description"),
-    },
-    {
-      icon: Users,
-      title: t("about.services.lead_generation.title"),
-      description: t("about.services.lead_generation.description"),
-    },
-  ];
-
   return (
-    <div className="min-h-auto text-black">
-      <div className="w-full px-4 max-w-[1200px] mx-auto mx-auto">
-        {/* Hero Section */}
-        <div className="min-h-auto flex items-center justify-center text-center px-5 py-10 relative overflow-hidden">
-          <div className="absolute w-[500px] h-[500px] bg-gray-200/30 rounded-full blur-3xl -top-64 -right-64 animate-pulse"></div>
-          <div className="absolute w-[400px] h-[400px] bg-gray-300/20 rounded-full blur-3xl -bottom-48 -left-48 animate-pulse"></div>
-
-          <div className="max-w-4xl relative z-10"></div>
-        </div>
-
-        {/* Story Section */}
-        <div className="max-w-[1200px] mx-auto px-5 py-6">
-          <h2 className="text-4xl font-bold text-center mb-16 text-black">
-            {t("about.story.heading")}
-          </h2>
-          <div className="border border-black/20 rounded-2xl p-8 md:p-12 backdrop-blur-sm bg-black/5">
-            <p className="text-lg text-gray-800 mb-5 leading-relaxed">
-              {t("about.story.paragraph1")}
-            </p>
-            <p className="text-lg text-gray-800 mb-5 leading-relaxed">
-              {t("about.story.paragraph2")}
-            </p>
-            <p className="text-lg text-gray-800 leading-relaxed">
-              {t("about.story.paragraph3")}
-            </p>
+    <main className="w-full overflow-hidden bg-white text-black">
+      <section className="mx-auto w-full max-w-[1200px] px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-2 lg:pt-20">
+        <div className="grid w-full grid-cols-1 items-start gap-4 lg:grid-cols-[65%_35%]">
+          <div className="w-full text-left md:w-[90%]">
+            <h1 className="text-left text-[36px] font-semibold leading-[1.08] text-black sm:text-4xl lg:text-[54px]">
+              <span className="block">Built for clinics that</span>
+              <span className="block">cannot afford to miss</span>
+              <span className="block">patient conversations.</span>
+            </h1>
           </div>
-        </div>
 
-        {/* Values Section */}
-        <div className="max-w-[1200px] mx-auto px-5 py-10">
-          <h2 className="text-4xl font-bold text-center mb-16 text-black">
-            {t("about.values.heading")}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((value, index) => {
-              const IconComponent = value.icon;
-              return (
-                <div
-                  key={index}
-                  className="border border-black/20 rounded-xl p-8 backdrop-blur-sm bg-black/5 hover:bg-black/10 hover:border-black/40 transition-all duration-300 hover:-translate-y-1 group relative overflow-hidden"
-                >
-                  <div className="absolute top-0 left-0 w-full h-1 bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                  <div className="mb-5">
-                    <IconComponent
-                      className="w-10 h-10 text-black"
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 text-black">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Services Section */}
-        <div className="border-t border-black/20 bg-black/5">
-          <div className="max-w-[1200px] mx-auto px-5 py-10">
-            <h2 className="text-4xl font-bold text-center mb-16 text-black">
-              {t("about.services.heading")}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-              {services.map((service, index) => {
-                const IconComponent = service.icon;
-                return (
-                  <div
-                    key={index}
-                    className="border border-black/20 rounded-xl p-7 backdrop-blur-sm bg-black/5 hover:bg-black/10 transition-all duration-300 hover:scale-105"
-                  >
-                    <div className="mb-3">
-                      <IconComponent
-                        className="w-8 h-8 text-black"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2 text-black">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-700 text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                );
-              })}
+          <div className="flex h-full flex-col items-start gap-4 text-left">
+            <p className="mb-2 text-lg leading-8 text-gray-900 md:text-[20px]">
+              AI reception, scheduling, follow-up, and workflow automation for
+              dental, medical, wellness, and healthcare teams.
+            </p>
+            <div className="flex flex-wrap justify-start gap-3">
+              <Link
+                href="/contactus"
+                className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+              >
+                Book Demo
+              </Link>
+              <Link
+                href="/#workflow"
+                className="inline-flex items-center justify-center rounded-full border border-black/20 px-7 py-3 text-sm text-black transition-all duration-300 hover:border-purple-300 hover:bg-purple-50"
+              >
+                See Workflow
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center px-5 py-24 bg-black/5">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-bold mb-6 text-black">
-              {t("about.cta.heading")}
-            </h2>
-            <p className="text-xl text-gray-700 mb-10 leading-relaxed">
-              {t("about.cta.description")}
-            </p>
-            <button className="px-12 py-4 border-2 border-black text-black rounded-full font-semibold text-lg hover:bg-black/10 hover:border-black transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-black/20">
-              {t("about.cta.button")}
-            </button>
+        <div className="mt-10 grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
+          <div className="rounded-[32px] border border-black/10 bg-black p-6 text-left text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] sm:p-8">
+            <div className="flex items-center justify-between border-b border-white/10 pb-6">
+              <div>
+                <p className="text-sm text-white/60">Platform focus</p>
+                <h2 className="mt-2 text-2xl font-semibold">AI for clinic growth</h2>
+              </div>
+              <Sparkles className="h-9 w-9 text-purple-300" strokeWidth={1.5} />
+            </div>
+            <div className="mt-6 space-y-4">
+              {[
+                "Answer calls when the front desk is busy",
+                "Recover missed patients through SMS and WhatsApp",
+                "Route urgent cases to the right person",
+                "Trigger recalls, confirmations, and follow-ups automatically",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-300" />
+                  <p className="text-sm leading-6 text-white/80">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+            {metrics.map((metric) => (
+              <div
+                key={metric.label}
+                className="rounded-[24px] border border-black/10 bg-black/[0.03] p-5 text-left"
+              >
+                <p className="text-3xl font-semibold text-black">{metric.value}</p>
+                <p className="mt-2 text-sm leading-6 text-gray-600">
+                  {metric.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="mx-auto grid w-full max-w-[1200px] gap-8 px-4 py-12 sm:px-6 md:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div>
+          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
+            We build the communication layer clinics wish they had.
+          </h2>
+        </div>
+        <div className="space-y-5 text-base leading-8 text-gray-700">
+          <p>
+            Healthcare businesses lose revenue when calls are missed, messages
+            sit unanswered, and follow-ups depend on overloaded staff. Zaptal
+            gives clinics an AI-powered operating layer that responds quickly,
+            books intelligently, and keeps every patient conversation moving.
+          </p>
+          <p>
+            The platform is not a generic chatbot. It is built for appointment
+            demand, patient intake, recall programs, routing rules, treatment
+            follow-up, and the daily operational reality of modern clinics.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <h2 className="text-3xl font-semibold sm:text-4xl">
+              Mature automation, not noisy software.
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-gray-600">
+            Every part of Zaptal is designed to feel controlled, reliable, and
+            useful for teams that handle sensitive patient communication.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-3">
+          {principles.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article
+                key={item.title}
+                className="rounded-[26px] border border-black/10 bg-black/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:bg-purple-50/60"
+              >
+                <Icon className="h-9 w-9 text-purple-600" strokeWidth={1.5} />
+                <h3 className="mt-5 text-xl font-semibold text-black">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">
+                  {item.description}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mb-8 text-center">
+          <h2 className="mx-auto max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
+            Everything a clinic needs to respond, book, route, and follow up.
+          </h2>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {platform.map((item) => {
+            const Icon = item.icon;
+            return (
+              <article
+                key={item.title}
+                className="rounded-[24px] border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-300"
+              >
+                <Icon className="h-8 w-8 text-black" strokeWidth={1.5} />
+                <h3 className="mt-5 text-lg font-semibold text-black">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-gray-700">
+                  {item.description}
+                </p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
+        <div className="rounded-[32px] border border-black/10 bg-black p-6 text-white sm:p-8 md:p-10">
+          <div className="grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:items-center">
+            <div>
+              <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
+                From front-desk mapping to live AI automation.
+              </h2>
+            </div>
+            <div className="grid gap-3">
+              {process.map((step, index) => (
+                <div
+                  key={step}
+                  className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.06] p-4"
+                >
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-purple-300 text-sm font-semibold text-black">
+                    {index + 1}
+                  </span>
+                  <p className="text-sm leading-7 text-white/80">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-4 pb-20 pt-10 text-center sm:px-6 lg:px-8">
+        <h2 className="mx-auto max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
+          Ready to modernize patient communication without overloading your team?
+        </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-700">
+          Talk with Zaptal about your clinic workflow, appointment goals, and
+          automation opportunities.
+        </p>
+        <Link
+          href="/contactus"
+          className="mt-8 inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+        >
+          Contact Sales
+        </Link>
+      </section>
+    </main>
   );
 }

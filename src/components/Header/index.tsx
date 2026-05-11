@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { Globe, Menu, X } from "lucide-react";
-import i18n from "../../../i18n";
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+import "../../../i18n";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
@@ -11,23 +11,9 @@ import Image from "next/image";
 
 export default function Header() {
   const { t } = useTranslation();
-  const [language, setLanguage] = useState("nl");
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Initialize language from localStorage on mount
-  useEffect(() => {
-    const storedLang = localStorage.getItem("language");
-    if (storedLang === "en" || storedLang === "nl") {
-      setLanguage(storedLang);
-      i18n.changeLanguage(storedLang);
-    } else {
-      // Set default language
-      localStorage.setItem("language", "nl");
-    }
-  }, []);
-
-  // Close mobile menu on scroll
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerWidth < 768 && menuOpen) {
@@ -38,16 +24,6 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [menuOpen]);
-
-  // Handle language change
-  const handleLanguageChange = (lang: "en" | "nl") => {
-    setLanguage(lang);
-    localStorage.setItem("language", lang);
-    i18n.changeLanguage(lang);
-    
-    // Dispatch custom event to notify other components
-    window.dispatchEvent(new Event("languageChange"));
-  };
 
   const navLinks = [
     { name: t("header.home"), href: "/" },
@@ -68,23 +44,19 @@ export default function Header() {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <div className="relative container mx-auto flex items-center justify-between px-[4%] md:px-[0%]">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-0 sm:gap-0">
             <Image
               src="/images/logo/logo.png"
-              alt="Logo"
+              alt="Zaptal logo"
               width={36}
               height={36}
               className="w-12 h-12 sm:w-9 sm:h-9 md:w-18 md:h-18 object-contain"
             />
-            <motion.h3
-              className="text-xl sm:text-xl md:text-xl lg:text-2xl font-bold tracking-wide text-black"
-            >
-              Pionier
+            <motion.h3 className="text-xl sm:text-xl md:text-xl lg:text-2xl font-bold tracking-wide text-black">
+              Zaptal
             </motion.h3>
           </Link>
 
-          {/* Center Nav Links */}
           <div className="absolute left-1/2 top-0 transform -translate-x-1/2 h-full hidden md:flex items-center space-x-4 lg:space-x-4">
             {navLinks.map((link) => (
               <Link
@@ -99,7 +71,6 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Right Section: Book a Call + Language */}
           <div className="hidden md:flex items-center gap-3">
             <motion.a
               href="https://calendar.google.com/calendar/u/0/r"
@@ -107,30 +78,10 @@ export default function Header() {
               rel="noopener"
               className={sharedButtonStyle}
             >
-              Book a Call
+              Book Demo
             </motion.a>
-
-            <motion.div className={sharedButtonStyle}>
-              <Globe className="w-6 h-6 text-black mr-1" />
-              <div className="flex items-center bg-gray-100 rounded-full overflow-hidden">
-                {["nl", "en"].map((lang) => (
-                  <motion.button
-                    key={lang}
-                    onClick={() => handleLanguageChange(lang as "en" | "nl")}
-                    className={`px-2 py-0.5 text-[14px] font-medium transition-all ${
-                      language === lang
-                        ? "bg-black text-white"
-                        : "text-gray-700 hover:text-black"
-                    }`}
-                  >
-                    {lang.toUpperCase()}
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
           </div>
 
-          {/* Mobile Hamburger */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -145,7 +96,6 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {menuOpen && (
             <motion.div
@@ -170,7 +120,7 @@ export default function Header() {
                 ))}
               </div>
 
-              <div className="mt-4 flex items-center gap-2">
+              <div className="mt-4 flex items-center">
                 <motion.a
                   href="https://calendly.com/angelo-vocalchat/consultationcall"
                   target="_blank"
@@ -178,38 +128,14 @@ export default function Header() {
                   className={sharedButtonStyle}
                   whileHover={{ scale: 1.05 }}
                 >
-                  Book a Call
+                  Book Demo
                 </motion.a>
-
-                <motion.div
-                  className={sharedButtonStyle}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <Globe className="w-4 h-4 text-black mr-1" />
-                  <div className="flex items-center bg-gray-100 rounded-full overflow-hidden">
-                    {["nl", "en"].map((lang) => (
-                      <motion.button
-                        key={lang}
-                        onClick={() => handleLanguageChange(lang as "en" | "nl")}
-                        className={`px-2 py-0.5 text-[11px] font-medium transition-all ${
-                          language === lang
-                            ? "bg-black text-white"
-                            : "text-gray-700 hover:text-black"
-                        }`}
-                        whileHover={{ scale: 1.05 }}
-                      >
-                        {lang.toUpperCase()}
-                      </motion.button>
-                    ))}
-                  </div>
-                </motion.div>
               </div>
             </motion.div>
           )}
         </AnimatePresence>
       </motion.header>
 
-      {/* Spacer */}
       <div className="h-12 sm:h-16 md:h-20" />
     </>
   );

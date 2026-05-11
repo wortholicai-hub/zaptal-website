@@ -9,28 +9,28 @@ export default function FeaturesSection() {
   const features = [
     {
       id: 1,
-      img: "images/features/1.png",
+      img: "/images/features/Patient Inquiry.svg",
       title: t("features.feature1Title"),
       desc: t("features.feature1Desc"),
       alt: t("features.feature1Alt"),
     },
     {
       id: 2,
-      img: "images/features/2.png",
+      img: "/images/features/AI Reception and Routing.svg",
       title: t("features.feature2Title"),
       desc: t("features.feature2Desc"),
       alt: t("features.feature2Alt"),
     },
     {
       id: 3,
-      img: "images/features/3.png",
+      img: "/images/features/Scheduling and Integration.svg",
       title: t("features.feature3Title"),
       desc: t("features.feature3Desc"),
       alt: t("features.feature3Alt"),
     },
     {
       id: 4,
-      img: "images/features/4.png",
+      img: "/images/features/Follow-up and Revenue Recovery.svg",
       title: t("features.feature4Title"),
       desc: t("features.feature4Desc"),
       alt: t("features.feature4Alt"),
@@ -67,11 +67,11 @@ export default function FeaturesSection() {
               {/* Foreground Content */}
               <div className="relative z-10 flex flex-col h-full items-center text-left">
                 {/* Image */}
-                <div className="flex justify-center items-center mb-6">
+                <div className="flex justify-center items-center mb-8 w-full">
                   <img
                     src={feature.img}
                     alt={feature.alt}
-                    className="w-[250px] h-[240px] sm:w-[280px] sm:h-[270px] lg:w-[300px] lg:h-[290px] scale-120 object-contain rounded-xl"
+                    className="w-[340px] h-[315px] sm:w-[410px] sm:h-[370px] lg:w-[500px] lg:h-[420px] object-contain rounded-xl"
                   />
                 </div>
 

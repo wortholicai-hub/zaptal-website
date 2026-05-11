@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 
-interface AgentTranslations {
+interface AgentDetails {
   name: string;
   role: string;
   description: string;
@@ -14,188 +14,118 @@ interface Agent {
   id: number;
   src: string;
   audio: string;
-  en: AgentTranslations;
-  nl: AgentTranslations;
+  details: AgentDetails;
 }
-
-const translations = {
-  en: {
-    specialtyLabel: "Specialty"
-  },
-  nl: {
-    specialtyLabel: "Specialiteit"
-  }
-};
 
 const agents: Agent[] = [
   {
     id: 1,
-    src: "images/ai-voice/Amira.png",
-    audio: "audio/ai-voice/Amira.mpeg",
-    en: {
-      name: "Amira - Receptionist Agent",
-      role: "Support Agent",
-      description: "Amira delivers fast, friendly help with a personal touch.",
-      specialty: "24/7 Customer Support",
-    },
-    nl: {
-      name: "Amira - Receptioniste Agent",
-      role: "Ondersteuningsagent",
-      description: "Amira biedt snelle, vriendelijke hulp met een persoonlijke touch.",
-      specialty: "24/7 Klantenondersteuning",
+    src: "/images/ai-voice/Amira.png",
+    audio: "/audio/ai-voice/EN/Amira.mp3",
+    details: {
+      name: "Amira - AI Receptionist",
+      role: "Clinic Reception Agent",
+      description: "Amira answers patient calls, collects intent, and routes requests clearly.",
+      specialty: "24/7 Patient Call Coverage",
     },
   },
   {
     id: 2,
-    src: "images/ai-voice/Casper.png",
-    audio: "audio/ai-voice/Casper.mpeg",
-    en: {
-      name: "Casper - Support Agent",
-      role: "Receptionist Agent",
-      description: "Casper quickly fixes and automates technical issues.",
-      specialty: "System Diagnostics & Automation",
-    },
-    nl: {
-      name: "Casper - Ondersteuningsagent",
-      role: "Receptionist Agent",
-      description: "Casper lost technische problemen snel op en automatiseert ze.",
-      specialty: "Systeemdiagnose & Automatisering",
+    src: "/images/ai-voice/Casper.png",
+    audio: "/audio/ai-voice/EN/Casper.mp3",
+    details: {
+      name: "Casper - Scheduling Agent",
+      role: "Appointment Coordinator",
+      description: "Casper helps patients book, reschedule, and confirm appointments.",
+      specialty: "Calendar and PMS Scheduling",
     },
   },
   {
     id: 3,
-    src: "images/ai-voice/Thalina.png",
-    audio: "audio/ai-voice/Thalina.mpeg",
-    en: {
-      name: "Thalina - Sales Agent",
-      role: "Sales Agent",
-      description: "Thalina guides customers with smart product suggestions.",
-      specialty: "Product Recommendations & Upselling",
-    },
-    nl: {
-      name: "Thalina - Verkoopagent",
-      role: "Verkoopagent",
-      description: "Thalina begeleidt klanten met slimme productsuggesties.",
-      specialty: "Productaanbevelingen & Upselling",
+    src: "/images/ai-voice/Thalina.png",
+    audio: "/audio/ai-voice/EN/Thalina.mp3",
+    details: {
+      name: "Thalina - Recall Agent",
+      role: "Patient Recall Agent",
+      description: "Thalina follows up with overdue patients and unfinished treatment plans.",
+      specialty: "Treatment Recall Automation",
     },
   },
   {
     id: 4,
-    src: "images/ai-voice/Heleen.png",
-    audio: "audio/ai-voice/Heleen.mpeg",
-    en: {
-      name: "Heleen - Promotion Agent",
-      role: "Promotion Agent",
-      description: "Heleen turns data into insights for better decisions.",
-      specialty: "Business Intelligence & Reporting",
-    },
-    nl: {
-      name: "Heleen - Promotie Agent",
-      role: "Promotie Agent",
-      description: "Heleen zet data om in inzichten voor betere beslissingen.",
-      specialty: "Business Intelligence & Rapportage",
+    src: "/images/ai-voice/Heleen.png",
+    audio: "/audio/ai-voice/EN/Heleen.mp3",
+    details: {
+      name: "Heleen - Analytics Agent",
+      role: "Clinic Insights Agent",
+      description: "Heleen turns call and booking data into clear operational insights.",
+      specialty: "Revenue and Booking Analytics",
     },
   },
   {
     id: 5,
-    src: "images/ai-voice/Zelda.png",
-    audio: "audio/ai-voice/Zelda.mpeg",
-    en: {
-      name: "Zelda - Client Service Agent",
-      role: "Client Service Agent",
-      description: "Zelda builds loyalty through warm, engaging chats.",
-      specialty: "Customer Retention & Loyalty",
-    },
-    nl: {
-      name: "Zelda - Klantenservice Agent",
-      role: "Klantenservice Agent",
-      description: "Zelda bouwt loyaliteit op door warme, boeiende gesprekken.",
-      specialty: "Klantbehoud & Loyaliteit",
+    src: "/images/ai-voice/Zelda.png",
+    audio: "/audio/ai-voice/EN/Zelda.mp3",
+    details: {
+      name: "Zelda - Patient Care Agent",
+      role: "Follow-up Agent",
+      description: "Zelda keeps patients informed with reminders and post-visit check-ins.",
+      specialty: "Patient Follow-up Workflows",
     },
   },
   {
     id: 6,
-    src: "images/ai-voice/Carla.png",
-    audio: "audio/ai-voice/Carla.mpeg",
-    en: {
-      name: "Carla - Onboarding Agent",
-      role: "Onboarding Agent",
-      description: "Carla makes onboarding easy and effortless.",
-      specialty: "User Activation & Training",
-    },
-    nl: {
-      name: "Carla - Onboarding-agent",
-      role: "Onboarding Agent",
-      description: "Carla maakt onboarding eenvoudig en moeiteloos.",
-      specialty: "Gebruikersactivatie & Training",
+    src: "/images/ai-voice/Carla.png",
+    audio: "/audio/ai-voice/EN/Carla.mp3",
+    details: {
+      name: "Carla - Intake Agent",
+      role: "New Patient Intake",
+      description: "Carla gathers key details before the visit and guides patients to next steps.",
+      specialty: "Digital Intake and Forms",
     },
   },
   {
     id: 7,
-    src: "images/ai-voice/Selena.png",
-    audio: "audio/ai-voice/Selena.mpeg",
-    en: {
-      name: "Selena - AI Trainer",
-      role: "AI Trainer",
-      description: "Selena fine-tunes models for smarter performance.",
-      specialty: "Model Optimization & Learning",
-    },
-    nl: {
-      name: "Selena - AI Trainer",
-      role: "AI Trainer",
-      description: "Selena fijn-tuned modellen voor slimmere prestaties.",
-      specialty: "Model Optimalisatie & Leren",
+    src: "/images/ai-voice/Selena.png",
+    audio: "/audio/ai-voice/EN/Selena.mp3",
+    details: {
+      name: "Selena - Routing Agent",
+      role: "Smart Transfer Agent",
+      description: "Selena identifies urgency and routes patients to the right team member.",
+      specialty: "Smart Routing and Escalation",
     },
   },
   {
     id: 8,
-    src: "images/ai-voice/Tirza.png",
-    audio: "audio/ai-voice/Tirza.mpeg",
-    en: {
-      name: "Tirza - Product Sales Agent",
-      role: "Product Sales Agent",
-      description: "Tirza streamlines workflows for smooth operations.",
-      specialty: "Process Automation & Efficiency",
-    },
-    nl: {
-      name: "Tirza - Productverkoop Agent",
-      role: "Productverkoop Agent",
-      description: "Tirza stroomlijnt workflows voor soepele operaties.",
-      specialty: "Procesautomatisering & Efficiëntie",
+    src: "/images/ai-voice/Tirza.png",
+    audio: "/audio/ai-voice/EN/Tirza.mp3",
+    details: {
+      name: "Tirza - Workflow Agent",
+      role: "Automation Coordinator",
+      description: "Tirza updates tasks, reminders, and connected systems after each call.",
+      specialty: "Clinic Workflow Automation",
     },
   },
   {
     id: 9,
-    src: "images/ai-voice/Bella.png",
-    audio: "audio/ai-voice/Bella.mpeg",
-    en: {
-      name: "Bella - Marketing Agent",
-      role: "Marketing Agent",
-      description: "Bella drives engagement with creative campaigns.",
-      specialty: "Campaign Management & Outreach",
-    },
-    nl: {
-      name: "Bella - Marketing Agent",
-      role: "Marketing Agent",
-      description: "Bella stimuleert betrokkenheid met creatieve campagnes.",
-      specialty: "Campagnebeheer & Outreach",
+    src: "/images/ai-voice/Bella.png",
+    audio: "/audio/ai-voice/EN/Bella.mp3",
+    details: {
+      name: "Bella - Reactivation Agent",
+      role: "Patient Growth Agent",
+      description: "Bella re-engages inactive patients with timely voice and message outreach.",
+      specialty: "Patient Reactivation Campaigns",
     },
   },
   {
     id: 10,
-    src: "images/ai-voice/Bastian.png",
-    audio: "audio/ai-voice/Bastian.mpeg",
-    en: {
-      name: "Bastian - AI Customer Support",
-      role: "AI Customer Support",
-      description: "Bastian solves customer queries with care and accuracy.",
-      specialty: "Empathetic Real-time Support",
-    },
-    nl: {
-      name: "Bastian - AI Klantenondersteuning",
-      role: "AI Klantenondersteuning",
-      description: "Bastian lost klantvragen op met zorg en nauwkeurigheid.",
-      specialty: "Empathische Real-time Ondersteuning",
+    src: "/images/ai-voice/Bastian.png",
+    audio: "/audio/ai-voice/EN/Bastian.mp3",
+    details: {
+      name: "Bastian - Support Agent",
+      role: "Patient Support Agent",
+      description: "Bastian answers routine questions with calm, consistent clinic-approved guidance.",
+      specialty: "Patient FAQ and Support",
     },
   },
 ];
@@ -204,39 +134,9 @@ const VocalChatAgentCarousel: React.FC = () => {
   const [current, setCurrent] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [showDetail, setShowDetail] = useState<boolean>(false);
-  const [language, setLanguage] = useState<"en" | "nl">("nl");
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const detailRef = useRef<HTMLDivElement | null>(null);
-
-  // Get language from localStorage on mount
-  useEffect(() => {
-    const storedLang = localStorage.getItem("language");
-    if (storedLang === "en" || storedLang === "nl") {
-      setLanguage(storedLang);
-    }
-  }, []);
-
-  // Listen for localStorage changes (when header updates language)
-  useEffect(() => {
-    const handleStorageChange = () => {
-      const storedLang = localStorage.getItem("language");
-      if (storedLang === "en" || storedLang === "nl") {
-        setLanguage(storedLang);
-      }
-    };
-
-    // Listen for custom event from header
-    window.addEventListener("languageChange", handleStorageChange);
-    
-    // Also listen for storage events (if changed in another tab)
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("languageChange", handleStorageChange);
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
 
   const prevSlide = (): void => {
     setShowDetail(false);
@@ -296,7 +196,7 @@ const VocalChatAgentCarousel: React.FC = () => {
           {agents.map((agent, idx) => {
             const pos = getPosition(idx);
             const isCenter = pos === "center";
-            const agentData = agent[language];
+            const agentData = agent.details;
 
             let transformValue = "";
             let opacityValue = 0;
@@ -348,7 +248,6 @@ const VocalChatAgentCarousel: React.FC = () => {
                       `,
                     }}
                   />
-                  {/* showDetail */}
                   {isCenter && (
                     <div
                       ref={detailRef}
@@ -376,7 +275,7 @@ const VocalChatAgentCarousel: React.FC = () => {
                       </p>
                       <div className="pt-2 border-t border-gray-300 w-full">
                         <p className="text-[9px] font-semibold text-gray-700">
-                          {translations[language].specialtyLabel}
+                          Specialty
                         </p>
                         <p className="text-[10px] text-gray-800">
                           {agentData.specialty}
@@ -389,15 +288,12 @@ const VocalChatAgentCarousel: React.FC = () => {
             );
           })}
 
-          {/* Controls */}
           <div className="absolute mt-[20rem] left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-30">
             <div className="h-[40px] flex items-center justify-center">
               {!showDetail && (
                 <div className="border px-[1px] py-[1px] rounded-[14px] border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
-                  <button
-                    className="px-2 py-[8px] text-[10px] sm:text-[11px] md:text-[13px] lg:text-base font-medium rounded-[12px] bg-white border border-[#1111114D] text-gray-700 whitespace-nowrap flex items-center gap-x-2 hover:bg-gray-50 hover:shadow-md transition-all duration-300"
-                  >
-                    {agents[current][language].name}
+                  <button className="px-2 py-[8px] text-[10px] sm:text-[11px] md:text-[13px] lg:text-base font-medium rounded-[12px] bg-white border border-[#1111114D] text-gray-700 whitespace-nowrap flex items-center gap-x-2 hover:bg-gray-50 hover:shadow-md transition-all duration-300">
+                    {agents[current].details.name}
                   </button>
                 </div>
               )}

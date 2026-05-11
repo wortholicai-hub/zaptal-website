@@ -1,200 +1,218 @@
 "use client";
 
+import Link from "next/link";
 import {
-  Clock,
   ArrowRight,
+  BarChart3,
   Calendar,
-  User,
-  Mic,
-  LineChart,
-  Workflow,
-  Plug,
-  Database,
-  Target,
-  Shield,
+  Clock,
+  GitBranch,
+  Headphones,
+  MessageSquareText,
+  PhoneCall,
+  ShieldCheck,
+  Stethoscope,
   TrendingUp,
 } from "lucide-react";
-import { useTranslation } from "react-i18next";
+
+const featured = {
+  category: "Clinic Growth",
+  title: "The modern clinic front desk is becoming an AI-powered command center",
+  excerpt:
+    "A practical look at how AI receptionists, automated follow-ups, smart routing, and integrated dashboards help healthcare teams respond faster and book more patients.",
+  readTime: "8 min read",
+};
+
+const posts = [
+  {
+    icon: PhoneCall,
+    category: "AI Receptionist",
+    title: "How dental clinics recover missed calls with AI voice agents",
+    excerpt:
+      "Missed calls are often high-intent patients. Learn how clinics can capture details, answer common questions, and move callers toward booked appointments.",
+    date: "May 2026",
+    readTime: "6 min read",
+  },
+  {
+    icon: MessageSquareText,
+    category: "SMS and WhatsApp",
+    title: "Automating patient follow-ups without sounding robotic",
+    excerpt:
+      "The best follow-up systems combine timing, personalization, channel preference, and clear escalation rules for clinic staff.",
+    date: "May 2026",
+    readTime: "5 min read",
+  },
+  {
+    icon: GitBranch,
+    category: "Workflow Automation",
+    title: "A smarter workflow for recalls, reschedules, and confirmations",
+    excerpt:
+      "Automated reminders and recall campaigns help clinics protect schedules, reduce gaps, and keep patients engaged after treatment.",
+    date: "Apr 2026",
+    readTime: "7 min read",
+  },
+  {
+    icon: ShieldCheck,
+    category: "Compliance",
+    title: "What healthcare teams should expect from secure AI communication",
+    excerpt:
+      "Security, access control, audit visibility, and responsible data handling should be core requirements in every healthcare AI rollout.",
+    date: "Apr 2026",
+    readTime: "6 min read",
+  },
+  {
+    icon: BarChart3,
+    category: "Analytics",
+    title: "The metrics clinic owners should track after launching AI automation",
+    excerpt:
+      "Call outcomes, response speed, appointment conversion, recall completion, and recovered revenue give teams a clearer view of performance.",
+    date: "Mar 2026",
+    readTime: "5 min read",
+  },
+  {
+    icon: Headphones,
+    category: "Patient Experience",
+    title: "Designing AI conversations that feel helpful, calm, and clinical",
+    excerpt:
+      "Patient-facing automation needs careful scripts, handoff logic, tone control, and simple pathways for urgent requests.",
+    date: "Mar 2026",
+    readTime: "8 min read",
+  },
+];
 
 export default function BlogPage() {
-  const { t } = useTranslation();
-
-  const blogs = [
-    {
-      title: t("blog.posts.ai_voice.title"),
-      excerpt: t("blog.posts.ai_voice.excerpt"),
-      author: "Sarah Mitchell",
-      date: "Oct 1, 2025",
-      readTime: "5 min read",
-      category: t("blog.posts.ai_voice.category"),
-      icon: Mic,
-    },
-    {
-      title: t("blog.posts.crm_automation.title"),
-      excerpt: t("blog.posts.crm_automation.excerpt"),
-      author: "Michael Chen",
-      date: "Sep 28, 2025",
-      readTime: "7 min read",
-      category: t("blog.posts.crm_automation.category"),
-      icon: LineChart,
-    },
-    {
-      title: t("blog.posts.custom_workflows.title"),
-      excerpt: t("blog.posts.custom_workflows.excerpt"),
-      author: "Emma Rodriguez",
-      date: "Sep 25, 2025",
-      readTime: "6 min read",
-      category: t("blog.posts.custom_workflows.category"),
-      icon: Workflow,
-    },
-    {
-      title: t("blog.posts.ai_integration.title"),
-      excerpt: t("blog.posts.ai_integration.excerpt"),
-      author: "David Kumar",
-      date: "Sep 22, 2025",
-      readTime: "8 min read",
-      category: t("blog.posts.ai_integration.category"),
-      icon: Plug,
-    },
-    {
-      title: t("blog.posts.data_intelligence.title"),
-      excerpt: t("blog.posts.data_intelligence.excerpt"),
-      author: "Lisa Thompson",
-      date: "Sep 19, 2025",
-      readTime: "6 min read",
-      category: t("blog.posts.data_intelligence.category"),
-      icon: Database,
-    },
-    {
-      title: t("blog.posts.lead_generation.title"),
-      excerpt: t("blog.posts.lead_generation.excerpt"),
-      author: "James Wilson",
-      date: "Sep 16, 2025",
-      readTime: "9 min read",
-      category: t("blog.posts.lead_generation.category"),
-      icon: Target,
-    },
-    {
-      title: t("blog.posts.security.title"),
-      excerpt: t("blog.posts.security.excerpt"),
-      author: "Rachel Park",
-      date: "Sep 13, 2025",
-      readTime: "7 min read",
-      category: t("blog.posts.security.category"),
-      icon: Shield,
-    },
-    {
-      title: t("blog.posts.scaling_business.title"),
-      excerpt: t("blog.posts.scaling_business.excerpt"),
-      author: "Tom Anderson",
-      date: "Sep 10, 2025",
-      readTime: "10 min read",
-      category: t("blog.posts.scaling_business.category"),
-      icon: TrendingUp,
-    },
-  ];
-
   return (
-    <div className="text-black w-full">
-      {/* Main Container */}
-      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1300px] mx-auto">
-        {/* Hero Section */}
-        <section className="relative w-full py-14 md:py-20 sm:py-20 flex flex-col items-center text-center overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-gray-200/40 rounded-full blur-3xl -top-20 sm:-top-32 -right-16 sm:-right-32 animate-pulse"></div>
-          <div className="absolute w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-gray-300/30 rounded-full blur-3xl -bottom-10 -left-10 sm:-left-20 animate-pulse"></div>
-
-          <div className="max-w-4xl mx-auto relative z-10 px-4">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-5 leading-tight">
-              {t("blog.hero.title")}
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-              {t("blog.hero.description")}
-            </p>
+    <main className="w-full overflow-hidden bg-white text-black">
+      <section className="mx-auto w-full max-w-[1200px] px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-2 lg:pt-20">
+        <div className="grid w-full grid-cols-1 items-start gap-4 lg:grid-cols-[65%_35%]">
+          <div className="w-full text-left md:w-[90%]">
+            <h1 className="text-left text-[36px] font-semibold leading-[1.08] sm:text-4xl lg:text-[54px]">
+            <span className="block">Ideas for clinics</span>
+            <span className="block">building faster</span>
+            <span className="block">patient communication.</span>
+          </h1>
           </div>
-        </section>
-
-        {/* Blog Grid */}
-        <section className="w-full py-8 sm:py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-            {blogs.map((blog, index) => {
-              const IconComponent = blog.icon;
-              return (
+          <div className="flex h-full flex-col items-start gap-4 text-left">
+            <p className="text-lg leading-8 text-gray-900 md:text-[20px]">
+              Strategy, automation guides, and growth playbooks for healthcare
+              teams adopting AI receptionist systems.
+            </p>
+            <div className="grid w-full gap-3 pt-1">
+              {[
+                "AI receptionist strategy",
+                "Appointment automation",
+                "Healthcare growth playbooks",
+              ].map((item) => (
                 <div
-                  key={index}
-                  className="border border-black/20 rounded-2xl overflow-hidden backdrop-blur-sm bg-black/5 hover:bg-black/10 hover:border-black/40 transition-all duration-300 hover:-translate-y-2 group cursor-pointer flex flex-col"
+                  key={item}
+                  className="border-l-2 border-purple-400 pl-4 text-sm font-medium text-gray-700"
                 >
-                  {/* Icon Area */}
-                  <div className="relative h-40 sm:h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                    <IconComponent
-                      className="w-16 sm:w-20 h-16 sm:h-20 text-black"
-                      strokeWidth={1.5}
-                    />
-                    <div className="absolute top-3 sm:top-4 right-3 sm:right-4 px-2.5 sm:px-3 py-1 bg-black text-white text-[10px] sm:text-xs font-semibold rounded-full">
-                      {blog.category}
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4 sm:p-6 flex flex-col flex-grow">
-                    <h3 className="text-base sm:text-lg font-bold text-black mb-2 sm:mb-3 line-clamp-2 group-hover:text-gray-700 transition-colors">
-                      {blog.title}
-                    </h3>
-                    <p className="text-gray-700 text-sm mb-4 line-clamp-3 leading-relaxed">
-                      {blog.excerpt}
-                    </p>
-
-                    {/* Meta Info */}
-                    <div className="flex items-center justify-between text-xs text-gray-600 mb-3 sm:mb-4">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3" />
-                        <span>{blog.date}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock className="w-3 h-3" />
-                        <span>{blog.readTime}</span>
-                      </div>
-                    </div>
-
-                    {/* Author & CTA */}
-                    <div className="flex items-center justify-between pt-3 sm:pt-4 mt-auto border-t border-black/10">
-                      <div className="flex items-center gap-2">
-                        <User className="w-4 h-4 text-gray-600" />
-                        <span className="text-xs text-gray-700">
-                          {blog.author}
-                        </span>
-                      </div>
-                      <ArrowRight className="w-5 h-5 text-black group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
+                  {item}
                 </div>
-              );
-            })}
+              ))}
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Newsletter Section */}
-        <section className="w-full pb-12">
-          <div className="border border-black/20 rounded-2xl p-6 sm:p-8 md:p-12 backdrop-blur-sm bg-black/5 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-black mb-3 sm:mb-4">
-              {t("blog.newsletter.heading")}
-            </h2>
-            <p className="text-sm sm:text-base text-gray-700 mb-6 sm:mb-8 max-w-2xl mx-auto">
-              {t("blog.newsletter.description")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto w-full">
-              <input
-                type="email"
-                placeholder={t("blog.newsletter.placeholder")}
-                className="flex-1 px-5 sm:px-6 py-3 border-2 border-black/20 rounded-full bg-transparent text-black placeholder:text-gray-500 focus:outline-none focus:border-black transition-colors text-sm sm:text-base"
-              />
-              <button className="px-6 sm:px-8 py-3 border-2 border-black text-black rounded-full font-semibold hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base">
-                {t("blog.newsletter.button")}
+      <section className="mx-auto w-full max-w-[1200px] px-4 pb-12 sm:px-6 lg:px-8">
+        <article className="grid overflow-hidden rounded-[32px] border border-black/10 bg-black text-white shadow-[0_24px_80px_rgba(0,0,0,0.14)] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex min-h-[320px] flex-col justify-between bg-[radial-gradient(circle_at_20%_20%,rgba(168,85,247,0.42),transparent_38%),linear-gradient(135deg,#111111,#221033)] p-6 sm:p-8">
+            <div className="flex justify-end">
+              <Stethoscope className="h-10 w-10 text-purple-200" strokeWidth={1.5} />
+            </div>
+            <div className="mt-16">
+              <p className="text-sm text-purple-200">{featured.category}</p>
+              <h2 className="mt-3 max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
+                {featured.title}
+              </h2>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between p-6 sm:p-8">
+            <p className="text-base leading-8 text-white/75">{featured.excerpt}</p>
+            <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-5 text-sm text-white/60">
+                <span className="inline-flex items-center gap-2">
+                  <Clock className="h-4 w-4" /> {featured.readTime}
+                </span>
+                <span className="inline-flex items-center gap-2">
+                  <Calendar className="h-4 w-4" /> May 2026
+                </span>
+              </div>
+              <button className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm text-black transition-all duration-300 hover:bg-purple-200">
+                Read Brief <ArrowRight className="h-4 w-4" />
               </button>
             </div>
           </div>
-        </section>
-      </div>
-    </div>
+        </article>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
+          <div>
+            <h2 className="text-3xl font-semibold sm:text-4xl">
+              Healthcare automation, written for operators.
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-gray-600">
+            Practical writing for operators who want cleaner patient access,
+            stronger appointment conversion, and measurable automation.
+          </p>
+        </div>
+
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post) => {
+            const Icon = post.icon;
+            return (
+              <article
+                key={post.title}
+                className="group flex min-h-[300px] flex-col rounded-[26px] border border-black/10 bg-white p-6 shadow-[0_18px_60px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-300"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="rounded-2xl bg-purple-50 p-3">
+                    <Icon className="h-7 w-7 text-purple-700" strokeWidth={1.5} />
+                  </div>
+                  <p className="text-right text-[10px] font-semibold uppercase tracking-[0.12em] text-purple-700">
+                    {post.category}
+                  </p>
+                </div>
+                <h3 className="mt-6 text-xl font-semibold leading-snug text-black">
+                  {post.title}
+                </h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-gray-700">
+                  {post.excerpt}
+                </p>
+                <div className="mt-6 flex items-center justify-between border-t border-black/10 pt-4 text-xs text-gray-500">
+                  <span>{post.date}</span>
+                  <span>{post.readTime}</span>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-4 pb-20 pt-10 sm:px-6 lg:px-8">
+        <div className="grid gap-8 rounded-[32px] border border-black/10 bg-black/[0.03] p-6 sm:p-8 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <TrendingUp className="h-9 w-9 text-purple-700" strokeWidth={1.5} />
+            <h2 className="mt-5 text-3xl font-semibold leading-tight">
+              Want a clinic automation strategy for your own business?
+            </h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-gray-700">
+              Book a conversation with Zaptal and we will map how AI reception,
+              scheduling, missed-call recovery, and follow-ups can fit your
+              patient workflow.
+            </p>
+          </div>
+          <Link
+            href="/contactus"
+            className="inline-flex items-center justify-center rounded-full bg-black px-8 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
+          >
+            Contact Sales
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -30,7 +30,7 @@ export const WhyChoose = () => {
       title: t("Always Available, Always Engaged"),
       desc: [
         t(
-          "Customers expect instant answers. With Pionier Automation Agency, your brand is present around the clock, responding to questions, guiding buyers, and capturing opportunities, even when your team is offline."
+          "Customers expect instant answers. With Zaptal, your brand is present around the clock, responding to questions, guiding buyers, and capturing opportunities, even when your team is offline."
         ),
         t(
           "Deliver faster service, higher satisfaction, and more closed deals without extra overhead."
@@ -43,7 +43,7 @@ export const WhyChoose = () => {
       icon: <Settings className="w-6 h-6 lg:w-8 lg:h-8 text-black" />,
       title: t("Simple Integration With Your Tools"),
       desc: t(
-        "Add Pionier Automation Agency to your CRM, website, or messaging apps without complex setup. Our platform seamlessly integrates with your existing tools and workflows, allowing you to get started quickly while maintaining operational efficiency. Scale results with zero technical friction and minimal downtime for maximum business impact."
+        "Add Zaptal to your CRM, website, or messaging apps without complex setup. Our platform seamlessly integrates with your existing tools and workflows, allowing you to get started quickly while maintaining operational efficiency. Scale results with zero technical friction and minimal downtime for maximum business impact."
       ),
       wide: true,
     },
@@ -55,7 +55,7 @@ export const WhyChoose = () => {
         {/* Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight tracking-tight">
-            {t("Why Pionier Leads Growth")}
+            {t("Why Zaptal Leads Growth")}
           </h2>
         </div>
 

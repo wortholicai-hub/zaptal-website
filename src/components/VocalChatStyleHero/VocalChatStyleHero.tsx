@@ -84,7 +84,7 @@ const VocalChatStyleHero: React.FC = () => {
                     section.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
-                className="cursor-pointer flex items-center justify-center gap-1.5 px-2 py-1 md:px-4 md:py-1.5 rounded-xl bg-purple-500 text-white border border-[#6C47FF] shadow-md hover:bg-[#5a3ce0] hover:shadow-lg transition-all duration-300"
+                className="no-doto-button cursor-pointer flex items-center justify-center gap-1.5 px-2 py-1 md:px-4 md:py-1.5 rounded-xl bg-purple-500 text-white border border-[#6C47FF] shadow-md hover:bg-[#5a3ce0] hover:shadow-lg transition-all duration-300"
               >
                 <span className="text-sm md:text-base font-semibold">
                   {t("vocalchat.learnMore")}

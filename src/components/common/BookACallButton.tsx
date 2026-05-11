@@ -31,7 +31,7 @@ export default function BookACallButton() {
           "noopener,noreferrer"
         )
       }
-      className="flex items-center gap-2 px-2 py-1 md:px-4 md:py-1.5 rounded-xl bg-white text-black border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 cursor-pointer"
+      className="no-doto-button flex items-center gap-2 px-2 py-1 md:px-4 md:py-1.5 rounded-xl bg-white text-black border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 cursor-pointer"
     >
       <span className="text-sm md:text-base font-semibold">
         {t("vocalchat.bookCall")}

@@ -3,9 +3,80 @@
 :root {
   --background: #ffffff;
   --foreground: #000000;
+  --zaptal-purple: #6c47ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--zaptal-purple) #f3f4f6;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+button,
+a[class*="rounded"][class*="px-"],
+span[class*="rounded"][class*="px-"],
+div[class*="rounded-full"][class*="px-"],
+div[class*="rounded-xl"][class*="px-"] {
+  font-family: var(--font-doto), var(--font-inter), sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+button svg,
+a[class*="rounded"][class*="px-"] svg {
+  letter-spacing: 0;
+}
+
+.no-doto,
+.no-doto *,
+.no-doto-button,
+.no-doto-button * {
+  font-family: var(--font-inter), sans-serif !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #111111, var(--zaptal-purple));
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #000000, #8b5cf6);
+}
+
+.footer-brand-glow {
+  transition: color 300ms ease, text-shadow 300ms ease, transform 300ms ease;
+}
+
+.footer-brand-glow:hover {
+  color: #ddd6fe;
+  text-shadow:
+    0 0 18px rgba(108, 71, 255, 0.45),
+    0 0 54px rgba(108, 71, 255, 0.32),
+    0 0 110px rgba(108, 71, 255, 0.24);
+  transform: translateY(-2px);
 }

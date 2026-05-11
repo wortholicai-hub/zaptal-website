@@ -4,13 +4,6 @@ import React from "react";
 import { Check } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-import { Doto } from "next/font/google";
-
-const doto = Doto({
-  subsets: ["latin"],
-  variable: "--font-doto",
-});
-
 export default function CustomAISolutions() {
   const { t } = useTranslation();
 
@@ -43,9 +36,7 @@ export default function CustomAISolutions() {
       <div className="max-w-[1200px] mx-auto w-full">
         {/* Header */}
         <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight text-center mb-12">
-          {t("customAI.headerLine1")}
-          <br className="hidden sm:block" />
-          {t("customAI.headerLine2")}
+          {t("customAI.headerLine1")} {t("customAI.headerLine2")}
         </h2>
 
         {/* Cards Row */}
@@ -55,16 +46,12 @@ export default function CustomAISolutions() {
             type={t("customAI.outboundTitle")}
             description={t("customAI.outboundDesc")}
             features={outboundFeatures}
-            buttonLabel={t("customAI.bookCall")}
-            buttonLink="#"
           />
           <AISolutionCard
             imageSrc="images/services/inbound.png"
             type={t("customAI.inboundTitle")}
             description={t("customAI.inboundDesc")}
             features={inboundFeatures}
-            buttonLabel={t("customAI.bookCall")}
-            buttonLink="#"
           />
         </div>
 
@@ -90,15 +77,6 @@ export default function CustomAISolutions() {
 
             {/* Right Side */}
             <div>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block w-full md:bg-black md:text-white border border-gray-300 md:border-0 text-center py-4 rounded-2xl text-[28px] font-bold tracking-widest transition-colors mb-6 sm:mb-8 ${doto.className}`}
-              >
-                {t("customAI.contactSales")}
-              </a>
-
               <div className="space-y-4 sm:space-y-5">
                 {workflowFeatures.map((feature, i) => (
                   <FeatureItem key={i} text={feature} />
@@ -120,15 +98,11 @@ function AISolutionCard({
   type,
   description,
   features,
-  buttonLabel,
-  buttonLink,
 }: {
   imageSrc: string;
   type: string;
   description: string;
   features: string[];
-  buttonLabel: string;
-  buttonLink: string;
 }) {
   // Highlight English and Dutch equivalents in purple
   const highlightType = (text: string) => {
@@ -158,16 +132,6 @@ function AISolutionCard({
           </p>
         </div>
       </div>
-
-      {/* CTA Button */}
-      <a
-        href={buttonLink}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`block w-full bg-black text-white text-center py-4 rounded-2xl text-[28px] font-bold tracking-widest transition-colors mb-6 sm:mb-8 ${doto.className}`}
-      >
-        {buttonLabel}
-      </a>
 
       {/* Features */}
       <div className="space-y-3 sm:space-y-4">
