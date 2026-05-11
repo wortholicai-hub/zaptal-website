@@ -164,58 +164,73 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid w-full max-w-[1200px] gap-8 px-4 py-12 sm:px-6 md:grid-cols-[0.9fr_1.1fr] lg:px-8">
-        <div>
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl">
-            We build the communication layer clinics wish they had.
-          </h2>
-        </div>
-        <div className="space-y-5 text-base leading-8 text-gray-700">
-          <p>
-            Healthcare businesses lose revenue when calls are missed, messages
-            sit unanswered, and follow-ups depend on overloaded staff. Zaptal
-            gives clinics an AI-powered operating layer that responds quickly,
-            books intelligently, and keeps every patient conversation moving.
-          </p>
-          <p>
-            The platform is not a generic chatbot. It is built for appointment
-            demand, patient intake, recall programs, routing rules, treatment
-            follow-up, and the daily operational reality of modern clinics.
-          </p>
-        </div>
-      </section>
-
       <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <div>
-            <h2 className="text-3xl font-semibold sm:text-4xl">
-              Mature automation, not noisy software.
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm leading-7 text-gray-600">
-            Every part of Zaptal is designed to feel controlled, reliable, and
-            useful for teams that handle sensitive patient communication.
-          </p>
-        </div>
+        <div className="relative overflow-hidden rounded-[16px] border border-black/10 bg-black p-5 text-white sm:p-7 md:p-8">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_0%,rgba(147,51,234,0.32),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)]" />
 
-        <div className="grid gap-5 md:grid-cols-3">
-          {principles.map((item) => {
-            const Icon = item.icon;
-            return (
-              <article
-                key={item.title}
-                className="rounded-[26px] border border-black/10 bg-black/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:bg-purple-50/60"
-              >
-                <Icon className="h-9 w-9 text-purple-600" strokeWidth={1.5} />
-                <h3 className="mt-5 text-xl font-semibold text-black">
-                  {item.title}
+          <div className="relative z-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+            <div className="flex flex-col justify-between rounded-[16px] border border-white/10 bg-white/[0.04] p-5 sm:p-6">
+              <div>
+                <h2 className="max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
+                  Patient communication built like clinic infrastructure.
+                </h2>
+                <div className="mt-6 space-y-4 text-sm leading-7 text-white/70 sm:text-base">
+                  <p>
+                    Zaptal helps clinics protect revenue when calls spike,
+                    messages queue up, and follow-up work depends on a busy
+                    front desk.
+                  </p>
+                  <p>
+                    Instead of adding another generic chatbot, Zaptal connects
+                    AI reception, scheduling, intake, routing, recalls, and
+                    patient follow-up into one controlled communication layer.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 text-center">
+                {["Respond", "Book", "Recover"].map((item) => (
+                  <div key={item} className="rounded-[16px] bg-white/[0.06] px-3 py-3">
+                    <p className="text-sm font-semibold text-white">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-3">
+              <div className="rounded-[16px] border border-white/10 bg-white/[0.06] p-5">
+                <h3 className="text-2xl font-semibold leading-tight">
+                  Mature automation that stays under control.
                 </h3>
-                <p className="mt-3 text-sm leading-7 text-gray-700">
-                  {item.description}
+                <p className="mt-3 text-sm leading-7 text-white/65">
+                  Workflows are planned around secure intake, staff escalation,
+                  appointment demand, and the daily rhythm of real clinics.
                 </p>
-              </article>
-            );
-          })}
+              </div>
+
+              {principles.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <article
+                    key={item.title}
+                    className="group flex gap-4 rounded-[16px] border border-white/10 bg-white/[0.04] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-300/70 hover:bg-white/[0.08]"
+                  >
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[14px] bg-purple-400/15 text-purple-200 transition-colors duration-300 group-hover:bg-purple-300/25">
+                      <Icon className="h-5 w-5" strokeWidth={1.7} />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-white">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-white/65">
+                        {item.description}
+                      </p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </section>
 
