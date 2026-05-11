@@ -39,8 +39,7 @@ export default function CustomAISolutions() {
           {t("customAI.headerLine1")} {t("customAI.headerLine2")}
         </h2>
 
-        {/* Cards Row */}
-        <div className="flex flex-col lg:flex-row items-stretch justify-center gap-6 md:gap-6">
+        <div className="grid grid-cols-1 gap-4 rounded-[16px] border border-gray-200 bg-white p-3 sm:p-4 lg:grid-cols-3">
           <AISolutionCard
             imageSrc="images/services/outbound.png"
             type={t("customAI.outboundTitle")}
@@ -53,37 +52,14 @@ export default function CustomAISolutions() {
             description={t("customAI.inboundDesc")}
             features={inboundFeatures}
           />
-        </div>
-
-        {/* Custom Workflow Card */}
-        <div className="w-full mx-auto bg-white border border-gray-200 rounded-3xl p-6 sm:p-8 md:p-10 mt-10 lg:mt-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Left Side */}
-            <div className="w-full md:w-[90%]">
-              <h3 className="text-xl md:text-2xl font-semibold mb-4">
-                <span className="text-gray-400 font-normal">
-                  {t("customAI.workflowLabel")}
-                </span>{" "}
-                {t("customAI.workflowTitle")}
-              </h3>
-              <p className="text-gray-500 text-base md:text-xl leading-relaxed mb-8">
-                {t("customAI.workflowDesc")}
-              </p>
-
-              <div className="flex flex-wrap gap-3 sm:gap-4">
-                <Image src={"/images/dots/dot-pattern-grid.avif"} alt="dot pattern" width={480} height={220} className="w-full grayscale-100"/>
-              </div>
-            </div>
-
-            {/* Right Side */}
-            <div>
-              <div className="space-y-4 sm:space-y-5">
-                {workflowFeatures.map((feature, i) => (
-                  <FeatureItem key={i} text={feature} />
-                ))}
-              </div>
-            </div>
-          </div>
+          <AISolutionCard
+            type={`${t("customAI.workflowLabel")} ${t(
+              "customAI.workflowTitle"
+            )}`}
+            description={t("customAI.workflowDesc")}
+            features={workflowFeatures}
+            variant="dark"
+          />
         </div>
       </div>
     </div>
@@ -98,45 +74,58 @@ function AISolutionCard({
   type,
   description,
   features,
+  variant = "light",
 }: {
-  imageSrc: string;
+  imageSrc?: string;
   type: string;
   description: string;
   features: string[];
+  variant?: "light" | "dark";
 }) {
+  const isDark = variant === "dark";
+
   // Highlight English and Dutch equivalents in purple
   const highlightType = (text: string) => {
     return text.replace(
       /(Inbound|Outbound|Inkomende|Uitgaande)/gi,
-      '<span class="text-purple-600 font-bold">$1</span>'
+      `<span class="${isDark ? "text-purple-300" : "text-purple-600"} font-bold">$1</span>`
     );
   };
 
   return (
-    <div className="flex-1 bg-white border border-gray-200 rounded-[48px] p-6 sm:p-8 md:p-10 transition-all duration-300">
+    <div
+      className={`flex-1 rounded-[16px] p-4 transition-all duration-300 sm:p-5 ${
+        isDark
+          ? "border border-white/10 bg-black shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.35)]"
+          : "border border-gray-200 bg-white"
+      }`}
+    >
       {/* Header */}
-      <div className="mb-6 sm:mb-8 flex flex-col md:flex-row items-start gap-4 md:gap-6">
-        <img
-          src={imageSrc}
-          alt={type}
-          className="w-24 h-24 sm:w-20 sm:h-20 scale-260 object-contain"
-        />
-
-        <div>
+      <div className="mb-4">
+        <div className="mb-3 flex items-center gap-5">
+          {imageSrc && (
+            <img
+              src={imageSrc}
+              alt={type}
+              className="h-12 w-12 shrink-0 scale-[1.7] object-contain"
+            />
+          )}
           <h3
-            className="text-[22px] font-bold mb-2"
+            className={`text-[19px] font-bold leading-tight ${
+              isDark ? "text-white" : "text-gray-900"
+            }`}
             dangerouslySetInnerHTML={{ __html: highlightType(type) }}
           />
-          <p className="text-gray-500 text-lg leading-relaxed md:w-[95%]">
-            {description}
-          </p>
         </div>
+        <p className={`text-sm leading-relaxed ${isDark ? "text-gray-300" : "text-gray-500"}`}>
+          {description}
+        </p>
       </div>
 
       {/* Features */}
-      <div className="space-y-3 sm:space-y-4">
+      <div className="space-y-1.5">
         {features.map((feature, i) => (
-          <FeatureItem key={i} text={feature} />
+          <FeatureItem key={i} text={feature} dark={isDark} />
         ))}
       </div>
     </div>
@@ -164,12 +153,29 @@ export function DotPatternGrid() {
 /* ---------------------------------------------------- */
 /* Feature Item Component                               */
 /* ---------------------------------------------------- */
-function FeatureItem({ text }: { text: string }) {
+function FeatureItem({ text, dark = false }: { text: string; dark?: boolean }) {
   return (
     <div className="flex items-center justify-start gap-2 sm:gap-3">
-      {/* <Check className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 mt-0.5 flex-shrink-0" /> */}
-      <Image src={"/images/icons/right-icon-dark.avif"} alt="check" width={38} height={38} className="mt-0.5 flex-shrink-0"/>
-      <p className="text-gray-700 text-base md:text-[18px] leading-6 my-4">{text}</p>
+      {dark ? (
+        <span className="mt-0.5 flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center rounded-full bg-purple-400/15 text-purple-200">
+          <Check className="h-3.5 w-3.5" />
+        </span>
+      ) : (
+        <Image
+          src={"/images/icons/right-icon-dark.avif"}
+          alt="check"
+          width={26}
+          height={26}
+          className="mt-0.5 flex-shrink-0"
+        />
+      )}
+      <p
+        className={`my-1.5 text-sm leading-5 md:text-[15px] ${
+          dark ? "text-gray-200" : "text-gray-700"
+        }`}
+      >
+        {text}
+      </p>
     </div>
   );
 }

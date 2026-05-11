@@ -49,17 +49,17 @@ const FAQSectionNew: React.FC = () => {
         </motion.div>
 
         {/* FAQ Items */}
-        <div className="space-y-4">
+        <div className="space-y-2.5">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
-              className="no-doto bg-transparent rounded-4xl md:rounded-[48px] border border-gray-300 p-2 md:p-6 overflow-hidden"
+              className="no-doto bg-transparent rounded-[16px] border border-gray-300 p-1 md:p-2 overflow-hidden"
             >
               <button
-                className="no-doto-button w-full px-4 md:px-5 py-3 text-left flex justify-between items-center cursor-pointer"
+                className="no-doto-button w-full px-4 md:px-5 py-2 text-left flex justify-between items-center cursor-pointer"
                 onClick={() => toggleFAQ(index)}
               >
-                <span className="text-black font-light text-base md:text-[24px] leading-snug">
+                <span className="text-black font-light text-base md:text-[20px] leading-snug">
                   {t(faq.questionKey)}
                 </span>
                 <motion.div
@@ -67,14 +67,14 @@ const FAQSectionNew: React.FC = () => {
                   transition={{ duration: 0.3 }}
                 >
                   {openIndex === index ? (
-                    <div className="w-12 h-12 flex items-center justify-center relative bg-black rounded-full">
-                      <div className="w-3 h-0.5 md:w-6 md:h-0.5 bg-white absolute rotate-90"></div>
-                      <div className="w-0.5 h-3 md:w-0.5 md:h-6 bg-white absolute rotate-90"></div>
+                    <div className="w-9 h-9 flex items-center justify-center relative bg-black rounded-full">
+                      <div className="w-3 h-0.5 md:w-5 md:h-0.5 bg-white absolute rotate-90"></div>
+                      <div className="w-0.5 h-3 md:w-0.5 md:h-5 bg-white absolute rotate-90"></div>
                     </div>
                   ) : (
-                    <div className="w-8 h-8 flex items-center justify-center relative">
-                      <div className="w-3 h-0.5 md:w-6 md:h-0.5 bg-black"></div>
-                      <div className="w-0.5 h-3 md:w-0.5 md:h-6 bg-black absolute"></div>
+                    <div className="w-7 h-7 flex items-center justify-center relative">
+                      <div className="w-3 h-0.5 md:w-5 md:h-0.5 bg-black"></div>
+                      <div className="w-0.5 h-3 md:w-0.5 md:h-5 bg-black absolute"></div>
                     </div>
                   )}
                 </motion.div>
@@ -89,8 +89,8 @@ const FAQSectionNew: React.FC = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-4">
-                      <p className="text-gray-500 leading-relaxed text-base md:text-xl">
+                    <div className="px-5 pb-3">
+                      <p className="text-gray-500 leading-relaxed text-base md:text-[17px]">
                         {t(faq.answerKey)}
                       </p>
                     </div>

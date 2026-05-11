@@ -53,7 +53,7 @@ export default function FeaturesSection() {
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="group relative flex min-h-[175px] flex-col justify-between overflow-hidden rounded-[16px] border border-gray-200 bg-white p-2 sm:min-h-[188px] sm:p-2.5"
+              className="group relative z-0 flex min-h-[250px] flex-col justify-between overflow-visible rounded-[16px] border border-gray-200 bg-white p-2 transition-all duration-300 hover:z-20 sm:h-[188px] sm:min-h-0 sm:p-2.5"
             >
               {/* Foreground Content */}
               <div className="relative z-10 flex h-full flex-col items-center text-left sm:flex-row sm:items-start">
@@ -75,7 +75,7 @@ export default function FeaturesSection() {
                   <img
                     src={feature.img}
                     alt={feature.alt}
-                    className="h-[195px] w-[320px] object-contain rounded-xl transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.04] group-hover:drop-shadow-[0_16px_28px_rgba(126,58,242,0.28)] sm:h-[174px] sm:w-full lg:h-[182px]"
+                    className="h-[176px] w-[300px] origin-center object-contain rounded-xl transition-all duration-500 ease-out group-hover:-translate-y-6 group-hover:scale-[1.5] group-hover:drop-shadow-[0_32px_52px_rgba(126,58,242,0.42)] sm:h-[166px] sm:w-full sm:origin-right lg:h-[174px]"
                   />
                 </div>
               </div>

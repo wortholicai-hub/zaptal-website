@@ -64,7 +64,7 @@ export const AIPoweredSolution = () => {
   return (
     <section
       id="ai-services"
-      className="relative flex flex-col items-center justify-center py-14 md:py-20 px-[4%] md:px-[0%] overflow-hidden bg-white"
+      className="relative flex flex-col items-center justify-center overflow-hidden bg-black px-[4%] py-14 md:px-[0%] md:py-20"
     >
       {/* Background glow */}
       {/* <div className="absolute inset-0 pointer-events-none">
@@ -74,7 +74,7 @@ export const AIPoweredSolution = () => {
       <div className="max-w-[1200px] mx-auto w-full relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-[34px] sm:text-4xl lg:text-5xl font-medium text-black tracking-tight">
+          <h2 className="text-[34px] sm:text-4xl lg:text-5xl font-medium text-white tracking-tight">
             {t("Our AI-Powered Services")}
           </h2>
           {/* <p className="text-gray-600 text-base sm:text-lg mt-4">
@@ -85,14 +85,20 @@ export const AIPoweredSolution = () => {
         </div>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 bg-[#111111] rounded-[50px] p-6 md:p-12 relative z-10">
+        <div className="relative z-10 grid grid-cols-1 gap-4 bg-black p-0 sm:grid-cols-2 lg:grid-cols-2">
           {serviceCategories.map((service, index) => (
             <div
               key={index}
-              className="bg-gradient-to-b from-gray-900/90 to-gray-800/90 border border-gray-700 rounded-3xl p-8 hover:border-purple-400 transition-all duration-300 shadow-md hover:shadow-lg"
+              className="group relative overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_80px_rgba(124,58,237,0.26),0_22px_55px_rgba(0,0,0,0.5)]"
             >
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.13),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-purple-300/35 to-transparent" />
+              <span className="pointer-events-none absolute right-6 top-4 text-[64px] font-semibold leading-none text-white/20 transition-colors duration-300 group-hover:text-white sm:text-[76px]">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
               {/* Icon + Title */}
-              <div className="flex items-center mb-6">
+              <div className="relative z-10 flex items-center mb-6">
                 <div className="flex-shrink-0 mr-4">
                   {service.icon}
                 </div>
@@ -102,16 +108,16 @@ export const AIPoweredSolution = () => {
               </div>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-gray-400 mb-5">
+              <p className="relative z-10 text-sm sm:text-base text-gray-400 mb-5">
                 {t(service.descriptionKey)}
               </p>
 
               {/* Features */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {service.featuresKeys.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="text-gray-400 text-[14px] font-normal flex items-center"
+                    className="flex items-center text-[14px] font-normal text-white"
                   >
                     <span className="mr-1.5 text-purple-400">•</span>
                     {t(feature)}
