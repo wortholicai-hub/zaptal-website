@@ -25,10 +25,10 @@ export default function CallNotification() {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center py-14 md:py-20 px-[4%] md:px-[3%] lg:px-[0%] overflow-x-hidden">
+    <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center py-10 md:py-14 px-[4%] md:px-[3%] lg:px-[0%] overflow-x-hidden">
       {/* ====== SECTION HEADING ====== */}
-      <div className="w-full max-w-[1200px] mx-auto text-center mb-24">
-        <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight">
+      <div className="w-full max-w-[1200px] mx-auto text-center mb-12">
+        <h2 className="text-black font-medium text-[30px] sm:text-[34px] lg:text-[42px] leading-tight">
           {t("vocalchat.sectionHeading")}
         </h2>
       </div>
@@ -70,13 +70,13 @@ export default function CallNotification() {
       </div>
 
       {/* Connector */}
-      <div className="w-1 h-20 sm:h-24 bg-gradient-to-t from-purple-600 via-purple-300 to-purple-100"></div>
+      <div className="w-1 h-12 sm:h-14 bg-gradient-to-t from-purple-600 via-purple-300 to-purple-100"></div>
 
       {/* ====== ANSWERED BY CARD ====== */}
       <div className="w-full flex justify-center mb-0 overflow-x-0">
-        <div className="relative rounded-4xl px-6 py-5 flex items-center gap-4 bg-white shadow-[0px_2px_49px_15px_rgba(147,_51,_234,_0.2)] min-w-fit">
+        <div className="relative rounded-[24px] px-5 py-4 flex items-center gap-4 bg-white shadow-[0px_2px_36px_8px_rgba(147,_51,_234,_0.16)] min-w-fit">
           {/* Avatar */}
-          <div className="w-14 sm:w-16 h-14 sm:h-16 rounded-full overflow-hidden bg-gray-100 shrink-0">
+          <div className="w-12 sm:w-14 h-12 sm:h-14 rounded-full overflow-hidden bg-gray-100 shrink-0">
             <img
               src="/images/ai-voice/Amira.png"
               alt="AI Amira"
@@ -97,7 +97,7 @@ export default function CallNotification() {
 
             {/* Wave Bars */}
             <div className="flex items-end gap-1">
-              {[10, 20, 14, 24, 20, 28, 24, 20, 14, 24, 16, 12].map((h, i) => (
+              {[8, 16, 12, 20, 16, 22, 20, 16, 12, 20, 14, 10].map((h, i) => (
                 <div
                   key={i}
                   className={`w-1 rounded-full ${
@@ -112,12 +112,12 @@ export default function CallNotification() {
       </div>
 
       {/* Connector */}
-      <div className="w-1 h-20 sm:h-24 bg-gradient-to-b from-purple-600 via-purple-300 to-purple-100"></div>
+      <div className="w-1 h-12 sm:h-14 bg-gradient-to-b from-purple-600 via-purple-300 to-purple-100"></div>
 
       {/* ====== PROBLEM CARDS ====== */}
-      <div className="w-full max-w-[1200px] min-h-[660px] mt-1 bg-[#111111] rounded-[50px] p-5 sm:p-8 text-white">
-        <div className="flex justify-center mb-10 mt-4">
-          <div className="flex items-center bg-[#ffffff1a] text-white text-base px-4 py-2 rounded-full">
+      <div className="w-full max-w-[1120px] mt-1 bg-[#111111] rounded-[24px] p-4 sm:p-5 text-white">
+        <div className="flex justify-center mb-6 mt-2">
+          <div className="flex items-center bg-[#ffffff1a] text-white text-sm px-4 py-2 rounded-full">
             <span className="mr-2">
               {t("vocalchat.stopLosing") || "Stop losing leads"}
             </span>
@@ -128,7 +128,7 @@ export default function CallNotification() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[1, 2, 3].map((num) => (
             <div
               key={num}
@@ -136,13 +136,13 @@ export default function CallNotification() {
                 num === 2
                   ? "bg-[#6b43f233]"
                   : "bg-[#111111]"
-              } p-6 rounded-4xl text-left min-h-[380px] sm:min-h-[480px] flex flex-col justify-between items-center`}
+              } p-4 rounded-[16px] text-left min-h-[300px] sm:min-h-[340px] flex flex-col justify-between items-center`}
             >
               <div>
-                <h3 className="text-[28px] font-medium mb-3 text-left whitespace-pre-line">
+                <h3 className="text-[22px] font-medium mb-2 text-left whitespace-pre-line">
                   {t(`vocalchat.problem${num}Title`) || `Problem ${num}`}
                 </h3>
-                <p className="text-gray-400 text-base text-left whitespace-pre-line">
+                <p className="text-gray-400 text-sm leading-6 text-left whitespace-pre-line">
                   {t(`vocalchat.problem${num}Desc`) ||
                     `Description of problem ${num}.`}
                 </p>
@@ -150,7 +150,11 @@ export default function CallNotification() {
               <img
                 src={`/images/agents/${num}.png`}
                 alt={`Problem ${num}`}
-                className="object-cover mt-5 rounded-xl w-36 h-36 sm:w-44 sm:h-44 scale-120"
+                className={`object-cover mt-4 rounded-xl scale-120 ${
+                  num === 3
+                    ? "w-36 h-36 sm:w-48 sm:h-48"
+                    : "w-32 h-32 sm:w-40 sm:h-40"
+                }`}
               />
               {num === 2 && (
                 <div className="flex justify-center mt-4">
@@ -162,7 +166,7 @@ export default function CallNotification() {
                         section.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="text-[clamp(10px,1.5vw,16px)] flex items-center justify-center gap-1.5 px-6 py-3 rounded-2xl bg-white text-black border border-gray-200 hover:bg-purple-100 hover:border-gray-300 transition-all duration-300 cursor-pointer"
+                    className="text-[clamp(10px,1.5vw,14px)] flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-[14px] bg-white text-black border border-gray-200 hover:bg-purple-100 hover:border-gray-300 transition-all duration-300 cursor-pointer"
                   >
                     {t("vocalchat.learnMore") || "Learn More"}
                     <DottedArrowUpRight color="black" />
