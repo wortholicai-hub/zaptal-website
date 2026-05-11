@@ -49,43 +49,34 @@ export default function FeaturesSection() {
         </h2>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-6">
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-2.5 sm:grid-cols-2 md:gap-3">
           {features.map((feature) => (
             <div
               key={feature.id}
-              className="relative border border-gray-300 rounded-4xl p-6 bg-white overflow-hidden flex flex-col justify-between min-h-[380px] sm:min-h-[420px]"
+              className="group relative flex min-h-[175px] flex-col justify-between overflow-hidden rounded-[16px] border border-gray-200 bg-white p-2 sm:min-h-[188px] sm:p-2.5"
             >
-              {/* Background Overlay */}
-              <div className="absolute inset-0 opacity-100">
-                <img
-                  src="https://framerusercontent.com/images/BpUgcKlbgozaYrDw9SLXq6Gac.png"
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
               {/* Foreground Content */}
-              <div className="relative z-10 flex flex-col h-full items-center text-left">
-                {/* Image */}
-                <div className="flex justify-center items-center mb-8 w-full">
-                  <img
-                    src={feature.img}
-                    alt={feature.alt}
-                    className="w-[340px] h-[315px] sm:w-[410px] sm:h-[370px] lg:w-[500px] lg:h-[420px] object-contain rounded-xl"
-                  />
-                </div>
-
+              <div className="relative z-10 flex h-full flex-col items-center text-left sm:flex-row sm:items-start">
                 {/* Text container */}
-                <div className="px-2 md:px-4">
+                <div className="order-2 -mt-5 px-1 sm:order-1 sm:mt-0 sm:w-[42%] sm:px-1 sm:pt-2">
                   {/* Title */}
-                  <h3 className="text-[32px] sm:text-[32px] lg:text-[32px] font-medium text-gray-800 mb-3 whitespace-pre-line">
+                  <h3 className="mb-8 whitespace-nowrap text-[18px] font-medium text-gray-800 sm:text-[19px] md:text-[20px] lg:text-[21px]">
                     {feature.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed whitespace-normal">
+                  <p className="text-[13px] leading-tight text-gray-600 sm:text-sm whitespace-normal">
                     {feature.desc}
                   </p>
+                </div>
+
+                {/* Image */}
+                <div className="order-1 flex w-full items-center justify-center sm:order-2 sm:w-[58%] sm:justify-end">
+                  <img
+                    src={feature.img}
+                    alt={feature.alt}
+                    className="h-[195px] w-[320px] object-contain rounded-xl transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:scale-[1.04] group-hover:drop-shadow-[0_16px_28px_rgba(126,58,242,0.28)] sm:h-[174px] sm:w-full lg:h-[182px]"
+                  />
                 </div>
               </div>
             </div>
