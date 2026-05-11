@@ -1,33 +1,31 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import {
+  Activity,
   Building2,
-  Heart,
-  ShoppingCart,
-  CreditCard,
-  Briefcase,
-  GraduationCap,
-  Plane,
-  Scale,
-  Store,
+  CalendarCheck,
+  ClipboardList,
   HandHeart,
+  HeartPulse,
+  Hospital,
+  ShieldCheck,
+  Sparkles,
+  Stethoscope,
   LucideIcon,
 } from "lucide-react";
 
-// === ICON MAP (typed) ===
 const industryIcons = {
-  healthcare: Heart,
-  ecommerce: ShoppingCart,
-  financial: CreditCard,
-  professional: Briefcase,
-  realestate: Building2,
+  healthcare: Stethoscope,
+  ecommerce: CalendarCheck,
+  financial: Sparkles,
+  professional: Building2,
+  realestate: HeartPulse,
   nonprofit: HandHeart,
-  education: GraduationCap,
-  travel: Plane,
-  retail: Store,
-  legal: Scale,
+  education: Hospital,
+  travel: Activity,
+  retail: ClipboardList,
+  legal: ShieldCheck,
 } as const;
 
 type IndustryKey = keyof typeof industryIcons;
@@ -42,8 +40,6 @@ interface Industry {
 
 export default function IndustrySolutions() {
   const { t } = useTranslation();
-  const [isPaused, setIsPaused] = useState(false);
-  const [visibleStart, setVisibleStart] = useState(0);
 
   const industries: Industry[] = (
     Object.keys(industryIcons) as IndustryKey[]
@@ -55,90 +51,39 @@ export default function IndustrySolutions() {
     icon: industryIcons[key],
   }));
 
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setVisibleStart((prev) => (prev + 5) % industries.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [isPaused, industries.length]);
-
-  const visibleIndustries = industries
-    .slice(visibleStart, visibleStart + 5)
-    .concat(
-      visibleStart + 5 > industries.length
-        ? industries.slice(0, (visibleStart + 5) % industries.length)
-        : []
-    );
-
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-12 sm:px-6 md:py-16 lg:px-2">
-      {/* Wave Card Animations */}
-      <style>{`
-        .wave-card {
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          cursor: pointer;
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .wave-card:nth-child(1) { animation: wave1 12s infinite ease-in-out; }
-        .wave-card:nth-child(2) { animation: wave2 12s infinite ease-in-out; }
-        .wave-card:nth-child(3) { animation: wave3 12s infinite ease-in-out; }
-        .wave-card:nth-child(4) { animation: wave4 12s infinite ease-in-out; }
-        .wave-card:nth-child(5) { animation: wave5 12s infinite ease-in-out; }
-        .wave-paused .wave-card { animation-play-state: paused; }
-
-        @keyframes wave1 {
-          0%,100% { transform: translate(-50%, -50%) translateX(-500px) translateY(-80px) scale(0.6); z-index:1; opacity:0.4; }
-          20% { transform: translate(-50%, -50%) translateX(-250px) translateY(-40px) scale(0.8); z-index:3; opacity:0.7; }
-          40% { transform: translate(-50%, -50%) translateX(0) translateY(0) scale(1.1); z-index:5; opacity:1; }
-          60% { transform: translate(-50%, -50%) translateX(250px) translateY(-40px) scale(0.8); z-index:3; opacity:0.7; }
-          80% { transform: translate(-50%, -50%) translateX(500px) translateY(-80px) scale(0.6); z-index:1; opacity:0.4; }
-        }
-        @keyframes wave2 { 0%,100%{transform:translate(-50%,-50%) translateX(-250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} 20%{transform:translate(-50%,-50%) translateX(0) translateY(0) scale(1.1);z-index:5;opacity:1;} 40%{transform:translate(-50%,-50%) translateX(250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} 60%{transform:translate(-50%,-50%) translateX(500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} 80%{transform:translate(-50%,-50%) translateX(-500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} }
-        @keyframes wave3 { 0%,100%{transform:translate(-50%,-50%) translateX(0) translateY(0) scale(1.1);z-index:5;opacity:1;} 20%{transform:translate(-50%,-50%) translateX(250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} 40%{transform:translate(-50%,-50%) translateX(500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} 60%{transform:translate(-50%,-50%) translateX(-500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} 80%{transform:translate(-50%,-50%) translateX(-250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} }
-        @keyframes wave4 { 0%,100%{transform:translate(-50%,-50%) translateX(250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} 20%{transform:translate(-50%,-50%) translateX(500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} 40%{transform:translate(-50%,-50%) translateX(-500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} 60%{transform:translate(-50%,-50%) translateX(-250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} 80%{transform:translate(-50%,-50%) translateX(0) translateY(0) scale(1.1);z-index:5;opacity:1;} }
-        @keyframes wave5 { 0%,100%{transform:translate(-50%,-50%) translateX(500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} 20%{transform:translate(-50%,-50%) translateX(-500px) translateY(-80px) scale(0.6);z-index:1;opacity:0.4;} 40%{transform:translate(-50%,-50%) translateX(-250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} 60%{transform:translate(-50%,-50%) translateX(0) translateY(0) scale(1.1);z-index:5;opacity:1;} 80%{transform:translate(-50%,-50%) translateX(250px) translateY(-40px) scale(0.8);z-index:3;opacity:0.7;} }
-      `}</style>
-
-      <div className="w-full max-w-[1200px] mx-auto">
-        {/* Header */}
-        <div className="text-center mb-6 sm:mb-6">
-          <h2 className="text-[35px] sm:text-4xl lg:text-5xl font-medium text-gray-900 mb-3">
+    <section className="relative overflow-hidden bg-black px-4 py-14 sm:px-6 md:py-16 lg:px-2">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_0%,rgba(147,51,234,0.26),transparent_33%),radial-gradient(circle_at_88%_18%,rgba(255,255,255,0.1),transparent_26%)]" />
+      <div className="relative z-10 mx-auto w-full max-w-[1200px]">
+        <div className="mb-10 text-center">
+            <h2 className="text-[30px] font-medium leading-tight text-white sm:text-[38px] md:text-[44px] lg:text-[48px]">
             {t("industry.title")}
           </h2>
-          {/* <p className="text-lg sm:text-xl md:text-2xl text-gray-600">
-            {t("industry.subtitle")}
-          </p> */}
         </div>
 
-        {/* Wave Carousel */}
-        <div
-          className={`relative h-[350px] sm:h-[370px] md:h-[400px] ${
-            isPaused ? "wave-paused" : ""
-          }`}
-          style={{ perspective: "2000px" }}
-        >
-          {visibleIndustries.map((industry) => {
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {industries.map((industry, index) => {
             const Icon = industry.icon;
             return (
-              <div
+              <article
                 key={industry.id}
-                className="wave-card w-[280px] sm:w-[300px] lg:w-[350px] h-[180px] sm:h-[200px] lg:h-[280px] bg-white rounded-2xl p-6 sm:p-10 shadow-2xl"
-                onMouseEnter={() => setIsPaused(true)}
-                onMouseLeave={() => setIsPaused(false)}
+                className="group relative min-h-[172px] overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_70px_rgba(124,58,237,0.22),0_20px_50px_rgba(0,0,0,0.45)]"
               >
-                <div className="text-black mb-4 sm:mb-5">
-                  <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.12),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.07),transparent_42%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="pointer-events-none absolute right-4 top-4 text-[40px] font-semibold leading-none text-white/14 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.45)]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-[14px] bg-purple-400/15 text-purple-300 transition-colors duration-300 group-hover:bg-purple-300 group-hover:text-black">
+                  <Icon className="h-5 w-5" strokeWidth={1.6} />
                 </div>
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold mb-3 text-gray-800">
+                <h3 className="relative z-10 mt-5 text-[17px] font-semibold leading-snug text-white">
                   {industry.title}
                 </h3>
-                <p className="text-sm sm:text-base lg:text-lg text-gray-600 leading-relaxed">
+                <p className="relative z-10 mt-2 text-sm leading-6 text-white/58">
                   {industry.description}
                 </p>
-              </div>
+              </article>
             );
           })}
         </div>

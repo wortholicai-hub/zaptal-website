@@ -26,18 +26,19 @@ export const WhyChoose = () => {
       ),
     },
     {
-      icon: <Rocket className="w-6 h-6 lg:w-8 lg:h-8 text-black" />,
-      title: t("Always Available, Always Engaged"),
+      icon: <Rocket className="w-6 h-6 lg:w-8 lg:h-8 text-purple-300" />,
+      title: t("Always Available, Always Helpful"),
       desc: [
         t(
-          "Customers expect instant answers. With Zaptal, your brand is present around the clock, responding to questions, guiding buyers, and capturing opportunities, even when your team is offline."
+          "Patients expect quick answers. With Zaptal, your clinic can respond around the clock, guide patients, and recover booking opportunities when the team is busy or offline."
         ),
         t(
-          "Deliver faster service, higher satisfaction, and more closed deals without extra overhead."
+          "Deliver faster patient communication, better access, and more completed bookings without extra front-desk pressure."
         ),
       ],
       button: true,
       large: true,
+      dark: true,
     },
     {
       icon: <Settings className="w-6 h-6 lg:w-8 lg:h-8 text-black" />,
@@ -72,16 +73,31 @@ export const WhyChoose = () => {
               //   boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
               // }}
               transition={{ duration: 0.3 }}
-              className={`relative border border-gray-200 rounded-2xl overflow-hidden flex flex-col justify-between bg-white
+              className={`relative rounded-[16px] overflow-hidden flex flex-col justify-between
+                ${
+                  card.dark
+                    ? "border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#171021_100%)] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_24px_70px_rgba(0,0,0,0.32)]"
+                    : "border border-gray-200 bg-white"
+                }
                 ${card.large ? "lg:row-span-2" : ""}
                 ${card.wide ? "lg:col-span-2" : ""}
               `}
             >
+              {card.dark && (
+                <>
+                  <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_0%,rgba(168,85,247,0.34),transparent_36%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_45%)]" />
+                  <div className="pointer-events-none absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-purple-300/45 to-transparent" />
+                </>
+              )}
               <div className="relative z-10 p-6 sm:p-8 flex flex-col h-full">
                 {/* Icon + Title */}
                 <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-6">
                   {card.icon}
-                  <h3 className="text-xl sm:text-2xl font-bold text-black leading-snug">
+                  <h3
+                    className={`text-xl sm:text-2xl font-bold leading-snug ${
+                      card.dark ? "text-white" : "text-black"
+                    }`}
+                  >
                     {card.title}
                   </h3>
                 </div>
@@ -91,13 +107,19 @@ export const WhyChoose = () => {
                   card.desc.map((d, idx) => (
                     <p
                       key={idx}
-                      className="text-gray-700 text-sm sm:text-base leading-relaxed mb-3 last:mb-0"
+                      className={`text-sm sm:text-base leading-relaxed mb-3 last:mb-0 ${
+                        card.dark ? "text-white/75" : "text-gray-700"
+                      }`}
                     >
                       {d}
                     </p>
                   ))
                 ) : (
-                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                  <p
+                    className={`text-sm sm:text-base leading-relaxed ${
+                      card.dark ? "text-white/75" : "text-gray-700"
+                    }`}
+                  >
                     {card.desc}
                   </p>
                 )}
@@ -106,8 +128,14 @@ export const WhyChoose = () => {
                 {card.button && (
                   <div className="mt-6 sm:mt-8">
                     <Link href="/contactus">
-                      <button className="bg-black hover:bg-primary-600 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl font-semibold flex items-center justify-center gap-2 transition-colors duration-300 text-sm sm:text-base cursor-pointer">
-                        {t("Try it for free")}
+                      <button
+                        className={`flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 ${
+                          card.dark
+                            ? "bg-white text-black hover:bg-purple-200"
+                            : "bg-black text-white hover:bg-primary-600"
+                        }`}
+                      >
+                        {t("Book a demo")}
                       </button>
                     </Link>
                   </div>
