@@ -157,10 +157,10 @@ const Footer: React.FC = () => {
           <h2 className="text-[20vw] font-bold leading-none select-none whitespace-nowrap cursor-default text-white/10">
             Zaptal
           </h2>
-          <h2 className="pointer-events-none absolute inset-0 text-[20vw] font-bold leading-none select-none whitespace-nowrap cursor-default text-white/42 opacity-0 transition-opacity duration-200 group-hover:opacity-100 [text-shadow:0_0_24px_rgba(255,255,255,0.78),0_0_64px_rgba(255,255,255,0.42)] [mask-image:radial-gradient(280px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_44%,rgba(0,0,0,0.55)_70%,transparent_88%)] [-webkit-mask-image:radial-gradient(280px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_44%,rgba(0,0,0,0.55)_70%,transparent_88%)]">
+          <h2 className="pointer-events-none absolute inset-0 text-[20vw] font-bold leading-none select-none whitespace-nowrap cursor-default text-white/70 opacity-0 transition-opacity duration-150 group-hover:opacity-100 [mask-image:radial-gradient(330px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_54%,rgba(0,0,0,0.62)_61%,transparent_70%)] [-webkit-mask-image:radial-gradient(330px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_54%,rgba(0,0,0,0.62)_61%,transparent_70%)]">
             Zaptal
           </h2>
-          <h2 className="pointer-events-none absolute inset-0 text-[20vw] font-bold leading-none select-none whitespace-nowrap cursor-default text-purple-300/20 opacity-0 transition-opacity duration-200 group-hover:opacity-100 [text-shadow:0_0_10px_rgba(168,85,247,0.48),0_0_24px_rgba(126,58,242,0.28)] [mask-image:radial-gradient(150px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_42%,rgba(0,0,0,0.5)_68%,transparent_88%)] [-webkit-mask-image:radial-gradient(150px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_42%,rgba(0,0,0,0.5)_68%,transparent_88%)]">
+          <h2 className="pointer-events-none absolute inset-0 text-[20vw] font-bold leading-none select-none whitespace-nowrap cursor-default text-purple-300/70 opacity-0 transition-opacity duration-150 group-hover:opacity-100 [mask-image:radial-gradient(180px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_56%,rgba(0,0,0,0.62)_64%,transparent_73%)] [-webkit-mask-image:radial-gradient(180px_circle_at_var(--footer-glow-x)_var(--footer-glow-y),black_0%,black_56%,rgba(0,0,0,0.62)_64%,transparent_73%)]">
             Zaptal
           </h2>
         </div>
