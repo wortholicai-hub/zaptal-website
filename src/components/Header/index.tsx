@@ -43,21 +43,19 @@ export default function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="relative mx-auto flex w-full max-w-[1200px] items-center justify-between px-4 sm:px-6 lg:px-2">
-          <Link href="/" className="flex items-center gap-0 sm:gap-0">
+        <div className="relative mx-auto grid h-16 w-full max-w-[1120px] grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-4">
+          <Link href="/" className="flex min-w-[116px] items-center justify-self-start">
             <Image
-              src="/images/logo/logo.png"
+              src="/images/logo/zaptal-logo.svg"
               alt="Zaptal logo"
-              width={36}
-              height={36}
-              className="w-12 h-12 sm:w-9 sm:h-9 md:w-18 md:h-18 object-contain"
+              width={150}
+              height={82}
+              priority
+              className="h-11 w-auto object-contain sm:h-12 md:h-12"
             />
-            <motion.h3 className="text-xl sm:text-xl md:text-xl lg:text-2xl font-bold tracking-wide text-black">
-              Zaptal
-            </motion.h3>
           </Link>
 
-          <div className="absolute left-1/2 top-0 transform -translate-x-1/2 h-full hidden md:flex items-center space-x-4 lg:space-x-4">
+          <div className="hidden items-center justify-center gap-4 md:flex lg:gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -71,7 +69,7 @@ export default function Header() {
             ))}
           </div>
 
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden items-center justify-self-end md:flex">
             <motion.a
               href="https://calendar.google.com/calendar/u/0/r"
               target="_blank"
@@ -82,7 +80,7 @@ export default function Header() {
             </motion.a>
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="flex items-center justify-self-end md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className="p-2 rounded-md border border-gray-300 bg-white/70 backdrop-blur-sm"
