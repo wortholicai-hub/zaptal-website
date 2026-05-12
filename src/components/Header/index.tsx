@@ -43,15 +43,15 @@ export default function Header() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="relative mx-auto grid h-16 w-full max-w-[1120px] grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-4">
-          <Link href="/" className="flex min-w-[116px] items-center justify-self-start">
+        <div className="relative mx-auto grid h-20 w-full max-w-[1120px] grid-cols-[auto_1fr_auto] items-center px-4 sm:px-6 lg:px-4">
+          <Link href="/" className="flex min-w-[142px] items-center justify-self-start">
             <Image
               src="/images/logo/zaptal-logo.svg"
               alt="Zaptal logo"
-              width={150}
-              height={82}
+              width={190}
+              height={104}
               priority
-              className="h-11 w-auto object-contain sm:h-12 md:h-12"
+              className="h-14 w-auto object-contain sm:h-16 md:h-[68px]"
             />
           </Link>
 
@@ -134,7 +134,7 @@ export default function Header() {
         </AnimatePresence>
       </motion.header>
 
-      <div className="h-12 sm:h-16 md:h-20" />
+      <div className="h-20 sm:h-20 md:h-24" />
     </>
   );
 }
