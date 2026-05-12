@@ -180,8 +180,8 @@ export const AdvancedAiFeatures = () => {
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 ${
                         isActive
-                          ? "border-black bg-black text-white"
-                          : "border-black/10 bg-white text-gray-500 group-hover:border-purple-200 group-hover:text-purple-700"
+                          ? "border-purple-600 bg-purple-600 text-white"
+                          : "border-purple-100 bg-white text-purple-700 group-hover:border-purple-200 group-hover:bg-purple-50"
                       }`}
                     >
                       <FeatureIcon className="h-4 w-4" />
@@ -195,8 +195,8 @@ export const AdvancedAiFeatures = () => {
                   <span
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
                       isActive
-                        ? "border-black bg-black text-white"
-                        : "border-black/10 bg-white text-black group-hover:border-purple-200 group-hover:bg-purple-50"
+                        ? "border-purple-600 bg-purple-600 text-white"
+                        : "border-purple-100 bg-white text-purple-700 group-hover:border-purple-200 group-hover:bg-purple-50"
                     }`}
                   >
                     <Plus className="h-3.5 w-3.5" />

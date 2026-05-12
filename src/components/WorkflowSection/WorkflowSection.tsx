@@ -91,7 +91,7 @@ export default function WorkflowSection() {
               </div>
 
               <div className="relative grid gap-2.5 sm:gap-2">
-                <span className="pointer-events-none absolute bottom-3 left-4 top-3 w-px bg-black/12 sm:left-1/2 sm:-translate-x-1/2" />
+                <span className="pointer-events-none absolute bottom-3 left-4 top-3 w-px bg-purple-200 sm:left-1/2 sm:-translate-x-1/2" />
                 {features.map(({ label, detail, Icon }, index) => {
                   const isRight = index % 2 === 1;
 
@@ -100,16 +100,16 @@ export default function WorkflowSection() {
                       <span className="absolute left-4 top-6 z-10 h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-black ring-4 ring-black/8 sm:left-1/2" />
                       <article
                         tabIndex={0}
-                        className={`group relative ml-8 grid h-[52px] grid-cols-[auto_1fr] items-center gap-2.5 rounded-[16px] border border-black/10 bg-white/92 px-3 text-left shadow-[0_10px_28px_rgba(15,23,42,0.04)] backdrop-blur-[2px] transition-all duration-300 hover:z-20 hover:-translate-y-0.5 hover:border-black/20 hover:bg-white hover:shadow-[0_16px_36px_rgba(15,23,42,0.08)] focus:z-20 focus:bg-white focus:outline-none focus-visible:border-black/30 sm:ml-0 sm:h-[54px] sm:w-[calc(50%-22px)] ${
+                        className={`group relative ml-8 grid h-[52px] grid-cols-[auto_1fr] items-center gap-2.5 rounded-[16px] border border-purple-100 bg-white/92 px-3 text-left shadow-[0_10px_28px_rgba(15,23,42,0.04)] backdrop-blur-[2px] transition-all duration-300 hover:z-20 hover:-translate-y-0.5 hover:border-purple-200 hover:bg-white hover:shadow-[0_16px_36px_rgba(108,71,255,0.1)] focus:z-20 focus:bg-white focus:outline-none focus-visible:border-purple-300 sm:ml-0 sm:h-[54px] sm:w-[calc(50%-22px)] ${
                           isRight ? "sm:ml-auto" : "sm:mr-auto"
                         }`}
                       >
                         <span
-                          className={`pointer-events-none absolute top-1/2 hidden h-px w-[22px] -translate-y-1/2 bg-black/12 sm:block ${
+                          className={`pointer-events-none absolute top-1/2 hidden h-px w-[22px] -translate-y-1/2 bg-purple-200 sm:block ${
                             isRight ? "left-[-22px]" : "right-[-22px]"
                           }`}
                         />
-                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-black text-white transition-colors duration-300 group-hover:bg-gray-900 group-focus:bg-gray-900">
+                        <span className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-purple-600 text-white transition-colors duration-300 group-hover:bg-purple-700 group-focus:bg-purple-700">
                           <Icon className="h-4 w-4" aria-hidden="true" />
                         </span>
                         <span className="min-w-0">
@@ -132,7 +132,7 @@ export default function WorkflowSection() {
             <img
               src="/sms.svg"
               alt="Dental voice AI workflow connecting calls, messages, scheduling, patient records, and analytics"
-              className="h-full min-h-[560px] w-full scale-[1.16] object-contain [mask-image:linear-gradient(to_right,transparent_0%,transparent_7%,black_34%,black_100%)] lg:min-h-[640px] lg:translate-x-2 lg:scale-[1.2]"
+              className="h-full min-h-[610px] w-full scale-[1.26] object-contain [mask-image:linear-gradient(to_right,transparent_0%,transparent_7%,black_34%,black_100%)] lg:min-h-[700px] lg:scale-[1.32]"
             />
           </div>
         </div>
