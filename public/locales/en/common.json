@@ -421,7 +421,7 @@
       },
       "ecommerce": {
         "title": "Dental Clinics",
-        "description": "Automate booking, recall, and treatment follow-up"
+        "description": "Support appointment requests and call visibility"
       },
       "financial": {
         "title": "Wellness Centers",
@@ -441,19 +441,19 @@
       },
       "education": {
         "title": "Dental Service Orgs",
-        "description": "Centralize call intelligence and workflows"
+        "description": "Centralize call visibility across locations"
       },
       "travel": {
         "title": "Aesthetic Clinics",
-        "description": "Book consults and follow up with prospects automatically"
+        "description": "Capture consult requests and next steps"
       },
       "retail": {
         "title": "Chiropractic Clinics",
-        "description": "Manage inbound calls, reminders, and reactivation"
+        "description": "Organize inbound calls and appointment requests"
       },
       "legal": {
         "title": "Healthcare Admin Teams",
-        "description": "Automate repetitive communication workflows"
+        "description": "Review call summaries and team handoffs"
       }
     }
   },

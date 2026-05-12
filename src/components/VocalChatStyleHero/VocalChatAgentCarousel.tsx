@@ -79,7 +79,7 @@ const agents: Agent[] = [
   },
   {
     id: 7,
-    src: "/images/ai-voice/Selena.png",
+    src: "/images/ai-voice/coma.png",
     audio: "/audio/ai-voice/EN/Selena.mp3",
     details: {
       name: "Selena - Routing Agent",
