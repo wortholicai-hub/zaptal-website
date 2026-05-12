@@ -66,44 +66,37 @@ const pmsIntegrations = [
   {
     name: "Dentrix",
     category: "Dental PMS",
-    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.dentrix.com",
-    source: "dentrix.com",
+    logo: "/images/PMS/Dentrix.png",
   },
   {
     name: "Eaglesoft",
     category: "Dental PMS",
-    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.pattersondental.com",
-    source: "pattersondental.com",
+    logo: "/images/PMS/eaglesoft.png",
   },
   {
     name: "Open Dental",
     category: "Dental PMS",
-    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.opendental.com",
-    source: "opendental.com",
+    logo: "/images/PMS/LogoBigO_Software.png",
   },
   {
     name: "Dentrix Enterprise",
     category: "Enterprise PMS",
-    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.dentrixenterprise.com",
-    source: "dentrixenterprise.com",
+    logo: "/images/PMS/dentrix-enterprise.webp",
   },
   {
     name: "Dolphin",
     category: "Ortho PMS",
-    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.dolphinimaging.com",
-    source: "dolphinimaging.com",
+    logo: "/images/PMS/dolphin.png",
   },
   {
     name: "OrthoTrac",
     category: "Ortho PMS",
-    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.carestreamdental.com",
-    source: "carestreamdental.com",
+    logo: "/images/PMS/orthotrac_web_logo-300x119.png",
   },
   {
     name: "PracticeWorks",
     category: "Dental PMS",
-    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.carestreamdental.com",
-    source: "carestreamdental.com",
+    logo: "/images/PMS/PW_Logo_FullColor.webp",
   },
 ];
 
@@ -116,7 +109,7 @@ function PmsLogo({ name, logo }: { name: string; logo: string }) {
     .slice(0, 2);
 
   return (
-    <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-black/10 bg-white shadow-[0_12px_28px_rgba(0,0,0,0.06)]">
+    <div className="relative flex h-16 w-24 items-center justify-center rounded-2xl border border-black/10 bg-white px-3 shadow-[0_12px_28px_rgba(0,0,0,0.06)]">
       {!failed && (
         <span className="absolute text-sm font-bold text-purple-700/70">
           {initials}
@@ -128,7 +121,7 @@ function PmsLogo({ name, logo }: { name: string; logo: string }) {
         <img
           src={logo}
           alt={`${name} logo`}
-          className="relative h-9 w-9 object-contain"
+          className="relative max-h-10 w-full object-contain"
           onError={() => setFailed(true)}
         />
       )}
@@ -211,9 +204,6 @@ export const AdvancedAiFeatures = () => {
                 </h4>
                 <p className="mt-1 text-xs font-medium text-gray-500">
                   {integration.category}
-                </p>
-                <p className="mt-3 text-[11px] text-gray-400">
-                  {integration.source}
                 </p>
               </article>
             ))}

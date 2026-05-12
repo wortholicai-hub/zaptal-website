@@ -16,7 +16,7 @@ import ConsultationSection from "@/components/BookAConsultation/BookAConsultatio
 
 export default function Home() {
   return (
-    <div>
+    <div className="home-page">
       <VocalChatStyleHero />
       <VocalChatAgentCarousel />
       <HeroSubtitle />

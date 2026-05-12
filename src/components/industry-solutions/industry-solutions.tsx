@@ -52,8 +52,10 @@ export default function IndustrySolutions() {
   }));
 
   return (
-    <section className="relative overflow-hidden bg-black px-4 py-14 sm:px-6 md:py-16 lg:px-2">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_0%,rgba(147,51,234,0.26),transparent_33%),radial-gradient(circle_at_88%_18%,rgba(255,255,255,0.1),transparent_26%)]" />
+    <section className="relative overflow-hidden bg-[#06040b] px-4 pb-32 pt-36 text-white sm:px-6 md:pb-40 md:pt-40 lg:px-2">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(139,92,246,0.32),transparent_34%),radial-gradient(circle_at_84%_22%,rgba(34,211,238,0.18),transparent_30%),linear-gradient(135deg,rgba(21,10,45,0.9),rgba(3,4,10,0.78)_45%,rgba(8,27,33,0.86))]" />
+      <div className="pointer-events-none absolute left-1/2 top-[-250px] h-[350px] w-[175%] -translate-x-1/2 rounded-[50%] bg-white shadow-[0_28px_80px_rgba(139,92,246,0.16)]" />
+      <div className="pointer-events-none absolute bottom-[-270px] left-1/2 h-[360px] w-[175%] -translate-x-1/2 rounded-[50%] bg-white shadow-[0_-24px_70px_rgba(139,92,246,0.14)]" />
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <div className="mb-10 text-center">
             <h2 className="text-[30px] font-medium leading-tight text-white sm:text-[38px] md:text-[44px] lg:text-[48px]">
@@ -67,7 +69,7 @@ export default function IndustrySolutions() {
             return (
               <article
                 key={industry.id}
-                className="group relative min-h-[172px] overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_70px_rgba(124,58,237,0.22),0_20px_50px_rgba(0,0,0,0.45)]"
+                className="group relative min-h-[172px] overflow-hidden rounded-[18px] border border-purple-200/15 bg-[linear-gradient(145deg,rgba(90,74,125,0.48)_0%,rgba(20,57,79,0.34)_42%,rgba(5,4,6,0.92)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300/70 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_70px_rgba(124,58,237,0.22),0_20px_50px_rgba(0,0,0,0.45)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.12),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.07),transparent_42%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
                 <span className="pointer-events-none absolute right-4 top-4 text-[40px] font-semibold leading-none text-white/14 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.45)]">

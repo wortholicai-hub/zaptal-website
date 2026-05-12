@@ -4,6 +4,9 @@
   --background: #ffffff;
   --foreground: #000000;
   --zaptal-purple: #6c47ff;
+  --zaptal-ink: #07050c;
+  --zaptal-muted: #4b5563;
+  --zaptal-cyan: #19d3e6;
 }
 
 * {
@@ -23,6 +26,118 @@ body {
   color: var(--foreground);
   max-width: 100%;
   overflow-x: hidden;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  text-rendering: geometricPrecision;
+}
+
+h1,
+h2,
+h3,
+.site-display {
+  font-family:
+    "Aptos Display",
+    "Segoe UI Variable Display",
+    "Segoe UI",
+    var(--font-inter),
+    sans-serif;
+  letter-spacing: 0;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+}
+
+h3 {
+  font-weight: 650;
+}
+
+p,
+li,
+button,
+a,
+input,
+textarea,
+select {
+  font-family: var(--font-inter), sans-serif;
+}
+
+p,
+li {
+  color: inherit;
+}
+
+.home-page {
+  background:
+    linear-gradient(180deg, #ffffff 0%, #ffffff 9%, #fbfbff 32%, #ffffff 100%);
+}
+
+.home-page > section {
+  position: relative;
+  isolation: isolate;
+}
+
+.home-page > section:not(:first-child) {
+  margin-top: clamp(18px, 3vw, 44px);
+}
+
+.home-page > section:not(:first-child)::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: -1px;
+  z-index: 0;
+  width: min(1120px, calc(100% - 48px));
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(108, 71, 255, 0.22),
+    rgba(25, 211, 230, 0.16),
+    transparent
+  );
+}
+
+.home-page h1,
+.home-page h2 {
+  text-wrap: balance;
+}
+
+.home-page h2 {
+  font-family:
+    "Aptos Display",
+    "Segoe UI Variable Display",
+    "Segoe UI",
+    var(--font-inter),
+    sans-serif;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+}
+
+.home-page h3 {
+  font-family:
+    "Aptos Display",
+    "Segoe UI Variable Display",
+    "Segoe UI",
+    var(--font-inter),
+    sans-serif;
+  letter-spacing: 0 !important;
+}
+
+.home-page p {
+  line-height: 1.75;
+}
+
+.home-page section:nth-of-type(odd):not(:first-child) {
+  box-shadow: inset 0 1px 0 rgba(108, 71, 255, 0.06);
+}
+
+.home-page section:nth-of-type(even):not(:first-child) {
+  box-shadow: inset 0 1px 0 rgba(17, 24, 39, 0.05);
 }
 
 .no-doto,
