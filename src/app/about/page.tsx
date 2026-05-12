@@ -141,7 +141,7 @@ export default function AboutPage() {
       <section className="relative flex min-h-[560px] w-full items-center overflow-hidden bg-white px-4 py-16 sm:min-h-[600px] sm:px-6 sm:py-20 md:py-24 lg:min-h-[640px] lg:px-2">
         <div className="pointer-events-none absolute bottom-0 right-0 top-4 hidden w-[66%] md:block">
           <Image
-            src="/images/pages/about.svg"
+            src="/images/pages/about-hero.webp"
             alt="Trusted doctor with AI clinic communication dashboard"
             fill
             priority
@@ -151,7 +151,7 @@ export default function AboutPage() {
         </div>
         <div className="pointer-events-none absolute bottom-0 right-0 top-10 block w-full opacity-20 md:hidden">
           <Image
-            src="/images/pages/about.svg"
+            src="/images/pages/about-hero.webp"
             alt=""
             fill
             priority
