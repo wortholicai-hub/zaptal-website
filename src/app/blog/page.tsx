@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -101,22 +102,41 @@ const posts = [
 export default function BlogPage() {
   return (
     <main className="w-full overflow-hidden bg-white text-black">
-      <section className="mx-auto w-full max-w-[1200px] px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-2 lg:pt-20">
-        <div className="grid w-full grid-cols-1 items-start gap-4 lg:grid-cols-[65%_35%]">
-          <div className="w-full text-left md:w-[90%]">
+      <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-2">
+        <div className="pointer-events-none absolute bottom-0 right-[3%] top-2 hidden w-[62%] md:block lg:right-[4%]">
+          <Image
+            src="/images/pages/blog.svg"
+            alt="Doctor reviewing AI clinic communication insights"
+            fill
+            priority
+            unoptimized
+            className="object-contain object-right-center opacity-100"
+          />
+        </div>
+        <div className="pointer-events-none absolute bottom-0 right-[-6%] top-12 block w-[94%] opacity-20 md:hidden">
+          <Image
+            src="/images/pages/blog.svg"
+            alt=""
+            fill
+            priority
+            unoptimized
+            className="object-contain object-right-bottom"
+          />
+        </div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[70%] bg-[linear-gradient(90deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.9)_58%,rgba(255,255,255,0)_100%)]" />
+
+        <div className="relative z-10 mx-auto w-full max-w-[1200px]">
+          <div className="w-full max-w-[660px] text-left">
             <h1 className="text-left text-[36px] font-semibold leading-[1.08] sm:text-4xl lg:text-[54px]">
               <span className="block">Ideas for clinics</span>
               <span className="block">building faster</span>
               <span className="block">patient communication.</span>
             </h1>
-          </div>
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf9ff_56%,#f5f0ff_100%)] p-5 text-left shadow-[0_18px_70px_rgba(0,0,0,0.07)] sm:p-6">
-            <div className="pointer-events-none absolute right-[-95px] top-[-105px] h-56 w-56 rounded-full bg-purple-300/25 blur-3xl" />
-            <p className="relative z-10 text-lg leading-8 text-gray-900 md:text-[20px]">
+            <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-900 md:text-[20px]">
               Strategy, automation guides, and growth playbooks for healthcare
               teams adopting AI receptionist systems.
             </p>
-            <div className="relative z-10 mt-5 grid gap-3">
+            <div className="mt-6 grid gap-3">
               {heroTopics.map((item) => {
                 const Icon = item.icon;
                 return (
