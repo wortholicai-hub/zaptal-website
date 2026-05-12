@@ -8,6 +8,7 @@ import IndustrySolutions from "@/components/industry-solutions/industry-solution
 import FeaturesSection from "@/components/FullyAutomatedWorkflow/FullyAutomatedWorkflow";
 import { AdvancedAiFeatures } from "@/components/AdvancedAiFeatures/AdvancedAiFeatures";
 import VocalChatAgentCarousel from "@/components/VocalChatStyleHero/VocalChatAgentCarousel";
+import HeroSubtitle from "@/components/VocalChatStyleHero/HeroSubtitle";
 import CallNotification from "@/components/VocalChatStyleHero/AgentPreview";
 import { AIPoweredSolution } from "@/components/AiPoweredSolutions/aiPoweredSolutions";
 import { WhyChoose } from "@/components/WhyChoose/whyChoose";
@@ -18,6 +19,7 @@ export default function Home() {
     <div>
       <VocalChatStyleHero />
       <VocalChatAgentCarousel />
+      <HeroSubtitle />
       <CallNotification />
       <WorkflowSection />
       <AdvancedAiFeatures />

@@ -25,22 +25,6 @@ body {
   overflow-x: hidden;
 }
 
-button,
-a[class*="rounded"][class*="px-"],
-span[class*="rounded"][class*="px-"],
-div[class*="rounded-full"][class*="px-"],
-div[class*="rounded-xl"][class*="px-"] {
-  font-family: var(--font-doto), var(--font-inter), sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-button svg,
-a[class*="rounded"][class*="px-"] svg {
-  letter-spacing: 0;
-}
-
 .no-doto,
 .no-doto *,
 .no-doto-button,
