@@ -25,24 +25,6 @@ const VocalChatStyleHero: React.FC = () => {
     },
   };
 
-  const DottedArrowRight: React.FC<{ color?: string }> = ({
-    color = "white",
-  }) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 32 24"
-      strokeWidth={2}
-      stroke={color}
-      strokeDasharray="2 3"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-8 h-8"
-    >
-      <path d="M4 4l12 8-12 8" />
-    </svg>
-  );
-
   return (
     <motion.section
       className="flex items-center justify-center px-4 pt-16 sm:px-6 sm:pt-20 lg:px-2 lg:pt-20"
@@ -51,49 +33,23 @@ const VocalChatStyleHero: React.FC = () => {
       animate="visible"
     >
       <motion.div
-        className="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-[65%_35%] gap-4 items-left"
+        className="flex w-full max-w-[1200px] flex-col items-center gap-6 text-center"
         variants={itemVariants}
       >
-        {/* Left Column: Title */}
         <motion.div
-          className="text-left lg:text-left w-full md:w-[90%]"
+          className="w-full"
           variants={itemVariants}
         >
-          <h2 className="text-black text-left font-semibold text-[36px] sm:text-4xl lg:text-[54px]">
+          <h2 className="mx-auto max-w-[920px] text-center text-[36px] font-semibold leading-[1.03] tracking-[-0.02em] text-black sm:text-5xl lg:text-[68px]">
             {t("vocalchat.heroTitle")}
           </h2>
         </motion.div>
 
-        {/* Right Column: Description + Buttons */}
         <motion.div
-          className="flex flex-col md:justify-start h-full items-left lg:items-start gap-4 mb-15 "
+          className="flex w-full flex-wrap items-center justify-center gap-3"
           variants={itemVariants}
         >
-          <p className="text-gray-900 text-lg md:text-[20px] whitespace-pre-line text-left mb-4 md:mb-4">
-            {t("vocalchat.heroSubtitle")}
-          </p>
-
-          <div className="flex flex-wrap justify-start lg:justify-start gap-3">
-            {/* Primary Button */}
-            <div className="px-[2px] py-[2px] rounded-2xl border-[#6C47FF] border-[1px]">
-              <button
-                aria-label="Learn More"
-                onClick={() => {
-                  const section = document.getElementById("features");
-                  if (section) {
-                    section.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="no-doto-button cursor-pointer flex items-center justify-center gap-1.5 px-2 py-1 md:px-4 md:py-1.5 rounded-xl bg-purple-500 text-white border border-[#6C47FF] shadow-md hover:bg-[#5a3ce0] hover:shadow-lg transition-all duration-300"
-              >
-                <span className="text-sm md:text-base font-semibold">
-                  {t("vocalchat.learnMore")}
-                </span>
-                <DottedArrowRight color="white" />
-              </button>
-            </div>
-
-            {/* Secondary Button */}
+          <div className="flex h-12 items-center">
             <BookACallButton />
           </div>
         </motion.div>

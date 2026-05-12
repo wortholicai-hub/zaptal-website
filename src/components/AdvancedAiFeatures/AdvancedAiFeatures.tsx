@@ -3,7 +3,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { DotPatternGrid } from "../ServicesSection/ServicesSection";
 import {
   Cpu,
   Cloud,
@@ -11,96 +10,131 @@ import {
   ShieldCheck,
   Globe,
   Phone,
-  Workflow,
+  Database,
+  Building2,
 } from "lucide-react";
-import {
-  SiSalesforce,
-  SiHubspot,
-  SiGooglecalendar,
-  SiZapier,
-  SiSlack,
-  SiTwilio,
-  SiMeta,
-  SiZoho,
-  SiMailchimp,
-  SiIntercom,
-  SiZendesk,
-  SiNotion,
-  SiAsana,
-  SiTrello,
-  SiClickup,
-  SiAirtable,
-  SiDiscord,
-  SiWhatsapp,
-  SiPiped,
-  SiTelegram
-} from "react-icons/si";
-import { BsMicrosoftTeams } from "react-icons/bs";
-import { CgMonday } from "react-icons/cg";
 
 const coreFeatures = [
   {
-    title: "Unlimited Concurrent Calls",
+    title: "High-volume Call Handling",
     icon: <Phone className="w-7 h-7 sm:w-8 sm:h-8" />,
-    description: "Handle thousands of calls without any capacity limitations",
+    description: "Support busy call periods, after-hours demand, and overflow without adding front-desk pressure.",
   },
   {
     title: "24/7 Availability",
     icon: <Cloud className="w-7 h-7 sm:w-8 sm:h-8" />,
     description:
-      "Never miss a call or opportunity with our always-on AI agents",
+      "Answer after-hours, lunch-hour, and overflow calls with an always-on AI receptionist.",
   },
   {
-    title: "Intelligent Call Distribution",
+    title: "Smart Routing and Transfers",
     icon: <Cpu className="w-7 h-7 sm:w-8 sm:h-8" />,
-    description: "Smart routing based on caller needs and agent availability",
+    description: "Route urgent, billing, insurance, scheduling, and clinical requests to the right staff member.",
   },
   {
     title: "Real-time Analytics",
     icon: <BarChart3 className="w-7 h-7 sm:w-8 sm:h-8" />,
     description:
-      "Live performance monitoring with detailed conversation insights",
+      "Monitor call outcomes, appointment requests, patient intent, and follow-up activity.",
   },
   {
-    title: "Enterprise Security",
+    title: "Healthcare Security",
     icon: <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8" />,
-    description: "GDPR compliant, SOC 2 certified with end-to-end encryption",
+    description: "Privacy-minded workflows with controlled access, audit trails, and sensitive detail protection.",
   },
   {
-    title: "Multi-Language Support",
+    title: "Multilingual Patient Support",
     icon: <Globe className="w-7 h-7 sm:w-8 sm:h-8" />,
     description:
-      "Communicate globally in different languages with natural fluency",
+      "Support diverse patient communities with natural multilingual conversations.",
+  },
+  {
+    title: "PMS Integration",
+    icon: <Database className="w-7 h-7 sm:w-8 sm:h-8" />,
+    description:
+      "Connect call handling with supported dental practice management and scheduling workflows.",
+  },
+  {
+    title: "DSO Support",
+    icon: <Building2 className="w-7 h-7 sm:w-8 sm:h-8" />,
+    description:
+      "Give multi-location teams location-level visibility, consistent call workflows, and group-level reporting.",
   },
 ];
 
-const integrationsRow1 = [
-  { name: "Salesforce", icon: SiSalesforce, color: "#00A1E0", category: "CRM" },
-  { name: "HubSpot", icon: SiHubspot, color: "#FF7A59", category: "Marketing" },
-  { name: "Calendar", icon: SiGooglecalendar, color: "#4285F4", category: "Scheduling" },
-  { name: "Meta", icon: SiMeta, color: "#1877F2", category: "Social" },
-  { name: "Monday.com", icon: CgMonday, color: "#FF3D57", category: "Project Management" },
-  { name: "Slack", icon: SiSlack, color: "#4A154B", category: "Communication" },
-  { name: "Teams", icon: BsMicrosoftTeams, color: "#6264A7", category: "Communication" },
-  { name: "Zoho CRM", icon: SiZoho, color: "#C8202D", category: "CRM" },
-  { name: "Pipedrive", icon: SiPiped, color: "#1A1A1A", category: "CRM" },
-  { name: "Mailchimp", icon: SiMailchimp, color: "#FFE01B", category: "Marketing" },
-  { name: "Telegram", icon: SiTelegram, color: "#0088CC", category: "Messaging" },
+const pmsIntegrations = [
+  {
+    name: "Dentrix",
+    category: "Dental PMS",
+    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.dentrix.com",
+    source: "dentrix.com",
+  },
+  {
+    name: "Eaglesoft",
+    category: "Dental PMS",
+    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.pattersondental.com",
+    source: "pattersondental.com",
+  },
+  {
+    name: "Open Dental",
+    category: "Dental PMS",
+    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.opendental.com",
+    source: "opendental.com",
+  },
+  {
+    name: "Dentrix Enterprise",
+    category: "Enterprise PMS",
+    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.dentrixenterprise.com",
+    source: "dentrixenterprise.com",
+  },
+  {
+    name: "Dolphin",
+    category: "Ortho PMS",
+    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.dolphinimaging.com",
+    source: "dolphinimaging.com",
+  },
+  {
+    name: "OrthoTrac",
+    category: "Ortho PMS",
+    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.carestreamdental.com",
+    source: "carestreamdental.com",
+  },
+  {
+    name: "PracticeWorks",
+    category: "Dental PMS",
+    logo: "https://www.google.com/s2/favicons?sz=128&domain_url=https://www.carestreamdental.com",
+    source: "carestreamdental.com",
+  },
 ];
 
-const integrationsRow2 = [
-  { name: "Intercom", icon: SiIntercom, color: "#1F8DED", category: "Communication" },
-  { name: "Zendesk", icon: SiZendesk, color: "#03363D", category: "Support" },
-  { name: "Notion", icon: SiNotion, color: "#000000", category: "Productivity" },
-  { name: "Asana", icon: SiAsana, color: "#F06A6A", category: "Project Management" },
-  { name: "Trello", icon: SiTrello, color: "#0052CC", category: "Project Management" },
-  { name: "ClickUp", icon: SiClickup, color: "#7B68EE", category: "Productivity" },
-  { name: "Zapier", icon: SiZapier, color: "#FF4A00", category: "Automation" },
-  { name: "Twilio", icon: SiTwilio, color: "#F22F46", category: "Communication" },
-  { name: "Airtable", icon: SiAirtable, color: "#18BFFF", category: "Database" },
-  { name: "Discord", icon: SiDiscord, color: "#5865F2", category: "Communication" },
-  { name: "WhatsApp", icon: SiWhatsapp, color: "#25D366", category: "Messaging" },
-];
+function PmsLogo({ name, logo }: { name: string; logo: string }) {
+  const [failed, setFailed] = React.useState(false);
+  const initials = name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2);
+
+  return (
+    <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-black/10 bg-white shadow-[0_12px_28px_rgba(0,0,0,0.06)]">
+      {!failed && (
+        <span className="absolute text-sm font-bold text-purple-700/70">
+          {initials}
+        </span>
+      )}
+      {failed ? (
+        <span className="text-sm font-bold text-purple-700">{initials}</span>
+      ) : (
+        <img
+          src={logo}
+          alt={`${name} logo`}
+          className="relative h-9 w-9 object-contain"
+          onError={() => setFailed(true)}
+        />
+      )}
+    </div>
+  );
+}
 
 export const AdvancedAiFeatures = () => {
   const { t } = useTranslation();
@@ -117,8 +151,9 @@ export const AdvancedAiFeatures = () => {
         type: "spring",
         stiffness: 100,
       }}
-      className="border-purple-500/40 rounded-xl border w-full bg-white hover:bg-purple-50 transition-all duration-300"
+      className="group relative overflow-hidden rounded-[24px] border border-purple-200/80 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-purple-400 hover:shadow-[0_22px_70px_rgba(108,71,255,0.14)]"
     >
+      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-purple-500 via-violet-400 to-emerald-300 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="relative p-5 sm:p-6 md:p-8 flex flex-col justify-between h-full z-10">
         <div className="flex items-center gap-2 mb-3 sm:mb-4">
           <div className="text-purple-600">{feature.icon}</div>
@@ -129,12 +164,7 @@ export const AdvancedAiFeatures = () => {
         <p className="text-gray-600 text-sm sm:text-[14px] md:text-[15px] leading-relaxed">
           {t(feature.description)}
         </p>
-        <div className="flex flex-wrap gap-3 mt-5">
-          <DotPatternGrid />
-          <DotPatternGrid />
-          <DotPatternGrid />
-          <DotPatternGrid />
-        </div>
+        <div className="mt-5 h-px w-full bg-gradient-to-r from-purple-200 via-black/10 to-transparent" />
       </div>
     </motion.article>
   );
@@ -153,123 +183,42 @@ export const AdvancedAiFeatures = () => {
         </div>
 
         {/* ===== Core Features Grid ===== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full mb-10 cursor-pointer">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full mb-10 cursor-pointer">
           {coreFeatures.map((feature, index) => getCardDesign(feature, index))}
         </div>
 
         {/* ===== Integrations Title ===== */}
-        <div className="text-center mb-10 md:mb-0 pt-16 pb-8">
+        <div className="text-center mb-8 pt-12">
           <h2 className="text-[34px] sm:text-4xl lg:text-5xl font-medium text-black mb-3 md:mb-0">
-            {t("Seamless Integrations")}
+            PMS integrations
           </h2>
+          <p className="mx-auto mt-4 max-w-[760px] text-base leading-7 text-gray-600">
+            Zaptal is designed to support dental practice management workflows across the systems clinics and DSOs already use.
+          </p>
         </div>
 
         {/* ===== Integrations Section ===== */}
-        <div className="relative overflow-hidden py-8">
-          {/* First Row - Left to Right */}
-          <div className="flex mb-6">
-            <div className="flex animate-scroll-ltr">
-              {[...integrationsRow1, ...integrationsRow1, ...integrationsRow1].map((integration, i) => {
-                const IconComponent = integration.icon;
-                return (
-                  <div
-                    key={`row1-${i}`}
-                    className="group bg-white rounded-xl p-5 sm:p-6 flex flex-col items-center justify-center border border-gray-300 hover:border-current hover:shadow-[inset_0_0_12px_currentColor] transition-all duration-400 flex-shrink-0 w-[200px] mx-2"
-                    style={{ color: integration.color }}
-                  >
-                    <div
-                      className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded mb-3 border-2 transition-all duration-300 group-hover:border-current group-hover:shadow-[inset_0_0_10px_currentColor]"
-                      style={{
-                        borderColor: integration.color,
-                        backgroundColor: `${integration.color}10`,
-                      }}
-                    >
-                      <IconComponent
-                        className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110"
-                        style={{ color: integration.color }}
-                      />
-                    </div>
-                    <h4 className="text-[13px] sm:text-[15px] md:text-[16px] font-semibold text-gray-700 text-center">
-                      {t(integration.name)}
-                    </h4>
-                    <p className="text-[11px] sm:text-[13px] md:text-[14px] text-gray-500 text-center">
-                      {t(integration.category)}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Second Row - Right to Left */}
-          <div className="flex">
-            <div className="flex animate-scroll-rtl">
-              {[...integrationsRow2, ...integrationsRow2, ...integrationsRow2].map((integration, i) => {
-                const IconComponent = integration.icon;
-                return (
-                  <div
-                    key={`row2-${i}`}
-                    className="group bg-white rounded-xl p-5 sm:p-6 flex flex-col items-center justify-center border border-gray-300 hover:border-current hover:shadow-[inset_0_0_12px_currentColor] transition-all duration-400 flex-shrink-0 w-[200px] mx-2"
-                    style={{ color: integration.color }}
-                  >
-                    <div
-                      className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded mb-3 border-2 transition-all duration-300 group-hover:border-current group-hover:shadow-[inset_0_0_10px_currentColor]"
-                      style={{
-                        borderColor: integration.color,
-                        backgroundColor: `${integration.color}10`,
-                      }}
-                    >
-                      <IconComponent
-                        className="w-6 h-6 sm:w-8 sm:h-8 transition-transform duration-300 group-hover:scale-110"
-                        style={{ color: integration.color }}
-                      />
-                    </div>
-                    <h4 className="text-[13px] sm:text-[15px] md:text-[16px] font-semibold text-gray-700 text-center">
-                      {t(integration.name)}
-                    </h4>
-                    <p className="text-[11px] sm:text-[13px] md:text-[14px] text-gray-500 text-center">
-                      {t(integration.category)}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+        <div className="relative overflow-hidden rounded-[30px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf8ff_58%,#f4fffb_100%)] p-4 shadow-[0_28px_90px_rgba(108,71,255,0.12)] sm:p-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-7">
+            {pmsIntegrations.map((integration) => (
+              <article
+                key={integration.name}
+                className="group flex min-h-[174px] flex-col items-center justify-center rounded-[22px] border border-black/10 bg-white/80 p-4 text-center shadow-[0_12px_34px_rgba(0,0,0,0.04)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:bg-white hover:shadow-[0_20px_60px_rgba(108,71,255,0.14)]"
+              >
+                <PmsLogo name={integration.name} logo={integration.logo} />
+                <h4 className="mt-4 text-[15px] font-bold text-gray-900">
+                  {integration.name}
+                </h4>
+                <p className="mt-1 text-xs font-medium text-gray-500">
+                  {integration.category}
+                </p>
+                <p className="mt-3 text-[11px] text-gray-400">
+                  {integration.source}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
-
-        {/* CSS Animations */}
-        <style jsx>{`
-          @keyframes scroll-ltr {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-33.333%);
-            }
-          }
-
-          @keyframes scroll-rtl {
-            0% {
-              transform: translateX(-33.333%);
-            }
-            100% {
-              transform: translateX(0);
-            }
-          }
-
-          .animate-scroll-ltr {
-            animation: scroll-ltr 45s linear infinite;
-          }
-
-          .animate-scroll-rtl {
-            animation: scroll-rtl 45s linear infinite;
-          }
-
-          .animate-scroll-ltr:hover,
-          .animate-scroll-rtl:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
       </div>
     </section>
   );
