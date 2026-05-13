@@ -182,13 +182,13 @@ export default function AboutPage() {
           <div className="rounded-[16px] border border-black/10 bg-white p-6 text-left text-black shadow-[0_18px_0_rgba(88,28,135,0.08),0_30px_80px_rgba(15,23,42,0.12),inset_0_1px_0_rgba(255,255,255,0.95)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_0_rgba(88,28,135,0.09),0_36px_92px_rgba(15,23,42,0.16),inset_0_1px_0_rgba(255,255,255,0.95)] sm:p-8">
             <div className="border-b border-black/10 pb-6">
               <div className="max-w-xl">
-                <h3 className="text-2xl font-semibold">Automate the work that keeps patients moving.</h3>
+                <h3 className="text-2xl font-semibold">Automate the work that keeps patients moving</h3>
               </div>
             </div>
             <div className="mt-6 space-y-4">
               {[
                 "Answer calls when the front desk is busy",
-                "Recover missed patients through SMS and WhatsApp",
+                "Recover missed patients through SMS",
                 "Route urgent cases to the right person",
                 "Trigger recalls, confirmations, and follow-ups automatically",
               ].map((item) => (
@@ -221,7 +221,7 @@ export default function AboutPage() {
       <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-2">
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">
-            Patient communication built like clinic infrastructure.
+            Clinic communication infrastructure
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700 sm:text-lg">
             Reliable automation for patient intake, staff escalation, booking,
@@ -292,7 +292,7 @@ export default function AboutPage() {
       <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-2">
         <div className="mb-8 text-center">
           <h2 className="mx-auto max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl">
-            Everything a clinic needs to respond, book, route, and follow up.
+            Respond, book, route, and follow up
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base leading-8 text-gray-700 sm:text-lg">
             Zaptal combines voice, messaging, scheduling, routing, and reporting

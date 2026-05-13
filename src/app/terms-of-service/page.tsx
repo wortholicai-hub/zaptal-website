@@ -58,7 +58,7 @@ export default function TermsOfService() {
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">
                 <li>AI receptionist setup and implementation</li>
                 <li>Appointment scheduling and missed-call recovery automation</li>
-                <li>Patient follow-up, recall, SMS, and WhatsApp workflows</li>
+                <li>Patient follow-up, recall, and SMS workflows</li>
                 <li>PMS, EHR, CRM, calendar, and phone-system integrations</li>
                 <li>Custom healthcare workflow automation</li>
                 <li>Ongoing support and optimization services</li>

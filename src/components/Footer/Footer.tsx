@@ -1,9 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const Footer: React.FC = () => {
+  const pathname = usePathname();
+  const showDemoButton = pathname !== "/contactus";
+
   const footerLinks = {
     Platform: [
       "AI Receptionist",
@@ -20,7 +24,7 @@ const Footer: React.FC = () => {
     Automation: [
       "Patient Follow-ups",
       "Treatment Recall",
-      "SMS / WhatsApp",
+      "SMS",
       "Custom Integrations",
     ],
   };
@@ -69,16 +73,18 @@ const Footer: React.FC = () => {
               wellness centers, and healthcare growth teams.
             </p>
 
-            <button className="group mt-6 flex cursor-pointer items-center gap-2 rounded-2xl border border-white/20 px-5 py-2 text-lg font-medium text-white transition-colors duration-200 hover:border-purple-300/50 hover:text-purple-300">
-              <a
-                href="https://calendar.google.com/calendar/u/0/r"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book Demo
-              </a>
-              <DottedArrowUpRight />
-            </button>
+            {showDemoButton && (
+              <button className="group mt-6 flex cursor-pointer items-center gap-2 rounded-2xl border border-white/20 px-5 py-2 text-lg font-medium text-white transition-colors duration-200 hover:border-purple-300/50 hover:text-purple-300">
+                <a
+                  href="https://calendar.google.com/calendar/u/0/r"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book Demo
+                </a>
+                <DottedArrowUpRight />
+              </button>
+            )}
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

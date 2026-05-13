@@ -36,7 +36,7 @@ const ConsultationSection: React.FC = () => {
                   <Phone className="h-6 w-6 text-white" />
                 </span>
                 <p className="text-[32px] font-bold leading-none !text-white sm:text-[38px]">
-                  Let's talk.
+                  Let's talk
                 </p>
               </div>
 

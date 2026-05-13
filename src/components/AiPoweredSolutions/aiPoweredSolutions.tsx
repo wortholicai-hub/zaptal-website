@@ -49,7 +49,7 @@ const serviceCategories = [
     descriptionKey: "Intelligent Web & Platform Integration",
     featuresKeys: [
       "Website Chatbots",
-      "WhatsApp Business",
+      "Business Messaging",
       "Facebook Messenger",
       "Multi-Language Support",
       "E-commerce Integration",

@@ -7,11 +7,9 @@ import {
   Building2,
   CalendarCheck,
   CheckCircle2,
-  Clock3,
   Mail,
   MessageSquareText,
   Phone,
-  Route,
   Send,
   ShieldCheck,
   Sparkles,
@@ -28,7 +26,7 @@ const contactCards = [
   {
     icon: CalendarCheck,
     title: "Demo Planning",
-    detail: "Workflow review included",
+    detail: "Clinic mapping included",
     note: "We map your calls, booking flow, follow-ups, and integrations.",
   },
   {
@@ -42,14 +40,8 @@ const contactCards = [
 const demoChecklist = [
   "AI receptionist and call automation fit",
   "Appointment scheduling and routing rules",
-  "Missed call recovery through SMS or WhatsApp",
+  "Missed call recovery through SMS",
   "CRM, PMS, and custom integration requirements",
-];
-
-const contactSignals = [
-  { value: "30 min", label: "workflow review" },
-  { value: "4", label: "systems mapped" },
-  { value: "1 day", label: "typical response" },
 ];
 
 export default function ContactPage() {
@@ -76,8 +68,8 @@ export default function ContactPage() {
 
   return (
     <main className="w-full overflow-hidden bg-white text-black">
-      <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-2">
-        <div className="pointer-events-none absolute bottom-0 right-[3%] top-0 hidden w-[66%] md:block lg:right-[4%]">
+      <section className="relative flex min-h-[560px] w-full items-center overflow-hidden bg-white px-4 py-16 sm:min-h-[600px] sm:px-6 sm:py-20 md:py-24 lg:min-h-[640px] lg:px-2">
+        <div className="pointer-events-none absolute bottom-0 right-0 top-4 hidden w-[66%] md:block">
           <Image
             src="/images/pages/contact.svg"
             alt="Clinic team preparing an AI communication demo"
@@ -87,7 +79,7 @@ export default function ContactPage() {
             className="object-contain object-right-center opacity-100"
           />
         </div>
-        <div className="pointer-events-none absolute bottom-0 right-[-7%] top-10 block w-full opacity-20 md:hidden">
+        <div className="pointer-events-none absolute bottom-0 right-0 top-10 block w-full opacity-20 md:hidden">
           <Image
             src="/images/pages/contact.svg"
             alt=""
@@ -97,37 +89,21 @@ export default function ContactPage() {
             className="object-contain object-right-bottom"
           />
         </div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-[58%] bg-[linear-gradient(90deg,rgba(255,255,255,0.98)_0%,rgba(255,255,255,0.92)_62%,rgba(255,255,255,0)_100%)]" />
 
         <div className="relative z-10 mx-auto w-full max-w-[1200px]">
           <div className="w-full max-w-[660px] text-left">
-            <h1 className="text-left text-[36px] font-semibold leading-[1.08] sm:text-4xl lg:text-[54px]">
+            <h1 className="text-left text-[36px] font-semibold leading-[1.08] text-black sm:text-4xl lg:text-[54px]">
               <span className="block">Build patient communication</span>
               <span className="block">that works while</span>
-              <span className="block">your team is busy.</span>
+              <span className="block">your team is busy</span>
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-900 md:text-[20px]">
-              Tell us about your calls, bookings, recalls, and integrations so
-              we can map the best Zaptal workflow.
-            </p>
-            <div className="mt-6 grid gap-2 sm:grid-cols-3">
-              {contactSignals.map((signal) => (
-                <div
-                  key={signal.label}
-                  className="rounded-[16px] border border-black/10 bg-white/80 px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
-                >
-                  <p className="text-lg font-semibold leading-none text-black">
-                    {signal.value}
-                  </p>
-                  <p className="mt-1 text-xs text-gray-600">{signal.label}</p>
-                </div>
-              ))}
+            <div className="mt-7 max-w-2xl">
+              <p className="text-lg leading-8 text-gray-900 md:text-[20px]">
+                Tell us about your calls, bookings, recalls, and integrations so
+                we can map the best Zaptal workflow.
+              </p>
             </div>
-            <a
-              href="#demo-form"
-              className="mt-6 inline-flex w-fit items-center justify-center rounded-full bg-black px-7 py-3 text-sm text-white transition-all duration-300 hover:bg-purple-700"
-            >
-              Book Demo
-            </a>
           </div>
         </div>
       </section>
@@ -303,11 +279,7 @@ export default function ContactPage() {
             </span>
           </label>
 
-          <div className="mt-7 flex flex-col gap-4 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3 text-sm text-gray-600">
-              <Clock3 className="h-5 w-5 text-purple-700" />
-              <span>Typical response within one business day.</span>
-            </div>
+          <div className="mt-7 flex justify-end border-t border-black/10 pt-6">
             <button
               type="submit"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-9 py-3.5 text-sm text-white transition-all duration-300 hover:bg-purple-700"
