@@ -75,63 +75,46 @@ const coreFeatures = [
 const pmsIntegrations = [
   {
     name: "Dentrix",
-    category: "Dental PMS",
     logo: "/images/PMS/Dentrix.png",
   },
   {
     name: "Eaglesoft",
-    category: "Dental PMS",
     logo: "/images/PMS/eaglesoft.png",
   },
   {
     name: "Open Dental",
-    category: "Dental PMS",
     logo: "/images/PMS/LogoBigO_Software.png",
   },
   {
     name: "Dentrix Enterprise",
-    category: "Enterprise PMS",
     logo: "/images/PMS/dentrix-enterprise.webp",
   },
   {
     name: "Dolphin",
-    category: "Ortho PMS",
     logo: "/images/PMS/dolphin.png",
   },
   {
     name: "OrthoTrac",
-    category: "Ortho PMS",
     logo: "/images/PMS/orthotrac_web_logo-300x119.png",
   },
   {
     name: "PracticeWorks",
-    category: "Dental PMS",
     logo: "/images/PMS/PW_Logo_FullColor.webp",
   },
 ];
 
 function PmsLogo({ name, logo }: { name: string; logo: string }) {
   const [failed, setFailed] = React.useState(false);
-  const initials = name
-    .split(" ")
-    .map((part) => part[0])
-    .join("")
-    .slice(0, 2);
 
   return (
-    <div className="relative flex h-16 w-24 items-center justify-center rounded-2xl border border-black/10 bg-white px-3 shadow-[0_12px_28px_rgba(0,0,0,0.06)]">
-      {!failed && (
-        <span className="absolute text-sm font-bold text-purple-700/70">
-          {initials}
-        </span>
-      )}
+    <div className="flex h-16 w-full items-center justify-center px-2 sm:h-20">
       {failed ? (
-        <span className="text-sm font-bold text-purple-700">{initials}</span>
+        <span className="text-sm font-semibold text-gray-700">{name}</span>
       ) : (
         <img
           src={logo}
           alt={`${name} logo`}
-          className="relative max-h-10 w-full object-contain"
+          className="max-h-11 w-full object-contain grayscale-[8%] transition duration-300 group-hover:grayscale-0 group-hover:scale-[1.06] sm:max-h-[52px]"
           onError={() => setFailed(true)}
         />
       )}
@@ -248,20 +231,15 @@ export const AdvancedAiFeatures = () => {
         </div>
 
         {/* ===== Integrations Section ===== */}
-        <div className="relative overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf8ff_58%,#f4fffb_100%)] p-4 shadow-[0_28px_90px_rgba(108,71,255,0.12)] sm:p-6">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-7">
+        <div className="relative px-0 py-2">
+          <div className="grid grid-cols-2 items-center gap-x-8 gap-y-8 sm:grid-cols-3 lg:grid-cols-7">
             {pmsIntegrations.map((integration) => (
               <article
                 key={integration.name}
-                className="group flex min-h-[174px] flex-col items-center justify-center rounded-[16px] border border-black/10 bg-white/80 p-4 text-center shadow-[0_12px_34px_rgba(0,0,0,0.04)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:bg-white hover:shadow-[0_20px_60px_rgba(108,71,255,0.14)]"
+                aria-label={integration.name}
+                className="group flex min-h-[76px] items-center justify-center px-2 py-2 transition-transform duration-300 hover:-translate-y-1 sm:min-h-[88px]"
               >
                 <PmsLogo name={integration.name} logo={integration.logo} />
-                <h4 className="mt-4 text-[15px] font-bold text-gray-900">
-                  {integration.name}
-                </h4>
-                <p className="mt-1 text-xs font-medium text-gray-500">
-                  {integration.category}
-                </p>
               </article>
             ))}
           </div>
