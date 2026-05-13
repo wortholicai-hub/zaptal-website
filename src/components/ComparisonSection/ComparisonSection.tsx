@@ -29,12 +29,12 @@ export default function ComparisonSection() {
         </div>
 
         {/* Comparison Container */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 items-stretch gap-5 lg:gap-6 w-full rounded-[20px] border border-gray-200 bg-white p-4 shadow-[0_24px_70px_rgba(15,23,42,0.08)] md:p-5">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 items-stretch gap-5 lg:gap-6 w-full rounded-[16px] border border-gray-200 bg-white p-4 shadow-[0_24px_70px_rgba(15,23,42,0.08)] md:p-5">
           {/* Left Card - VocalChat */}
           <div className="relative z-10 w-full">
             <div className="relative z-10 h-full w-full rounded-[16px] border border-gray-200 bg-white px-5 py-5 shadow-[0_14px_45px_rgba(15,23,42,0.07)] sm:px-7">
               <div className="space-y-2">
-                <div className="mb-4 flex items-center justify-center rounded-[14px] border border-gray-200 bg-gray-50 px-4 py-2.5 font-semibold">
+                <div className="mb-4 flex items-center justify-center rounded-[16px] border border-gray-200 bg-gray-50 px-4 py-2.5 font-semibold">
                   <span className="text-xl font-semibold tracking-wide text-gray-950">
                     Zaptal AI
                   </span>
@@ -57,7 +57,7 @@ export default function ComparisonSection() {
           {/* Right Card - Traditional */}
           <div className="relative z-10 h-full w-full rounded-[16px] border border-gray-200 bg-[#fafafa] px-5 py-5 sm:px-7">
             <div className="mb-4 flex justify-start">
-              <div className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-[14px] border border-gray-300 bg-white px-6 py-2.5">
+              <div className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-[16px] border border-gray-300 bg-white px-6 py-2.5">
                 <span className="text-gray-800 text-xl font-semibold tracking-wide">
                   {t("comparison.traditionalBadge")}
                 </span>

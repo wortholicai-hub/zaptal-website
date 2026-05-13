@@ -12,21 +12,21 @@ export const WhyChoose = () => {
 
   const cards = [
     {
-      icon: <Users className="w-6 h-6 lg:w-8 lg:h-8 text-primary-600" />,
+      icon: <Users className="h-6 w-6 text-purple-600 lg:h-8 lg:w-8" />,
       title: t("Conversations That Connect"),
       desc: t(
         "Our agents speak with customers in a natural, human tone. Every interaction feels personal, building trust and strengthening relationships from the very first message."
       ),
     },
     {
-      icon: <Target className="w-6 h-6 lg:w-8 lg:h-8 text-black" />,
+      icon: <Target className="h-6 w-6 text-purple-600 lg:h-8 lg:w-8" />,
       title: t("Turning Leads Into Sales"),
       desc: t(
         "Our platform does more than capture interest. It nurtures prospects with timely follow-ups and tailored responses that move conversations toward real business outcomes."
       ),
     },
     {
-      icon: <Rocket className="w-6 h-6 lg:w-8 lg:h-8 text-purple-300" />,
+      icon: <Rocket className="h-6 w-6 text-purple-300 lg:h-8 lg:w-8" />,
       title: t("Always Available, Always Helpful"),
       desc: [
         t(
@@ -41,7 +41,7 @@ export const WhyChoose = () => {
       dark: true,
     },
     {
-      icon: <Settings className="w-6 h-6 lg:w-8 lg:h-8 text-black" />,
+      icon: <Settings className="h-6 w-6 text-purple-600 lg:h-8 lg:w-8" />,
       title: t("Simple Integration With Your Tools"),
       desc: t(
         "Add Zaptal to your CRM, website, or messaging apps without complex setup. Our platform seamlessly integrates with your existing tools and workflows, allowing you to get started quickly while maintaining operational efficiency. Scale results with zero technical friction and minimal downtime for maximum business impact."
@@ -129,7 +129,7 @@ export const WhyChoose = () => {
                   <div className="mt-6 sm:mt-8">
                     <Link href="/contactus">
                       <button
-                        className={`flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 ${
+                        className={`flex cursor-pointer items-center justify-center gap-2 rounded-2xl px-6 py-3 text-sm font-semibold transition-all duration-300 sm:px-7 ${
                           card.dark
                             ? "bg-white text-black hover:bg-purple-200"
                             : "bg-black text-white hover:bg-primary-600"

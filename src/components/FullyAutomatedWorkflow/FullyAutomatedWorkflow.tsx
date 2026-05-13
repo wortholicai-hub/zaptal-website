@@ -75,7 +75,7 @@ export default function FeaturesSection() {
                   <img
                     src={feature.img}
                     alt={feature.alt}
-                    className="h-[176px] w-[300px] origin-center object-contain rounded-xl transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:scale-[1.12] group-hover:drop-shadow-[0_20px_34px_rgba(126,58,242,0.26)] sm:h-[166px] sm:w-full sm:origin-right lg:h-[174px]"
+                    className="h-[176px] w-[300px] origin-center object-contain rounded-xl transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-[1.04] group-hover:drop-shadow-[0_12px_22px_rgba(126,58,242,0.18)] sm:h-[166px] sm:w-full sm:origin-right lg:h-[174px]"
                   />
                 </div>
               </div>

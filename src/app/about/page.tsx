@@ -177,7 +177,7 @@ export default function AboutPage() {
                 {heroSignals.map((item) => (
                   <div
                     key={item}
-                    className="rounded-[14px] border border-black/10 bg-white/80 px-4 py-3 text-sm font-medium text-black shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                    className="rounded-[16px] border border-black/10 bg-white/80 px-4 py-3 text-sm font-medium text-black shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
                   >
                     {item}
                   </div>

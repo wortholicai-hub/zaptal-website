@@ -142,7 +142,7 @@ export default function BlogPage() {
                 return (
                   <div
                     key={item.title}
-                    className="flex gap-3 rounded-[14px] border border-black/10 bg-white/80 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                    className="flex gap-3 rounded-[16px] border border-black/10 bg-white/80 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
                   >
                     <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[11px] bg-black text-white">
                       <Icon className="h-4.5 w-4.5" strokeWidth={1.6} />

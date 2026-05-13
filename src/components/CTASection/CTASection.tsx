@@ -24,7 +24,7 @@ const CTASection: React.FC = () => {
           </p>
 
           <motion.button
-            className="px-8 py-2 rounded-lg text-xl font-medium border border-black bg-black text-white hover:bg-transparent hover:text-black transition-all duration-300 cursor-pointer"
+            className="cursor-pointer rounded-2xl border border-black bg-black px-8 py-2 text-xl font-medium text-white transition-all duration-300 hover:bg-transparent hover:text-black"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

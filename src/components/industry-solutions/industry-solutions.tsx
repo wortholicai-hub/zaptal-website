@@ -69,7 +69,7 @@ export default function IndustrySolutions() {
             return (
               <article
                 key={industry.id}
-                className="group relative min-h-[172px] overflow-hidden rounded-[18px] border border-purple-100 bg-white p-5 shadow-[0_18px_45px_rgba(15,23,42,0.1)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300 hover:shadow-[0_28px_70px_rgba(124,58,237,0.18),0_18px_45px_rgba(15,23,42,0.12)]"
+                className="group relative min-h-[172px] overflow-hidden rounded-[16px] border border-purple-100 bg-white p-5 shadow-[0_18px_45px_rgba(15,23,42,0.1)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300 hover:shadow-[0_28px_70px_rgba(124,58,237,0.18),0_18px_45px_rgba(15,23,42,0.12)]"
               >
                 <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(124,58,237,0.12),transparent_36%),linear-gradient(135deg,rgba(255,255,255,0.9),transparent_46%)] opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
                 <span className="pointer-events-none absolute right-4 top-4 text-[40px] font-semibold leading-none text-purple-100 transition-all duration-300 group-hover:text-purple-600">

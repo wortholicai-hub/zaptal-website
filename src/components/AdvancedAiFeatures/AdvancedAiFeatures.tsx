@@ -159,7 +159,7 @@ export const AdvancedAiFeatures = () => {
 
         {/* ===== Interactive Core Features ===== */}
         <div className="mb-10 grid w-full items-start gap-6 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
-          <div className="space-y-1.5 rounded-[30px] border border-black/10 bg-[#f7f8fb] p-2.5 shadow-[0_28px_90px_rgba(15,23,42,0.08)] sm:space-y-2 sm:p-3">
+          <div className="space-y-1.5 rounded-[16px] border border-black/10 bg-[#f7f8fb] p-2.5 shadow-[0_28px_90px_rgba(15,23,42,0.08)] sm:space-y-2 sm:p-3">
             {coreFeatures.map((feature, index) => {
               const isActive = activeFeature === index;
               const FeatureIcon = feature.Icon;
@@ -170,7 +170,7 @@ export const AdvancedAiFeatures = () => {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveFeature(index)}
-                  className={`group relative flex w-full items-center justify-between gap-3 rounded-[18px] px-3.5 py-3 text-left transition-all duration-300 sm:px-4 ${
+                  className={`group relative flex w-full items-center justify-between gap-3 rounded-2xl px-3.5 py-3 text-left transition-all duration-300 sm:px-4 ${
                     isActive
                       ? "bg-white text-black shadow-[0_18px_45px_rgba(15,23,42,0.08)] ring-1 ring-purple-200"
                       : "text-gray-700 hover:bg-white/85 hover:text-black hover:shadow-[0_12px_32px_rgba(15,23,42,0.05)]"
@@ -248,12 +248,12 @@ export const AdvancedAiFeatures = () => {
         </div>
 
         {/* ===== Integrations Section ===== */}
-        <div className="relative overflow-hidden rounded-[30px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf8ff_58%,#f4fffb_100%)] p-4 shadow-[0_28px_90px_rgba(108,71,255,0.12)] sm:p-6">
+        <div className="relative overflow-hidden rounded-[16px] border border-black/10 bg-[linear-gradient(135deg,#ffffff_0%,#fbf8ff_58%,#f4fffb_100%)] p-4 shadow-[0_28px_90px_rgba(108,71,255,0.12)] sm:p-6">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-7">
             {pmsIntegrations.map((integration) => (
               <article
                 key={integration.name}
-                className="group flex min-h-[174px] flex-col items-center justify-center rounded-[22px] border border-black/10 bg-white/80 p-4 text-center shadow-[0_12px_34px_rgba(0,0,0,0.04)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:bg-white hover:shadow-[0_20px_60px_rgba(108,71,255,0.14)]"
+                className="group flex min-h-[174px] flex-col items-center justify-center rounded-[16px] border border-black/10 bg-white/80 p-4 text-center shadow-[0_12px_34px_rgba(0,0,0,0.04)] backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:bg-white hover:shadow-[0_20px_60px_rgba(108,71,255,0.14)]"
               >
                 <PmsLogo name={integration.name} logo={integration.logo} />
                 <h4 className="mt-4 text-[15px] font-bold text-gray-900">

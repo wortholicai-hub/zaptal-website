@@ -61,14 +61,14 @@ const FooterNew: React.FC = () => {
         {isOpen && (
           <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-20 backdrop-blur-md p-4">
             <motion.div
-              className="bg-white backdrop-blur-lg rounded-xl p-6 sm:p-8 w-full max-w-md sm:max-w-lg mx-auto relative shadow-lg"
+              className="relative mx-auto w-full max-w-md rounded-[16px] bg-white p-6 shadow-lg backdrop-blur-lg sm:max-w-lg sm:p-8"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
             >
               {/* Close Button */}
               <button
-                className="absolute top-4 right-4 text-gray-600 hover:text-black text-xl font-bold cursor-pointer"
+                className="absolute right-4 top-4 cursor-pointer rounded-2xl px-2 py-1 text-xl font-bold text-gray-600 hover:text-black"
                 onClick={() => setIsOpen(false)}
               >
                 ✕
@@ -135,7 +135,7 @@ const FooterNew: React.FC = () => {
                 {/* Submit */}
                 <motion.button
                   type="submit"
-                  className="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-transparent hover:text-black border border-black transition-all duration-300 cursor-pointer text-sm sm:text-base"
+                  className="w-full cursor-pointer rounded-2xl border border-black bg-black py-2 text-sm font-medium text-white transition-all duration-300 hover:bg-transparent hover:text-black sm:text-base"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >

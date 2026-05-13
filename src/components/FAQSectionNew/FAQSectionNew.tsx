@@ -41,7 +41,7 @@ const FAQSectionNew: React.FC = () => {
               className="no-doto overflow-hidden rounded-[16px] border border-gray-300 bg-white p-1.5 shadow-[0_12px_35px_rgba(15,23,42,0.04)]"
             >
               <button
-                className="no-doto-button flex w-full cursor-pointer items-center justify-between gap-4 px-4 py-3 text-left md:px-5"
+                className="no-doto-button flex w-full cursor-pointer items-center justify-between gap-4 rounded-2xl px-4 py-3 text-left md:px-5"
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="text-base font-medium leading-snug text-black md:text-[19px]">
@@ -78,7 +78,7 @@ const FAQSectionNew: React.FC = () => {
             ))}
           </div>
 
-          <aside className="flex h-full min-h-[320px] flex-col justify-between rounded-[20px] border border-gray-200 bg-white p-7 text-black shadow-[0_24px_70px_rgba(15,23,42,0.08)] lg:min-h-0 lg:self-stretch">
+          <aside className="flex h-full min-h-[320px] flex-col justify-between rounded-[16px] border border-gray-200 bg-white p-7 text-black shadow-[0_24px_70px_rgba(15,23,42,0.08)] lg:min-h-0 lg:self-stretch">
             <h3 className="max-w-[320px] text-[30px] font-bold leading-tight text-black sm:text-[34px]">
               Everything you need to know{" "}
               <span className="inline-flex items-center gap-2 whitespace-nowrap">
@@ -95,7 +95,7 @@ const FAQSectionNew: React.FC = () => {
             <div className="flex justify-end">
               <Link
                 href="/contactus"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-black bg-black px-5 py-3 text-base font-semibold text-white transition-colors duration-300 hover:bg-gray-900 sm:w-auto"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-2xl border border-black bg-black px-5 py-3 text-base font-semibold text-white transition-colors duration-300 hover:bg-gray-900 sm:w-auto"
               >
                 Ask question
                 <ArrowUpRight className="h-5 w-5" />

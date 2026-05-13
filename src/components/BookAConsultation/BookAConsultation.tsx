@@ -28,7 +28,7 @@ const ConsultationSection: React.FC = () => {
   return (
     <div className="w-full bg-white px-4 pb-12 pt-12 sm:px-6 md:pb-16 md:pt-16 lg:px-2">
       <div className="max-w-[1200px] mx-auto">
-        <div className="relative overflow-hidden rounded-[18px] border border-gray-800 bg-black p-7 shadow-[0_22px_70px_rgba(0,0,0,0.18)] sm:p-8 md:p-10">
+        <div className="relative overflow-hidden rounded-[16px] border border-gray-800 bg-black p-7 shadow-[0_22px_70px_rgba(0,0,0,0.18)] sm:p-8 md:p-10">
           <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div className="max-w-3xl">
               <div className="mb-4 flex items-center gap-3">
@@ -66,7 +66,7 @@ const ConsultationSection: React.FC = () => {
                   "noopener,noreferrer"
                 )
               }
-              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white bg-white px-5 py-3 text-black transition-all duration-300 hover:bg-gray-100 md:w-fit lg:mb-1 lg:justify-self-end"
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-2xl border border-white bg-white px-5 py-3 text-black transition-all duration-300 hover:bg-gray-100 md:w-fit lg:mb-1 lg:justify-self-end"
             >
               <span className="text-base font-semibold">
                 {t("vocalchat.bookCall")}

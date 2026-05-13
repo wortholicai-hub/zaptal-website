@@ -45,8 +45,6 @@ export default function CustomAISolutions() {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(139,92,246,0.32),transparent_34%),radial-gradient(circle_at_84%_22%,rgba(34,211,238,0.18),transparent_30%),linear-gradient(135deg,rgba(21,10,45,0.9),rgba(3,4,10,0.78)_45%,rgba(8,27,33,0.86))]" />
       <div className="pointer-events-none absolute left-1/2 top-[-250px] h-[350px] w-[175%] -translate-x-1/2 rounded-[50%] bg-white shadow-[0_28px_80px_rgba(139,92,246,0.16)]" />
       <div className="pointer-events-none absolute bottom-[-270px] left-1/2 h-[360px] w-[175%] -translate-x-1/2 rounded-[50%] bg-white shadow-[0_-24px_70px_rgba(139,92,246,0.14)]" />
-      <div className="pointer-events-none absolute inset-x-0 top-[99px] h-px bg-white/10 md:top-[100px]" />
-
       <div className="relative z-10 mx-auto w-full max-w-[1280px]">
         <div className="mx-auto mb-9 max-w-[920px] text-center md:mb-11">
           <div>
@@ -87,7 +85,7 @@ function ClinicSupportCard({
 }) {
   return (
     <article
-      className={`group relative min-h-[500px] overflow-hidden rounded-[28px] bg-gradient-to-b ${gradient} p-7 shadow-[0_28px_70px_rgba(0,0,0,0.34)] ring-1 ring-purple-200/15 sm:min-h-[540px] md:min-h-[620px] lg:min-h-[650px]`}
+      className={`group relative min-h-[500px] overflow-hidden rounded-[16px] bg-gradient-to-b ${gradient} p-7 shadow-[0_28px_70px_rgba(0,0,0,0.34)] ring-1 ring-purple-200/15 sm:min-h-[540px] md:min-h-[620px] lg:min-h-[650px]`}
     >
       <div
         className={`absolute inset-0 ${

@@ -113,7 +113,7 @@ export default function ContactPage() {
               {contactSignals.map((signal) => (
                 <div
                   key={signal.label}
-                  className="rounded-[14px] border border-black/10 bg-white/80 px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+                  className="rounded-[16px] border border-black/10 bg-white/80 px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
                 >
                   <p className="text-lg font-semibold leading-none text-black">
                     {signal.value}

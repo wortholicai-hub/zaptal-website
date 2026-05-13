@@ -305,10 +305,10 @@ const VocalChatAgentCarousel: React.FC = () => {
             }
           >
             <div className="h-[40px] flex items-center justify-center">
-              <div className="border px-[1px] py-[1px] rounded-[14px] border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+              <div className="rounded-2xl border border-gray-300 px-[1px] py-[1px] shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition-all duration-300 hover:-translate-y-0.5">
                 <button
                   onMouseEnter={() => setShowDetail(true)}
-                  className="flex items-center gap-x-2 whitespace-nowrap rounded-[12px] border border-[#1111114D] bg-white px-3 py-[8px] text-[11px] font-medium text-gray-700 transition-all duration-300 hover:bg-gray-50 hover:shadow-md sm:text-[12px] md:text-[13px] lg:text-[15px]"
+                  className="flex items-center gap-x-2 whitespace-nowrap rounded-2xl border border-[#1111114D] bg-white px-3 py-[8px] text-[11px] font-medium text-gray-700 transition-all duration-300 hover:bg-gray-50 hover:shadow-md sm:text-[12px] md:text-[13px] lg:text-[15px]"
                 >
                   {agents[current].details.name}
                 </button>
@@ -316,21 +316,21 @@ const VocalChatAgentCarousel: React.FC = () => {
             </div>
 
             <div className="flex flex-row gap-3 items-center">
-              <div className="border px-[4px] py-[1px] rounded-[10px] border-gray-300 hover:scale-95 transition  shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+              <div className="rounded-2xl border border-gray-300 px-[4px] py-[1px] shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition hover:scale-95">
                 <button
                   onClick={prevSlide}
                   onMouseEnter={() => setShowDetail(true)}
-                  className="px-3 py-2 border border-gray-400 rounded-[8px] bg-white mt-[2px] "
+                  className="mt-[2px] rounded-2xl border border-gray-400 bg-white px-3 py-2"
                 >
                   <ChevronLeft className="w-5 h-5 text-gray-600" />
                 </button>
               </div>
 
-              <div className="border px-[4px] py-[1px] rounded-[10px] border-gray-300 hover:scale-95 transition  shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+              <div className="rounded-2xl border border-gray-300 px-[4px] py-[1px] shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition hover:scale-95">
                 <button
                   onClick={togglePlay}
                   onMouseEnter={() => setShowDetail(true)}
-                  className="px-3 py-2 border border-gray-400 rounded-[8px] bg-white mt-[2px]"
+                  className="mt-[2px] rounded-2xl border border-gray-400 bg-white px-3 py-2"
                 >
                   {isPlaying ? (
                     <Pause className="w-5 h-5 text-gray-600" />
@@ -340,11 +340,11 @@ const VocalChatAgentCarousel: React.FC = () => {
                 </button>
               </div>
 
-              <div className="border px-[4px] py-[1px] rounded-[10px] border-gray-300 hover:scale-95 transition  shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+              <div className="rounded-2xl border border-gray-300 px-[4px] py-[1px] shadow-[0_1px_3px_rgba(0,0,0,0.2)] transition hover:scale-95">
                 <button
                   onClick={nextSlide}
                   onMouseEnter={() => setShowDetail(true)}
-                  className="px-3 py-2 border border-gray-400 rounded-[8px] bg-white mt-[2px]"
+                  className="mt-[2px] rounded-2xl border border-gray-400 bg-white px-3 py-2"
                 >
                   <ChevronRight className="w-5 h-5 text-gray-600" />
                 </button>

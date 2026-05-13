@@ -83,7 +83,7 @@ export default function Header() {
           <div className="flex items-center justify-self-end md:hidden">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="p-2 rounded-md border border-gray-300 bg-white/70 backdrop-blur-sm"
+              className="rounded-2xl border border-gray-300 bg-white/70 p-2 backdrop-blur-sm"
             >
               {menuOpen ? (
                 <X className="w-5 h-5 sm:w-6 sm:h-6" />

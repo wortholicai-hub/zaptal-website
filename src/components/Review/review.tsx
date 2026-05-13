@@ -44,7 +44,7 @@ const Review: React.FC = () => {
             {marqueeTestimonials.map((testimonial, index) => (
               <article
                 key={`${testimonial.id}-${index}`}
-                className="flex h-[255px] w-[300px] shrink-0 flex-col rounded-[18px] border border-gray-200 bg-white p-5 shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-transform duration-300 hover:-translate-y-1 sm:w-[330px]"
+                className="flex h-[255px] w-[300px] shrink-0 flex-col rounded-[16px] border border-gray-200 bg-white p-5 shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-transform duration-300 hover:-translate-y-1 sm:w-[330px]"
               >
                 <div className="mb-4 flex items-center gap-3">
                   <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-full border border-gray-200 bg-gray-100">

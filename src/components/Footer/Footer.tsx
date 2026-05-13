@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               wellness centers, and healthcare growth teams.
             </p>
 
-            <button className="mt-6 flex items-center gap-2 text-white text-lg font-medium hover:text-purple-300 transition-colors duration-200 group cursor-pointer">
+            <button className="group mt-6 flex cursor-pointer items-center gap-2 rounded-2xl border border-white/20 px-5 py-2 text-lg font-medium text-white transition-colors duration-200 hover:border-purple-300/50 hover:text-purple-300">
               <a
                 href="https://calendar.google.com/calendar/u/0/r"
                 target="_blank"
