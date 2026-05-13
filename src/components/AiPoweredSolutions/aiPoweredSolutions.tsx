@@ -89,7 +89,7 @@ export const AIPoweredSolution = () => {
           {serviceCategories.map((service, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_80px_rgba(124,58,237,0.26),0_22px_55px_rgba(0,0,0,0.5)]"
+              className="group relative overflow-hidden rounded-[16px] border border-white/10 bg-[linear-gradient(145deg,#111111_0%,#050505_58%,#15101f_100%)] p-8 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_80px_rgba(124,58,237,0.26),0_22px_55px_rgba(0,0,0,0.5)]"
             >
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.13),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="pointer-events-none absolute bottom-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-purple-300/35 to-transparent" />
@@ -102,13 +102,13 @@ export const AIPoweredSolution = () => {
                 <div className="flex-shrink-0 mr-4">
                   {service.icon}
                 </div>
-                <h3 className="text-[18px] sm:text-2xl font-normal text-white">
+                <h3 className="text-[18px] sm:text-2xl font-normal !text-white">
                   {t(service.titleKey)}
                 </h3>
               </div>
 
               {/* Description */}
-              <p className="relative z-10 text-sm sm:text-base text-gray-400 mb-5">
+              <p className="relative z-10 text-sm sm:text-base !text-white mb-5">
                 {t(service.descriptionKey)}
               </p>
 
@@ -117,7 +117,7 @@ export const AIPoweredSolution = () => {
                 {service.featuresKeys.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center text-[14px] font-normal text-white"
+                    className="flex items-center text-[14px] font-normal !text-white"
                   >
                     <span className="mr-1.5 text-purple-400">•</span>
                     {t(feature)}

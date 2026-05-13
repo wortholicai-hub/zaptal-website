@@ -101,22 +101,25 @@ function ClinicSupportCard({
       <div className="relative z-10">
         <p
           className={`mb-4 text-xs font-bold uppercase tracking-[0.08em] ${
-            light ? "text-slate-700/70" : "text-white/68"
+            light ? "!text-black" : "text-white/68"
           }`}
+          style={light ? { color: "#000000" } : undefined}
         >
           {eyebrow}
         </p>
         <h3
           className={`max-w-[320px] text-[25px] font-semibold leading-[1.08] tracking-[-0.01em] sm:text-[27px] lg:text-[29px] ${
-            light ? "text-slate-950" : "text-white"
+            light ? "!text-black" : "text-white"
           }`}
+          style={light ? { color: "#000000" } : undefined}
         >
           {title}
         </h3>
         <p
           className={`mt-4 max-w-[330px] text-sm font-medium leading-6 ${
-            light ? "text-slate-800/78" : "text-white/74"
+            light ? "!text-black" : "text-white/74"
           }`}
+          style={light ? { color: "#000000" } : undefined}
         >
           {summary}
         </p>

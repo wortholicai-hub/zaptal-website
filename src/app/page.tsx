@@ -29,9 +29,9 @@ export default function Home() {
       <IndustrySolutions />
       <ComparisonSection />
       <ServicesSection />
-      <FAQSectionNew />
-      <ConsultationSection />
       <Review />
+      <ConsultationSection />
+      <FAQSectionNew />
     </div>
   );
 }

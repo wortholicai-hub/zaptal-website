@@ -333,6 +333,83 @@
         "image": "https://randomuser.me/api/portraits/women/68.jpg",
         "initials": "ET",
         "bgColor": "from-gray-200 to-gray-100"
+      },
+      {
+        "id": 4,
+        "name": "Dr. James Patel",
+        "position": "Family Clinic Partner",
+        "company": "Northside Family Care",
+        "rating": 5,
+        "review": "Our team spends less time chasing voicemail and more time helping patients who are already in the clinic.",
+        "image": "https://randomuser.me/api/portraits/men/75.jpg",
+        "initials": "JP",
+        "bgColor": "from-gray-200 to-gray-100"
+      },
+      {
+        "id": 5,
+        "name": "Olivia Martin",
+        "position": "Practice Administrator",
+        "company": "Harborview Orthodontics",
+        "rating": 4.5,
+        "review": "The after-hours call coverage helped us capture appointment requests that previously waited until the next morning.",
+        "image": "https://randomuser.me/api/portraits/women/12.jpg",
+        "initials": "OM",
+        "bgColor": "from-gray-600 to-gray-400"
+      },
+      {
+        "id": 6,
+        "name": "Daniel Brooks",
+        "position": "Multi-site Operations Lead",
+        "company": "CarePoint Clinics",
+        "rating": 5,
+        "review": "Zaptal made our communication process consistent across locations without adding more work for reception.",
+        "image": "https://randomuser.me/api/portraits/men/41.jpg",
+        "initials": "DB",
+        "bgColor": "from-gray-200 to-gray-100"
+      },
+      {
+        "id": 7,
+        "name": "Dr. Hannah Lewis",
+        "position": "Aesthetic Clinic Owner",
+        "company": "Renew Skin Clinic",
+        "rating": 5,
+        "review": "Consultation inquiries now get quick answers, smooth booking support, and reliable follow-up from one workflow.",
+        "image": "https://randomuser.me/api/portraits/women/56.jpg",
+        "initials": "HL",
+        "bgColor": "from-gray-200 to-gray-100"
+      },
+      {
+        "id": 8,
+        "name": "Marcus Green",
+        "position": "Patient Access Manager",
+        "company": "Metro Community Health",
+        "rating": 4.5,
+        "review": "Multilingual call handling improved access for patients who used to need extra staff support to get scheduled.",
+        "image": "https://randomuser.me/api/portraits/men/22.jpg",
+        "initials": "MG",
+        "bgColor": "from-gray-600 to-gray-400"
+      },
+      {
+        "id": 9,
+        "name": "Priya Shah",
+        "position": "Dental Group Coordinator",
+        "company": "EverSmile Dental Group",
+        "rating": 5,
+        "review": "Recall messages and missed-call recovery brought patients back onto the calendar with very little manual tracking.",
+        "image": "https://randomuser.me/api/portraits/women/29.jpg",
+        "initials": "PS",
+        "bgColor": "from-gray-200 to-gray-100"
+      },
+      {
+        "id": 10,
+        "name": "Ethan Wright",
+        "position": "Clinic Growth Manager",
+        "company": "Summit Specialty Care",
+        "rating": 5,
+        "review": "The booking insights helped us understand which calls were converting and where staff follow-up mattered most.",
+        "image": "https://randomuser.me/api/portraits/men/64.jpg",
+        "initials": "EW",
+        "bgColor": "from-gray-200 to-gray-100"
       }
     ]
   },

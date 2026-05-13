@@ -28,33 +28,37 @@ const ConsultationSection: React.FC = () => {
   return (
     <div className="w-full bg-white px-4 pb-12 pt-12 sm:px-6 md:pb-16 md:pt-16 lg:px-2">
       <div className="max-w-[1200px] mx-auto">
-        <div className="relative rounded-[16px] bg-black p-8 md:p-10 overflow-hidden">
-          {/* Phone Icon */}
-          <div className="flex gap-1 pb-12">
-            <Phone className="w-12 h-12 text-gray-600 ml-4 mt-1" />
-          </div>
+        <div className="relative overflow-hidden rounded-[18px] border border-gray-800 bg-black p-7 shadow-[0_22px_70px_rgba(0,0,0,0.18)] sm:p-8 md:p-10">
+          <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="max-w-3xl">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/10">
+                  <Phone className="h-6 w-6 text-white" />
+                </span>
+                <p className="text-[32px] font-bold leading-none !text-white sm:text-[38px]">
+                  Let's talk.
+                </p>
+              </div>
 
-          {/* Content */}
-          <div className="relative z-10">
-            <p className="text-gray-400 text-[38px] md:mb-2">Let's talk.</p>
-            <h2 className="text-white text-[38px] font-bold mb-8">
-              Book a free consultation
-            </h2>
+              <h2 className="mb-4 text-[30px] font-bold leading-tight text-white sm:text-[38px]">
+                Book a free consultation
+              </h2>
+              <p className="mb-7 max-w-2xl text-base leading-7 !text-white sm:text-lg">
+                See how Zaptal can answer more calls, schedule patients faster,
+                and reduce repetitive front-desk work.
+              </p>
 
-            {/* Animated dots */}
-            <div className="flex gap-2 mb-12">
               <Image
                 src={"/images/dots/horizontal-dots.avif"}
-                alt="check"
+                alt=""
                 width={280}
                 height={38}
-                className="mt-0.5 flex-shrink-0 "
+                className="h-auto w-[220px] flex-shrink-0 opacity-80 sm:w-[280px]"
               />
             </div>
 
-            {/* CTA Button */}
             <button
-              aria-label="Book a Call"
+              aria-label={t("vocalchat.bookCall")}
               onClick={() =>
                 window.open(
                   "https://calendar.google.com/calendar/u/0/r",
@@ -62,7 +66,7 @@ const ConsultationSection: React.FC = () => {
                   "noopener,noreferrer"
                 )
               }
-              className="w-full md:w-fit flex items-center justify-center gap-2 px-4 py-1.5 rounded-xl bg-white text-black border border-gray-200 hover:bg-gray-50 hover:border-gray-300 transition-all duration-300 cursor-pointer"
+              className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-white bg-white px-5 py-3 text-black transition-all duration-300 hover:bg-gray-100 md:w-fit lg:mb-1 lg:justify-self-end"
             >
               <span className="text-base font-semibold">
                 {t("vocalchat.bookCall")}
@@ -70,25 +74,8 @@ const ConsultationSection: React.FC = () => {
               <DottedArrowUpRight />
             </button>
           </div>
-
-          {/* Gradient glow effect */}
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-[32rem] h-[32rem] bg-purple-700 rounded-full blur-3xl opacity-40 pointer-events-none" />
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes pulse {
-          0%,
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.5;
-            transform: scale(0.8);
-          }
-        }
-      `}</style>
     </div>
   );
 };

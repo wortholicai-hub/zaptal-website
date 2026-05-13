@@ -2,30 +2,30 @@
 
 import { useTranslation } from "react-i18next";
 import {
-  Activity,
-  Building2,
-  CalendarCheck,
+  BadgeCheck,
+  BriefcaseMedical,
+  ChartNetwork,
   ClipboardList,
-  HandHeart,
   HeartPulse,
-  Hospital,
-  ShieldCheck,
+  Languages,
+  SmilePlus,
   Sparkles,
   Stethoscope,
+  Syringe,
   LucideIcon,
 } from "lucide-react";
 
 const industryIcons = {
   healthcare: Stethoscope,
-  ecommerce: CalendarCheck,
-  financial: Sparkles,
-  professional: Building2,
-  realestate: HeartPulse,
-  nonprofit: HandHeart,
-  education: Hospital,
-  travel: Activity,
-  retail: ClipboardList,
-  legal: ShieldCheck,
+  ecommerce: SmilePlus,
+  financial: HeartPulse,
+  professional: ChartNetwork,
+  realestate: BriefcaseMedical,
+  nonprofit: Languages,
+  education: BadgeCheck,
+  travel: Sparkles,
+  retail: Syringe,
+  legal: ClipboardList,
 } as const;
 
 type IndustryKey = keyof typeof industryIcons;
@@ -69,20 +69,20 @@ export default function IndustrySolutions() {
             return (
               <article
                 key={industry.id}
-                className="group relative min-h-[172px] overflow-hidden rounded-[18px] border border-purple-200/15 bg-[linear-gradient(145deg,rgba(90,74,125,0.48)_0%,rgba(20,57,79,0.34)_42%,rgba(5,4,6,0.92)_100%)] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_18px_45px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300/70 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_28px_70px_rgba(124,58,237,0.22),0_20px_50px_rgba(0,0,0,0.45)]"
+                className="group relative min-h-[172px] overflow-hidden rounded-[18px] border border-purple-100 bg-white p-5 shadow-[0_18px_45px_rgba(15,23,42,0.1)] transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-300 hover:shadow-[0_28px_70px_rgba(124,58,237,0.18),0_18px_45px_rgba(15,23,42,0.12)]"
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.12),transparent_34%),linear-gradient(135deg,rgba(255,255,255,0.07),transparent_42%)] opacity-70 transition-opacity duration-300 group-hover:opacity-100" />
-                <span className="pointer-events-none absolute right-4 top-4 text-[40px] font-semibold leading-none text-white/14 transition-all duration-300 group-hover:text-white group-hover:drop-shadow-[0_0_18px_rgba(255,255,255,0.45)]">
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(124,58,237,0.12),transparent_36%),linear-gradient(135deg,rgba(255,255,255,0.9),transparent_46%)] opacity-80 transition-opacity duration-300 group-hover:opacity-100" />
+                <span className="pointer-events-none absolute right-4 top-4 text-[40px] font-semibold leading-none text-purple-100 transition-all duration-300 group-hover:text-purple-600">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-[14px] bg-purple-400/15 text-purple-300 transition-colors duration-300 group-hover:bg-purple-300 group-hover:text-black">
+                <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-[14px] bg-purple-50 text-purple-700 transition-colors duration-300 group-hover:bg-purple-600 group-hover:text-white">
                   <Icon className="h-5 w-5" strokeWidth={1.6} />
                 </div>
-                <h3 className="relative z-10 mt-5 text-[17px] font-semibold leading-snug text-white">
+                <h3 className="relative z-10 mt-5 text-[17px] font-semibold leading-snug text-black">
                   {industry.title}
                 </h3>
-                <p className="relative z-10 mt-2 text-sm leading-6 text-white/58">
+                <p className="relative z-10 mt-2 text-sm leading-6 !text-black">
                   {industry.description}
                 </p>
               </article>

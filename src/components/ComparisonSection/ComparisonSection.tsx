@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Image from "next/image";
+import { CheckCircle2, CircleMinus } from "lucide-react";
 
 export default function ComparisonSection() {
   const { t } = useTranslation();
@@ -19,9 +19,9 @@ export default function ComparisonSection() {
       <div className="max-w-[1200px] mx-auto w-full flex flex-col items-center justify-center">
         {/* Heading */}
         <div className="w-full mb-10 px-0 flex justify-center text-center">
-          <h2 className="text-black font-medium text-[30px] sm:text-4xl lg:text-5xl leading-tight inline-grid grid-cols-[1fr_auto_1fr] items-center gap-x-4 gap-y-3">
+          <h2 className="text-black font-semibold text-[30px] sm:text-4xl lg:text-5xl leading-tight inline-grid grid-cols-[1fr_auto_1fr] items-center gap-x-4 gap-y-3">
             <span>{t("comparison.titlePart1")}</span>
-            <span className="inline-flex items-center justify-center rounded-full border border-purple-200 bg-purple-50 px-5 py-1 text-base sm:text-lg font-bold text-purple-600">
+            <span className="inline-flex items-center justify-center rounded-full border border-gray-200 bg-white px-5 py-1 text-base sm:text-lg font-bold text-gray-900 shadow-sm">
               vs.
             </span>
             <span>{t("comparison.titlePart2")}</span>
@@ -29,32 +29,23 @@ export default function ComparisonSection() {
         </div>
 
         {/* Comparison Container */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 items-stretch gap-5 lg:gap-6 w-full p-5 md:p-6 rounded-[16px] shadow-[0px_2px_10px_5px_rgba(147,_51,_234,_0.05)] bg-white overflow-hidden">
-          {/* Gradient blur effects */}
-          <div className="block absolute top-0 left-0 w-72 h-4/12 md:h-10/12 bg-gradient-to-br from-[#1f063d] via-[#3b0764] to-transparent rounded-full blur-2xl z-0 opacity-85"></div>
-
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 items-stretch gap-5 lg:gap-6 w-full rounded-[20px] border border-gray-200 bg-white p-4 shadow-[0_24px_70px_rgba(15,23,42,0.08)] md:p-5">
           {/* Left Card - VocalChat */}
           <div className="relative z-10 w-full">
-            <div className="bg-black rounded-[16px] py-5 px-5 sm:px-7 w-full h-full z-[999] relative">
+            <div className="relative z-10 h-full w-full rounded-[16px] border border-gray-200 bg-white px-5 py-5 shadow-[0_14px_45px_rgba(15,23,42,0.07)] sm:px-7">
               <div className="space-y-2">
-                <div className="bg-[#1e1c28] font-semibold py-2.5 px-4 text-lg flex justify-center items-center rounded-[16px] mb-4">
-                  <span className="text-white text-xl font-semibold tracking-wide">
+                <div className="mb-4 flex items-center justify-center rounded-[14px] border border-gray-200 bg-gray-50 px-4 py-2.5 font-semibold">
+                  <span className="text-xl font-semibold tracking-wide text-gray-950">
                     Zaptal AI
                   </span>
                 </div>
                 {vocalchatFeatures.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-4 whitespace-normal break-words"
+                    className="flex items-center gap-3 whitespace-normal break-words rounded-xl px-2 py-1.5 transition-colors duration-200 hover:bg-gray-50"
                   >
-                    <Image
-                      src={"/images/icons/right-icon.png"}
-                      alt="check"
-                      width={38}
-                      height={38}
-                      className="mt-0.5 flex-shrink-0"
-                    />
-                    <span className="text-white font-medium text-base sm:text-[17px] leading-6 my-1">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-950" />
+                    <span className="my-1 text-base font-medium leading-6 text-gray-800 sm:text-[17px]">
                       {feature}
                     </span>
                   </div>
@@ -64,9 +55,9 @@ export default function ComparisonSection() {
           </div>
 
           {/* Right Card - Traditional */}
-          <div className="relative z-10 w-full rounded-[16px] border border-gray-200 bg-white py-5 px-5 sm:px-7 h-full">
+          <div className="relative z-10 h-full w-full rounded-[16px] border border-gray-200 bg-[#fafafa] px-5 py-5 sm:px-7">
             <div className="mb-4 flex justify-start">
-              <div className="w-full inline-flex items-center justify-center px-6 py-2.5 border border-gray-300 rounded-[16px] whitespace-nowrap bg-gray-50">
+              <div className="inline-flex w-full items-center justify-center whitespace-nowrap rounded-[14px] border border-gray-300 bg-white px-6 py-2.5">
                 <span className="text-gray-800 text-xl font-semibold tracking-wide">
                   {t("comparison.traditionalBadge")}
                 </span>
@@ -77,16 +68,10 @@ export default function ComparisonSection() {
               {traditionalLimitations.map((limitation, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 whitespace-normal break-words"
+                  className="flex items-center gap-3 whitespace-normal break-words rounded-xl px-2 py-1.5 transition-colors duration-200 hover:bg-white"
                 >
-                  <Image
-                    src={"/images/icons/wrong-icon.png"}
-                    alt="check"
-                    width={38}
-                    height={38}
-                    className="mt-0.5 flex-shrink-0"
-                  />
-                  <span className="text-gray-700 text-sm sm:text-[17px] leading-7 my-1">
+                  <CircleMinus className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
+                  <span className="my-1 text-sm leading-7 text-gray-700 sm:text-[17px]">
                     {limitation}
                   </span>
                 </div>
