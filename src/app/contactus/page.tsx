@@ -79,7 +79,7 @@ export default function ContactPage() {
       <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-2">
         <div className="pointer-events-none absolute bottom-0 right-[3%] top-0 hidden w-[66%] md:block lg:right-[4%]">
           <Image
-            src="/images/pages/contact-hero.webp"
+            src="/images/pages/contact.svg"
             alt="Clinic team preparing an AI communication demo"
             fill
             priority
@@ -89,7 +89,7 @@ export default function ContactPage() {
         </div>
         <div className="pointer-events-none absolute bottom-0 right-[-7%] top-10 block w-full opacity-20 md:hidden">
           <Image
-            src="/images/pages/contact-hero.webp"
+            src="/images/pages/contact.svg"
             alt=""
             fill
             priority

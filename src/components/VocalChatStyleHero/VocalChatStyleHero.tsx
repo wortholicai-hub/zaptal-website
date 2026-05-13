@@ -7,6 +7,7 @@ import BookACallButton from "@/components/common/BookACallButton";
 
 const VocalChatStyleHero: React.FC = () => {
   const { t } = useTranslation();
+  const heroTitleLines = t("vocalchat.heroTitle").split("\n");
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -40,8 +41,12 @@ const VocalChatStyleHero: React.FC = () => {
           className="w-full"
           variants={itemVariants}
         >
-          <h2 className="mx-auto max-w-[920px] text-center text-[36px] font-semibold leading-[1.03] tracking-[-0.02em] text-black sm:text-5xl lg:text-[68px]">
-            {t("vocalchat.heroTitle")}
+          <h2 className="mx-auto max-w-[920px] text-center text-[30px] font-semibold leading-[1.08] text-black min-[420px]:text-[34px] sm:text-5xl lg:text-[68px] lg:leading-[1.03]">
+            {heroTitleLines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h2>
         </motion.div>
 

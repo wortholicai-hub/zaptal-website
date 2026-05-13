@@ -202,6 +202,7 @@ export const AdvancedAiFeatures = () => {
                 alt={t(selectedFeature.title)}
                 fill
                 priority={activeFeature === 0}
+                unoptimized
                 sizes="(min-width: 1024px) 420px, (min-width: 640px) 390px, 86vw"
                 className="object-contain"
               />

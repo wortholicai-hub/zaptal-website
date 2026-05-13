@@ -105,7 +105,7 @@ export default function BlogPage() {
       <section className="relative w-full overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-20 md:py-24 lg:px-2">
         <div className="pointer-events-none absolute bottom-0 right-[3%] top-2 hidden w-[62%] md:block lg:right-[4%]">
           <Image
-            src="/images/pages/blog-hero.webp"
+            src="/images/pages/blog.svg"
             alt="Doctor reviewing AI clinic communication insights"
             fill
             priority
@@ -115,7 +115,7 @@ export default function BlogPage() {
         </div>
         <div className="pointer-events-none absolute bottom-0 right-[-6%] top-12 block w-[94%] opacity-20 md:hidden">
           <Image
-            src="/images/pages/blog-hero.webp"
+            src="/images/pages/blog.svg"
             alt=""
             fill
             priority
