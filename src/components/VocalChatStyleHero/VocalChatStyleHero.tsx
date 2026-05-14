@@ -3,7 +3,6 @@
 import React from "react";
 import { motion, Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import BookACallButton from "@/components/common/BookACallButton";
 
 const VocalChatStyleHero: React.FC = () => {
   const { t } = useTranslation();
@@ -51,20 +50,17 @@ const VocalChatStyleHero: React.FC = () => {
         </motion.div>
 
         <motion.div
-          className="flex w-full flex-wrap items-center justify-center gap-4"
+          className="flex w-full items-center justify-center"
           variants={itemVariants}
         >
           <iframe
             src="https://portal.scalenexus.ai/iframe/6a030a6e56cef3f56106088a"
-            className="h-16 w-[300px] max-w-full border-0 bg-white"
+            className="h-[86px] w-[340px] max-w-full border-0 bg-white"
             style={{ background: "#ffffff", backgroundColor: "#ffffff", colorScheme: "light" }}
             frameBorder="0"
             allow="microphone"
             title="Talk to Zaptal AI assistant"
           />
-          <div className="flex h-16 items-center">
-            <BookACallButton />
-          </div>
         </motion.div>
       </motion.div>
     </motion.section>
