@@ -20,7 +20,7 @@ const agents: Agent[] = [
   {
     id: 1,
     src: "/images/ai-voice/Amira.png",
-    audio: "/audio/ai-voice/EN/Amira.mp3",
+    audio: "/audio/ai-voice/amira.mp3",
     details: {
       name: "Amira - AI Receptionist",
       role: "Clinic Reception Agent",
@@ -30,7 +30,7 @@ const agents: Agent[] = [
   {
     id: 2,
     src: "/images/ai-voice/Casper.png",
-    audio: "/audio/ai-voice/EN/Casper.mp3",
+    audio: "/audio/ai-voice/Casper.mp3",
     details: {
       name: "Casper - Scheduling Agent",
       role: "Appointment Coordinator",
@@ -40,7 +40,7 @@ const agents: Agent[] = [
   {
     id: 3,
     src: "/images/ai-voice/Thalina.png",
-    audio: "/audio/ai-voice/EN/Thalina.mp3",
+    audio: "/audio/ai-voice/thalina.mp3",
     details: {
       name: "Thalina - Recall Agent",
       role: "Patient Recall Agent",
@@ -50,7 +50,7 @@ const agents: Agent[] = [
   {
     id: 4,
     src: "/images/ai-voice/Heleen.png",
-    audio: "/audio/ai-voice/EN/Heleen.mp3",
+    audio: "/audio/ai-voice/heleen.mp3",
     details: {
       name: "Heleen - Analytics Agent",
       role: "Clinic Insights Agent",
@@ -60,7 +60,7 @@ const agents: Agent[] = [
   {
     id: 5,
     src: "/images/ai-voice/Zelda.png",
-    audio: "/audio/ai-voice/EN/Zelda.mp3",
+    audio: "/audio/ai-voice/zelda.mp3",
     details: {
       name: "Zelda - Patient Care Agent",
       role: "Follow-up Agent",
@@ -70,7 +70,7 @@ const agents: Agent[] = [
   {
     id: 6,
     src: "/images/ai-voice/Carla.png",
-    audio: "/audio/ai-voice/EN/Carla.mp3",
+    audio: "/audio/ai-voice/carla.mp3",
     details: {
       name: "Carla - Intake Agent",
       role: "New Patient Intake",
@@ -80,7 +80,7 @@ const agents: Agent[] = [
   {
     id: 7,
     src: "/images/ai-voice/coma.png",
-    audio: "/audio/ai-voice/EN/Selena.mp3",
+    audio: "/audio/ai-voice/seleena.mp3",
     details: {
       name: "Selena - Routing Agent",
       role: "Smart Transfer Agent",
@@ -90,7 +90,7 @@ const agents: Agent[] = [
   {
     id: 8,
     src: "/images/ai-voice/Tirza.png",
-    audio: "/audio/ai-voice/EN/Tirza.mp3",
+    audio: "/audio/ai-voice/tirza.mp3",
     details: {
       name: "Tirza - Workflow Agent",
       role: "Automation Coordinator",
@@ -100,7 +100,7 @@ const agents: Agent[] = [
   {
     id: 9,
     src: "/images/ai-voice/Bella.png",
-    audio: "/audio/ai-voice/EN/Bella.mp3",
+    audio: "/audio/ai-voice/Bella.mp3",
     details: {
       name: "Bella - Reactivation Agent",
       role: "Patient Growth Agent",
@@ -110,7 +110,7 @@ const agents: Agent[] = [
   {
     id: 10,
     src: "/images/ai-voice/Bastian.png",
-    audio: "/audio/ai-voice/EN/Bastian.mp3",
+    audio: "/audio/ai-voice/Bastin.mp3",
     details: {
       name: "Bastian - Support Agent",
       role: "Patient Support Agent",

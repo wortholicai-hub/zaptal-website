@@ -31,7 +31,7 @@ export default function BookACallButton() {
           "noopener,noreferrer"
         )
       }
-      className="no-doto-button inline-flex h-12 min-w-[166px] cursor-pointer items-center justify-center gap-2 rounded-2xl border border-gray-200 bg-white px-6 text-sm font-semibold text-black shadow-[0_12px_30px_rgba(0,0,0,0.05)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:bg-gray-50 hover:shadow-[0_16px_38px_rgba(0,0,0,0.08)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6c47ff]"
+      className="no-doto-button inline-flex h-16 min-w-[190px] cursor-pointer items-center justify-center gap-3 rounded-full border border-gray-200 bg-white px-7 text-[15px] font-semibold text-black shadow-[0_14px_34px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-0.5 hover:border-gray-300 hover:bg-white hover:shadow-[0_18px_44px_rgba(15,23,42,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6c47ff]"
     >
       <span>
         {t("vocalchat.bookCall")}

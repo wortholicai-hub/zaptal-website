@@ -56,13 +56,13 @@ const VocalChatStyleHero: React.FC = () => {
         >
           <iframe
             src="https://portal.scalenexus.ai/iframe/6a030a6e56cef3f56106088a"
-            className="h-14 w-[220px] border-0 bg-white"
+            className="h-16 w-[300px] max-w-full border-0 bg-white"
             style={{ background: "#ffffff", backgroundColor: "#ffffff", colorScheme: "light" }}
             frameBorder="0"
             allow="microphone"
             title="Talk to Zaptal AI assistant"
           />
-          <div className="flex h-12 items-center">
+          <div className="flex h-16 items-center">
             <BookACallButton />
           </div>
         </motion.div>
