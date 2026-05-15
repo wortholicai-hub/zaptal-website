@@ -354,16 +354,25 @@ export default function AboutPage() {
           </div>
 
           <div className="mt-5 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-lg border border-black/10 bg-white p-6 text-left shadow-[0_18px_60px_rgba(15,23,42,0.06)] sm:p-7">
-              <div className="flex items-start gap-4">
-                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-black text-white">
+            <div className="group relative min-h-[330px] overflow-hidden rounded-[16px] border border-black bg-black p-6 text-left text-white shadow-[0_18px_60px_rgba(15,23,42,0.18)] sm:p-7">
+              <Image
+                src="/images/Clinic communication/1.svg"
+                alt=""
+                fill
+                unoptimized
+                className="pointer-events-none absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-80 transition-transform duration-500 ease-out group-hover:scale-[1.14]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/92 via-black/70 to-black/30" />
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-white/25" />
+              <div className="relative z-10 flex items-start gap-4">
+                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-white/12 text-white ring-1 ring-white/18 shadow-[0_12px_34px_rgba(0,0,0,0.22)]">
                   <ShieldCheck className="h-5 w-5" strokeWidth={1.7} />
                 </div>
-                <div>
-                  <h3 className="text-2xl font-semibold leading-tight text-black">
+                <div className="max-w-[430px]">
+                  <h3 className="text-2xl font-semibold leading-tight text-white">
                     Mature automation that stays under control
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-gray-700 sm:text-base">
+                  <p className="mt-3 text-sm leading-7 text-white/82 sm:text-base">
                     Workflows are planned around secure intake, staff escalation,
                     appointment demand, and the daily rhythm of real clinics.
                   </p>
