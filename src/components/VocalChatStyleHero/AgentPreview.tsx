@@ -4,6 +4,7 @@ import React from "react";
 import { Phone, PhoneOff } from "lucide-react";
 import { CiWavePulse1 } from "react-icons/ci";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 export default function CallNotification() {
   const { t } = useTranslation();
@@ -18,7 +19,7 @@ export default function CallNotification() {
       {/* ====== SECTION HEADING ====== */}
       <div className="w-full max-w-[1200px] mx-auto text-center mb-12">
         <h2 className="text-black font-medium text-[30px] sm:text-[34px] lg:text-[42px] leading-tight">
-          {t("vocalchat.sectionHeading")}
+          <HighlightClinicText text={t("vocalchat.sectionHeading")} />
         </h2>
       </div>
 
@@ -146,7 +147,9 @@ export default function CallNotification() {
               <div className="absolute inset-0 bg-gradient-to-b from-black/88 via-black/58 to-black/20" />
               <div className="relative z-10 w-full">
                 <h3 className="mb-2 whitespace-nowrap text-left text-[18px] font-medium leading-snug text-white sm:text-[19px] lg:text-[20px]">
-                  {t(`vocalchat.problem${num}Title`) || `Problem ${num}`}
+                  <HighlightClinicText
+                    text={t(`vocalchat.problem${num}Title`) || `Problem ${num}`}
+                  />
                 </h3>
                 <p className="whitespace-pre-line text-left text-sm leading-6 text-white/86">
                   {t(`vocalchat.problem${num}Desc`) ||

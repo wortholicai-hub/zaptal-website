@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 interface WorkflowStep {
   titleKey: string;
@@ -26,7 +27,7 @@ const WorkflowProcess: React.FC<WorkflowProcessProps> = ({ steps }) => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        {t("vocalchat.fullyAutomated")}
+        <HighlightClinicText text={t("vocalchat.fullyAutomated")} />
       </motion.h1>
 
       <div className="space-y-0">
@@ -45,7 +46,7 @@ const WorkflowProcess: React.FC<WorkflowProcessProps> = ({ steps }) => {
                     {step.number}
                   </span>
                   <h3 className="text-black text-2xl font-bold">
-                    {t(step.titleKey)}
+                    <HighlightClinicText text={t(step.titleKey)} />
                   </h3>
                 </div>
                 <p className="text-gray-700 text-lg leading-relaxed">

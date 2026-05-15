@@ -2,6 +2,7 @@
 
 import { Phone, MessageCircle, Smartphone, Monitor } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 const serviceCategories = [
   {
@@ -75,7 +76,7 @@ export const AIPoweredSolution = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-[34px] sm:text-4xl lg:text-5xl font-medium text-white tracking-tight">
-            {t("Our AI-Powered Services")}
+            <HighlightClinicText text={t("Our AI-Powered Services")} />
           </h2>
           {/* <p className="text-gray-600 text-base sm:text-lg mt-4">
             {t(
@@ -103,7 +104,7 @@ export const AIPoweredSolution = () => {
                   {service.icon}
                 </div>
                 <h3 className="text-[18px] sm:text-2xl font-normal !text-white">
-                  {t(service.titleKey)}
+                  <HighlightClinicText text={t(service.titleKey)} />
                 </h3>
               </div>
 
@@ -120,7 +121,7 @@ export const AIPoweredSolution = () => {
                     className="flex items-center text-[14px] font-normal !text-white"
                   >
                     <span className="mr-1.5 text-purple-400">•</span>
-                    {t(feature)}
+                    <HighlightClinicText text={t(feature)} />
                   </div>
                 ))}
               </div>

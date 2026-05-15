@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 import {
   BadgeCheck,
   BriefcaseMedical,
@@ -59,7 +60,7 @@ export default function IndustrySolutions() {
       <div className="relative z-10 mx-auto w-full max-w-[1200px]">
         <div className="mb-10 text-center">
             <h2 className="text-[30px] font-medium leading-tight text-white sm:text-[38px] md:text-[44px] lg:text-[48px]">
-            {t("industry.title")}
+            <HighlightClinicText text={t("industry.title")} />
           </h2>
         </div>
 
@@ -80,7 +81,7 @@ export default function IndustrySolutions() {
                   <Icon className="h-5 w-5" strokeWidth={1.6} />
                 </div>
                 <h3 className="relative z-10 mt-5 text-[17px] font-semibold leading-snug text-black">
-                  {industry.title}
+                  <HighlightClinicText text={industry.title} />
                 </h3>
                 <p className="relative z-10 mt-2 text-sm leading-6 !text-black">
                   {industry.description}

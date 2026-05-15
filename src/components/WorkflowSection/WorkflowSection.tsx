@@ -13,6 +13,7 @@ import {
   UserCheck,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 export default function WorkflowSection() {
   const { t } = useTranslation();
@@ -76,7 +77,9 @@ export default function WorkflowSection() {
     >
       <div className="relative mx-auto w-full max-w-[1200px]">
         <h2 className="relative z-10 w-full text-center text-[30px] font-semibold leading-tight text-black sm:text-4xl lg:text-5xl">
-          {t("workflow.headerLine1")} {t("workflow.headerLine2")}
+          <HighlightClinicText
+            text={`${t("workflow.headerLine1")} ${t("workflow.headerLine2")}`}
+          />
         </h2>
 
         <div className="relative z-10 mt-10 grid gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:items-start lg:gap-4">
@@ -85,7 +88,7 @@ export default function WorkflowSection() {
               <div className="mb-4 border-b border-black/10 pb-4">
                 <div>
                   <h3 className="text-center text-xl font-semibold tracking-[-0.01em] text-black sm:text-2xl">
-                    Every call becomes easier to review
+                    <HighlightClinicText text="Every call becomes easier to review" />
                   </h3>
                 </div>
               </div>
@@ -114,7 +117,7 @@ export default function WorkflowSection() {
                         </span>
                         <span className="min-w-0">
                           <span className="block text-[14px] font-semibold leading-5 text-black sm:text-[15px]">
-                            {label}
+                            <HighlightClinicText text={label} />
                           </span>
                           <span className="pointer-events-none absolute left-0 right-0 top-[calc(100%+6px)] z-30 rounded-xl border border-black/10 bg-white px-3 py-2 text-xs leading-5 text-gray-600 opacity-0 shadow-[0_18px_42px_rgba(15,23,42,0.14)] transition-opacity duration-200 group-hover:opacity-100 group-focus:opacity-100">
                             {detail}

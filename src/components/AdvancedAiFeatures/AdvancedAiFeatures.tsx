@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 import {
   BarChart3,
   Building2,
@@ -136,7 +137,7 @@ export const AdvancedAiFeatures = () => {
         {/* ===== Heading ===== */}
         <div className="text-center mb-9">
           <h2 className="text-[34px] sm:text-4xl lg:text-5xl text-black font-medium leading-tight mb-3">
-            {t("Advanced AI Features")}
+            <HighlightClinicText text={t("Advanced AI Features")} />
           </h2>
         </div>
 
@@ -171,7 +172,7 @@ export const AdvancedAiFeatures = () => {
                     </span>
                     <span className="min-w-0">
                       <span className="block text-[15px] font-bold leading-snug tracking-[0.01em] sm:text-[17px]">
-                        {t(feature.title)}
+                        <HighlightClinicText text={t(feature.title)} />
                       </span>
                     </span>
                   </span>

@@ -22,6 +22,7 @@ import {
   Workflow,
   Zap,
 } from "lucide-react";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 type PlanName = "Free" | "Middle" | "Enterprise";
 
@@ -319,7 +320,7 @@ export default function PricingExperience() {
             </div>
 
             <h1 className="mt-7 text-[38px] font-semibold leading-[1.04] text-black sm:text-[48px] lg:text-[62px]">
-              Clear plan paths for clinic automation.
+              <HighlightClinicText text="Clear plan paths for clinic automation" />
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-gray-700 sm:text-lg">
               Compare Zaptal tiers for AI reception, scheduling, missed-call
@@ -408,12 +409,11 @@ export default function PricingExperience() {
         <div className="mx-auto mb-8 max-w-4xl text-center">
           <div>
             <h2 className="text-[30px] font-semibold leading-tight text-black sm:text-[40px] lg:whitespace-nowrap">
-              Three tiers, one polished buying path.
+              Three tiers, one polished buying path
             </h2>
           </div>
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-700">
-            Each plan is structured around real clinic workflows. Amounts are
-            placeholders until final pricing is approved.
+            <HighlightClinicText text="Each plan is structured around real clinic workflows. Amounts are placeholders until final pricing is approved." />
           </p>
         </div>
 
@@ -457,7 +457,7 @@ export default function PricingExperience() {
 
                 <div className="mt-5 min-h-[92px]">
                   <p className={`text-sm leading-7 ${isFeatured ? "text-white/72" : "text-gray-700"}`}>
-                    {plan.description}
+                    <HighlightClinicText text={plan.description} />
                   </p>
                 </div>
 
@@ -479,7 +479,7 @@ export default function PricingExperience() {
                     />
                   </div>
                   <p className={`mt-4 text-xs leading-5 ${isFeatured ? "text-white/58" : "text-gray-600"}`}>
-                    {plan.trustNote}
+                    <HighlightClinicText text={plan.trustNote} />
                   </p>
                 </div>
 
@@ -493,7 +493,7 @@ export default function PricingExperience() {
                         strokeWidth={1.7}
                       />
                       <p className={`text-sm leading-6 ${isFeatured ? "text-white/82" : "text-gray-800"}`}>
-                        {feature}
+                        <HighlightClinicText text={feature} />
                       </p>
                     </div>
                   ))}
@@ -517,7 +517,7 @@ export default function PricingExperience() {
                         <Check className="h-3.5 w-3.5" strokeWidth={2} />
                       </span>
                       <span className="text-[13px] font-semibold leading-5">
-                        {detail}
+                        <HighlightClinicText text={detail} />
                       </span>
                     </div>
                   ))}
@@ -547,7 +547,7 @@ export default function PricingExperience() {
           <div className="mx-auto mb-8 max-w-3xl text-center">
             <div>
               <h2 className="text-[30px] font-semibold leading-tight text-black sm:text-[40px]">
-                Compare every plan clearly.
+                Compare every plan clearly
               </h2>
             </div>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-700">
@@ -577,23 +577,25 @@ export default function PricingExperience() {
                       </tr>
                       {group.rows.map((row) => (
                         <tr key={row.feature} className="border-t border-black/10 transition-colors hover:bg-violet-50/55">
-                          <td className="px-5 py-4 text-sm font-semibold text-black">{row.feature}</td>
+                          <td className="px-5 py-4 text-sm font-semibold text-black">
+                            <HighlightClinicText text={row.feature} />
+                          </td>
                           <td className="px-5 py-4 text-sm text-gray-700">
                             <span className="flex items-center gap-2">
                               {availabilityMark(row.free)}
-                              {row.free}
+                              <HighlightClinicText text={row.free} />
                             </span>
                           </td>
                           <td className="px-5 py-4 text-sm text-gray-700">
                             <span className="flex items-center gap-2">
                               {availabilityMark(row.middle)}
-                              {row.middle}
+                              <HighlightClinicText text={row.middle} />
                             </span>
                           </td>
                           <td className="px-5 py-4 text-sm text-gray-700">
                             <span className="flex items-center gap-2">
                               {availabilityMark(row.enterprise)}
-                              {row.enterprise}
+                              <HighlightClinicText text={row.enterprise} />
                             </span>
                           </td>
                         </tr>
@@ -615,7 +617,7 @@ export default function PricingExperience() {
         <div className="relative z-10 mx-auto w-full max-w-[1200px]">
           <div className="mx-auto mb-8 max-w-3xl text-center">
             <h2 className="text-[30px] font-semibold leading-tight text-black sm:text-[40px]">
-              Estimate monthly usage and planning price.
+              Estimate monthly usage and planning price
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-700 sm:text-base">
               Adjust usage, locations, and automation needs. The calculator keeps
@@ -802,11 +804,10 @@ export default function PricingExperience() {
           <div>
             <p className="text-sm font-semibold text-violet-700">Need a quote-ready version?</p>
             <h2 className="mt-2 text-[28px] font-semibold leading-tight text-black sm:text-[36px]">
-              Share your workflow and we will map the pricing structure.
+              Share your workflow and we will map the pricing structure
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-700 sm:text-base">
-              Zaptal can prepare a clinic-specific plan using call volume,
-              appointment rules, follow-up needs, and integration complexity.
+              <HighlightClinicText text="Zaptal can prepare a clinic-specific plan using call volume, appointment rules, follow-up needs, and integration complexity." />
             </p>
           </div>
           <Link
@@ -841,7 +842,9 @@ function RangeField({
   return (
     <label className="block">
       <span className="mb-3 flex items-center justify-between gap-4">
-        <span className="text-sm font-semibold text-black">{label}</span>
+        <span className="text-sm font-semibold text-black">
+          <HighlightClinicText text={label} />
+        </span>
         <span className="rounded-full bg-violet-50 px-3 py-1 text-xs font-semibold text-violet-700">
           {formatNumber(value)} {suffix}
         </span>
@@ -909,7 +912,9 @@ function ToggleField({
           />
         </span>
       </span>
-      <span className="mt-4 block text-sm font-semibold">{label}</span>
+      <span className="mt-4 block text-sm font-semibold">
+        <HighlightClinicText text={label} />
+      </span>
     </button>
   );
 }
@@ -917,8 +922,12 @@ function ToggleField({
 function EstimateRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-3 text-sm">
-      <span className="text-white/56">{label}</span>
-      <span className="font-semibold text-white">{value}</span>
+      <span className="text-white/56">
+        <HighlightClinicText text={label} />
+      </span>
+      <span className="font-semibold text-white">
+        <HighlightClinicText text={value} />
+      </span>
     </div>
   );
 }

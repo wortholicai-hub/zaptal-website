@@ -6,6 +6,7 @@ import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 const FAQSectionNew: React.FC = () => {
   const { t } = useTranslation();
@@ -29,7 +30,9 @@ const FAQSectionNew: React.FC = () => {
       <div className="mx-auto w-full max-w-[1200px]">
         <motion.div className="mb-7 text-left lg:max-w-[780px]">
           <h2 className="no-doto max-w-none text-[30px] font-medium leading-tight text-black sm:text-4xl lg:whitespace-nowrap lg:text-[44px]">
-            {t("vocalchat.questionsTitle1")} {t("vocalchat.questionsTitle2")}
+            <HighlightClinicText
+              text={`${t("vocalchat.questionsTitle1")} ${t("vocalchat.questionsTitle2")}`}
+            />
           </h2>
         </motion.div>
 
@@ -45,7 +48,7 @@ const FAQSectionNew: React.FC = () => {
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="text-base font-medium leading-snug text-black md:text-[19px]">
-                  {t(faq.questionKey)}
+                  <HighlightClinicText text={t(faq.questionKey)} />
                 </span>
                 <motion.div
                   animate={{ rotate: openIndex === index ? 45 : 0 }}

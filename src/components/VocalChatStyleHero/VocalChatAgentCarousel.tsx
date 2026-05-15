@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 interface AgentDetails {
   name: string;
@@ -284,7 +285,7 @@ const VocalChatAgentCarousel: React.FC = () => {
                       }}
                     >
                       <p className="mb-2 text-[15px] font-semibold text-purple-500">
-                        {agentData.role}
+                        <HighlightClinicText text={agentData.role} />
                       </p>
                       <p className="mb-3 text-[13px] leading-snug text-gray-600">
                         {agentData.description}

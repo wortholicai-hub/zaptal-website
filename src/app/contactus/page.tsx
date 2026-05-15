@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 import {
   ArrowUpRight,
   Building2,
@@ -150,7 +151,7 @@ export default function ContactPage() {
                         {card.title}
                       </h3>
                       <p className="mt-1 text-sm font-medium text-purple-700">
-                        {card.detail}
+                        <HighlightClinicText text={card.detail} />
                       </p>
                       <p className="mt-2 text-sm leading-6 text-gray-700">
                         {card.note}
@@ -172,12 +173,12 @@ export default function ContactPage() {
           <div className="mb-7 flex items-start justify-between gap-5">
             <div>
               <h2 className="text-3xl font-semibold leading-tight">
-                Share your clinic workflow.
+                <HighlightClinicText text="Share your clinic workflow" />
               </h2>
-            <p className="mt-3 text-sm leading-7 text-gray-700">
-              We will use this context to prepare a relevant demo instead of a
-              generic product walkthrough.
-            </p>
+              <p className="mt-3 text-sm leading-7 text-gray-700">
+                We will use this context to prepare a relevant demo instead of a
+                generic product walkthrough.
+              </p>
             </div>
             <span className="hidden h-11 w-11 flex-shrink-0 items-center justify-center rounded-[14px] bg-black text-white sm:flex">
               <ArrowUpRight className="h-5 w-5" strokeWidth={1.7} />
@@ -240,7 +241,7 @@ export default function ContactPage() {
 
             <label className="block">
               <span className="mb-2 block text-sm font-medium text-black">
-                Clinic type
+                <HighlightClinicText text="Clinic type" />
               </span>
               <span className="flex items-center gap-3 rounded-[16px] border border-black/15 bg-white p-4 shadow-[0_10px_30px_rgba(0,0,0,0.035)] transition-all focus-within:border-purple-400 focus-within:shadow-[0_12px_35px_rgba(124,58,237,0.12)]">
                 <Building2 className="h-5 w-5 text-gray-500" />

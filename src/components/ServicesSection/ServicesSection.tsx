@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 const clinicSupportCards = [
   {
@@ -49,7 +50,7 @@ export default function CustomAISolutions() {
         <div className="mx-auto mb-9 max-w-[920px] text-center md:mb-11">
           <div>
             <h2 className="text-balance text-[34px] font-semibold leading-[1.03] tracking-[-0.02em] text-white sm:text-5xl lg:text-[58px]">
-              Patient calls, booking support, and clinic visibility in one place
+              <HighlightClinicText text="Patient calls, booking support, and clinic visibility in one place" />
             </h2>
           </div>
         </div>
@@ -111,7 +112,7 @@ function ClinicSupportCard({
           }`}
           style={light ? { color: "#000000" } : undefined}
         >
-          {title}
+          <HighlightClinicText text={title} />
         </h3>
         <p
           className={`mt-4 max-w-[330px] text-sm font-medium leading-6 ${

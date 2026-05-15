@@ -3,6 +3,7 @@ import { Settings, Rocket, Users, Target } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 export const WhyChoose = () => {
   const { t } = useTranslation();
@@ -56,7 +57,7 @@ export const WhyChoose = () => {
         {/* Header */}
         <div className="text-center mb-10">
           <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight tracking-tight">
-            {t("Why Zaptal Leads Growth")}
+            <HighlightClinicText text={t("Why Zaptal Leads Growth")} />
           </h2>
         </div>
 
@@ -98,7 +99,7 @@ export const WhyChoose = () => {
                       card.dark ? "text-white" : "text-black"
                     }`}
                   >
-                    {card.title}
+                    <HighlightClinicText text={card.title} />
                   </h3>
                 </div>
 

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 import {
   BarChart3,
   CheckCircle2,
@@ -92,7 +93,9 @@ export default function BlogPage() {
         <div className="relative z-10 mx-auto w-full max-w-[1200px]">
           <div className="w-full max-w-[660px] text-left">
             <h1 className="text-left text-[36px] font-semibold leading-[1.08] text-black sm:text-4xl lg:text-[54px]">
-              <span className="block">Ideas for clinics</span>
+              <span className="block">
+                <HighlightClinicText text="Ideas for clinics" />
+              </span>
               <span className="block">building faster</span>
               <span className="block">patient communication</span>
             </h1>
@@ -121,7 +124,7 @@ export default function BlogPage() {
           <div className="mb-6 grid overflow-hidden rounded-[16px] border border-black/10 bg-white shadow-[0_22px_70px_rgba(15,23,42,0.08)] lg:grid-cols-[0.95fr_1.05fr]">
             <div className="border-b border-black/10 p-6 sm:p-8 lg:border-b-0 lg:border-r">
               <h3 className="text-2xl font-semibold leading-tight text-black sm:text-3xl">
-                Clear playbooks for clinics that need action, not theory
+                <HighlightClinicText text="Clear playbooks for clinics that need action, not theory" />
               </h3>
               <p className="mt-4 text-sm leading-7 text-gray-600 sm:text-base">
                 Each guide is written around real front-desk pressure: missed
@@ -138,7 +141,7 @@ export default function BlogPage() {
                     <CheckCircle2 className="h-4.5 w-4.5" strokeWidth={1.8} />
                   </span>
                   <p className="text-sm font-medium leading-6 text-black sm:text-base">
-                    {item}
+                    <HighlightClinicText text={item} />
                   </p>
                 </div>
               ))}
@@ -167,7 +170,7 @@ export default function BlogPage() {
                   </div>
 
                   <h3 className="relative z-10 mt-6 text-xl font-normal leading-snug text-black">
-                    {post.title}
+                    <HighlightClinicText text={post.title} />
                   </h3>
                   <p className="relative z-10 mt-3 text-sm leading-7 text-gray-600">
                     {post.excerpt}
@@ -187,7 +190,7 @@ export default function BlogPage() {
             <div className="relative z-10 max-w-[1100px] text-left">
               <div className="min-w-0">
                 <h2 className="text-[23px] font-semibold leading-tight text-black sm:text-[28px] lg:text-[30px]">
-                  Want a clinic automation strategy for your own business?
+                  <HighlightClinicText text="Want a clinic automation strategy for your own business?" />
                 </h2>
                 <p className="mt-6 max-w-3xl text-base leading-8 text-gray-700 sm:text-lg">
                   Book a conversation with Zaptal and we will map how AI reception,

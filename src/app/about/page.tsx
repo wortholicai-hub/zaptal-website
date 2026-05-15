@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 import {
   BarChart3,
   CalendarClock,
@@ -153,9 +154,11 @@ export default function AboutPage() {
         <div className="relative z-10 mx-auto w-full max-w-[1200px]">
           <div className="w-full max-w-[660px] text-left">
             <h1 className="text-left text-[36px] font-semibold leading-[1.08] text-black sm:text-4xl lg:text-[54px]">
-              <span className="block">Built for clinics that</span>
+              <span className="block">
+                <HighlightClinicText text="Built for clinics that" />
+              </span>
               <span className="block">cannot afford to miss</span>
-              <span className="block">patient conversations.</span>
+              <span className="block">patient conversations</span>
             </h1>
             <div className="mt-7 max-w-2xl">
               <p className="text-lg leading-8 text-gray-900 md:text-[20px]">
@@ -170,7 +173,7 @@ export default function AboutPage() {
       <section className="mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-6 lg:px-2">
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">
-            AI for clinic growth
+            <HighlightClinicText text="AI for clinic growth" />
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700 sm:text-lg">
             A light operating layer for calls, appointment recovery, urgent routing,
@@ -221,7 +224,7 @@ export default function AboutPage() {
       <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-2">
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">
-            Clinic communication infrastructure
+            <HighlightClinicText text="Clinic communication infrastructure" />
           </h2>
           <p className="mt-4 text-base leading-8 text-gray-700 sm:text-lg">
             Reliable automation for patient intake, staff escalation, booking,
@@ -276,7 +279,7 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-black">
-                      {item.title}
+                      <HighlightClinicText text={item.title} />
                     </h3>
                     <p className="mt-2 text-sm leading-6 text-gray-700">
                       {item.description}
@@ -317,7 +320,7 @@ export default function AboutPage() {
                   <Icon className="h-5 w-5" strokeWidth={1.6} />
                 </div>
                 <h3 className="relative z-10 mt-5 text-[17px] font-semibold leading-snug text-black">
-                  {item.title}
+                  <HighlightClinicText text={item.title} />
                 </h3>
                 <p className="relative z-10 mt-2 text-sm leading-6 !text-black">
                   {item.description}
@@ -332,7 +335,7 @@ export default function AboutPage() {
         <div className="relative z-10 mx-auto w-full max-w-[1200px]">
           <div className="mb-10 text-center">
             <h2 className="mx-auto text-center text-[24px] font-medium leading-tight text-white min-[420px]:text-[28px] sm:text-[34px] md:text-[40px] lg:text-[44px] whitespace-nowrap">
-              From front-desk mapping to live AI automation.
+              From front-desk mapping to live AI automation
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-8 !text-white sm:text-lg">
               A clear launch path keeps automation aligned with staff workflows,
@@ -354,7 +357,7 @@ export default function AboutPage() {
 
                 <div className="relative z-10 max-w-[72%] !text-white">
                   <h3 className="text-[18px] font-normal !text-white sm:text-2xl">
-                    {step.title}
+                    <HighlightClinicText text={step.title} />
                   </h3>
                   <p className="mt-3 text-sm leading-7 !text-white sm:text-base">
                     {step.description}

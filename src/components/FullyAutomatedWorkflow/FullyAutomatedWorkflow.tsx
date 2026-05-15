@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 export default function FeaturesSection() {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ export default function FeaturesSection() {
       <div className="max-w-[1200px] mx-auto">
         {/* Header */}
         <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight text-center mb-10 ">
-          {t("features.header")}
+          <HighlightClinicText text={t("features.header")} />
         </h2>
 
         {/* Features Grid */}
@@ -61,7 +62,7 @@ export default function FeaturesSection() {
                 <div className="order-2 -mt-5 px-1 sm:order-1 sm:mt-0 sm:w-[42%] sm:px-1 sm:pt-2">
                   {/* Title */}
                   <h3 className="mb-8 whitespace-nowrap text-[18px] font-medium text-gray-800 sm:text-[19px] md:text-[20px] lg:text-[21px]">
-                    {feature.title}
+                    <HighlightClinicText text={feature.title} />
                   </h3>
 
                   {/* Description */}

@@ -3,6 +3,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { CheckCircle2, CircleMinus } from "lucide-react";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 export default function ComparisonSection() {
   const { t } = useTranslation();
@@ -46,7 +47,7 @@ export default function ComparisonSection() {
                   >
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-950" />
                     <span className="my-1 text-base font-medium leading-6 text-gray-800 sm:text-[17px]">
-                      {feature}
+                      <HighlightClinicText text={feature} />
                     </span>
                   </div>
                 ))}
@@ -72,7 +73,7 @@ export default function ComparisonSection() {
                 >
                   <CircleMinus className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
                   <span className="my-1 text-sm leading-7 text-gray-700 sm:text-[17px]">
-                    {limitation}
+                    <HighlightClinicText text={limitation} />
                   </span>
                 </div>
               ))}

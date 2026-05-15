@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import HighlightClinicText from "@/components/common/HighlightClinicText";
 
 interface Testimonial {
   id: number;
@@ -35,7 +36,7 @@ const Review: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-black font-medium text-[34px] sm:text-4xl lg:text-5xl leading-tight">
-            {t("testimonials.header")}
+            <HighlightClinicText text={t("testimonials.header")} />
           </h2>
         </div>
 
