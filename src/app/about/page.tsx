@@ -16,10 +16,27 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-const clinicGrowthBadges = [
-  { src: "/images/clinic-growth/1.svg", alt: "Clinic growth badge one" },
-  { src: "/images/clinic-growth/2.svg", alt: "Clinic growth badge two" },
-  { src: "/images/clinic-growth/3.svg", alt: "Clinic growth badge three" },
+const clinicGrowthCapabilities = [
+  {
+    icon: Headphones,
+    title: "Call handling",
+    value: "24/7 routing-ready",
+  },
+  {
+    icon: CalendarClock,
+    title: "Scheduling",
+    value: "Calendar-aware flow",
+  },
+  {
+    icon: GitBranch,
+    title: "Automation",
+    value: "Follow-up logic",
+  },
+  {
+    icon: BarChart3,
+    title: "Reporting",
+    value: "Performance view",
+  },
 ];
 
 const principles = [
@@ -170,7 +187,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-10 sm:px-6 lg:px-2">
+      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 md:py-16 lg:px-2">
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">
             <HighlightClinicText text="AI for clinic growth" />
@@ -181,113 +198,202 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)]">
-          <div className="rounded-[16px] border border-black/10 bg-white p-6 text-left text-black shadow-[0_18px_0_rgba(88,28,135,0.08),0_30px_80px_rgba(15,23,42,0.12),inset_0_1px_0_rgba(255,255,255,0.95)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_0_rgba(88,28,135,0.09),0_36px_92px_rgba(15,23,42,0.16),inset_0_1px_0_rgba(255,255,255,0.95)] sm:p-8">
-            <div className="border-b border-black/10 pb-6">
-              <div className="max-w-xl">
-                <h3 className="text-2xl font-semibold">Automate the work that keeps patients moving</h3>
+        <div className="relative overflow-hidden rounded-lg border border-black/10 bg-[linear-gradient(145deg,#111111_0%,#070707_62%,#f8fbff_62%,#ffffff_100%)] p-5 shadow-[0_30px_90px_rgba(15,23,42,0.14)] sm:p-7 lg:p-8">
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-purple-300/70 to-transparent" />
+          <div className="grid gap-4 lg:grid-cols-[1.45fr_0.75fr]">
+            <div className="rounded-lg border border-white/10 bg-white/[0.08] p-5 text-white backdrop-blur-sm sm:p-7 lg:min-h-[430px] lg:p-8">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm text-white/62">Clinic growth system</p>
+                  <h3 className="mt-1 max-w-[620px] text-2xl font-semibold leading-tight sm:text-3xl lg:text-[40px]">
+                    Built for live patient demand
+                  </h3>
+                </div>
+                <ShieldCheck className="h-8 w-8 flex-shrink-0 text-purple-300" strokeWidth={1.6} />
+              </div>
+
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                {clinicGrowthCapabilities.slice(0, 3).map((capability) => {
+                  const Icon = capability.icon;
+
+                  return (
+                    <div key={capability.title} className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md bg-white text-black">
+                        <Icon className="h-5 w-5" strokeWidth={1.6} />
+                      </span>
+                      <div>
+                        <p className="text-sm font-semibold text-white">
+                          {capability.title}
+                        </p>
+                        <p className="text-xs text-white/60">{capability.value}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-10 space-y-3 border-t border-white/12 pt-7">
+                {[
+                  "Recover missed patient requests before they go cold",
+                  "Route urgent cases to the right person",
+                  "Trigger recalls, confirmations, and follow-ups automatically",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-300" />
+                    <p className="text-sm leading-6 text-white/76">{item}</p>
+                  </div>
+                ))}
               </div>
             </div>
-            <div className="mt-6 space-y-4">
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              {clinicGrowthCapabilities.map((capability) => {
+                const Icon = capability.icon;
+
+                return (
+                  <div
+                    key={capability.title}
+                    className="rounded-lg border border-black/10 bg-white p-4 shadow-[0_12px_34px_rgba(15,23,42,0.08)]"
+                  >
+                    <Icon className="h-5 w-5 text-purple-700" strokeWidth={1.6} />
+                    <p className="mt-3 text-sm font-semibold text-black">
+                      {capability.title}
+                    </p>
+                    <p className="mt-1 text-xs leading-5 text-gray-600">
+                      {capability.value}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
               {[
-                "Answer calls when the front desk is busy",
-                "Recover missed patients through SMS",
-                "Route urgent cases to the right person",
-                "Trigger recalls, confirmations, and follow-ups automatically",
+                "Front desk pressure",
+                "Missed-call recovery",
+                "Patient follow-up",
+                "Growth visibility",
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-purple-600" />
-                  <p className="text-sm leading-6 text-gray-800">{item}</p>
+                <div
+                  key={item}
+                  className="rounded-lg border border-black/10 bg-white p-4 text-sm font-semibold text-black shadow-[0_12px_34px_rgba(15,23,42,0.08)]"
+                >
+                  {item}
                 </div>
               ))}
             </div>
           </div>
-
-          <div className="grid grid-cols-2 items-center justify-items-center gap-x-5 gap-y-5 self-center lg:self-start lg:pt-2">
-            {clinicGrowthBadges.map((badge, index) => (
-              <Image
-                key={badge.src}
-                src={badge.src}
-                alt={badge.alt}
-                width={220}
-                height={220}
-                unoptimized
-                className={`h-auto w-full max-w-[185px] object-contain transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.07] sm:max-w-[205px] lg:max-w-[198px] ${
-                  index === 2 ? "col-span-2 justify-self-center" : ""
-                }`}
-              />
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1200px] px-4 py-12 sm:px-6 lg:px-2">
-        <div className="mx-auto mb-8 max-w-3xl text-center">
-          <h2 className="text-3xl font-semibold leading-tight text-black sm:text-4xl">
-            <HighlightClinicText text="Clinic communication infrastructure" />
-          </h2>
-          <p className="mt-4 text-base leading-8 text-gray-700 sm:text-lg">
-            Reliable automation for patient intake, staff escalation, booking,
-            recalls, and follow-ups without making the front desk carry every task.
-          </p>
-        </div>
-
-        <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
-          <div className="flex h-full flex-col rounded-[16px] border border-black/10 bg-white p-5 text-left shadow-[0_18px_0_rgba(88,28,135,0.08),0_30px_80px_rgba(15,23,42,0.12),inset_0_1px_0_rgba(255,255,255,0.95)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_0_rgba(88,28,135,0.09),0_36px_92px_rgba(15,23,42,0.16),inset_0_1px_0_rgba(255,255,255,0.95)] sm:p-6">
-            <Image
-              src="/images/Patient communication/badge.svg"
-              alt="Patient communication badge"
-              width={720}
-              height={720}
-              unoptimized
-              className="mx-auto mb-5 h-auto w-full max-w-[310px] object-contain sm:max-w-[370px] lg:max-w-[410px]"
-            />
-            <div className="space-y-3 text-sm leading-6 text-gray-700 sm:text-base sm:leading-7">
-              <p>
-                Zaptal helps clinics protect revenue when calls spike,
-                messages queue up, and follow-up work depends on a busy
-                front desk.
+      <section className="bg-white px-4 py-16 text-black sm:px-6 md:py-20 lg:px-2">
+        <div className="mx-auto w-full max-w-[1200px]">
+          <div className="grid gap-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-purple-700">
+                Infrastructure layer
               </p>
-              <p>
-                Instead of adding another generic chatbot, Zaptal connects
-                AI reception, scheduling, intake, routing, recalls, and
-                patient follow-up into one controlled communication layer.
+              <h2 className="mt-4 max-w-3xl text-[34px] font-semibold leading-[1.04] text-black sm:text-5xl lg:text-[56px]">
+                <HighlightClinicText text="Clinic communication infrastructure" />
+              </h2>
+            </div>
+
+            <div className="border-l border-black/10 pl-5 sm:pl-7">
+              <p className="text-base leading-8 text-gray-700 sm:text-lg">
+                Reliable automation for patient intake, staff escalation, booking,
+                recalls, and follow-ups without making the front desk carry every task.
               </p>
             </div>
           </div>
 
-          <div className="grid h-full gap-3 lg:grid-rows-[1fr_1fr_1fr_1fr]">
-            <div className="rounded-[16px] border border-black/10 bg-white p-5 text-left shadow-[0_18px_60px_rgba(15,23,42,0.06)]">
-              <h3 className="text-2xl font-semibold leading-tight text-black">
-                Mature automation that stays under control.
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-gray-700">
-                Workflows are planned around secure intake, staff escalation,
-                appointment demand, and the daily rhythm of real clinics.
-              </p>
-            </div>
-
-            {principles.map((item) => {
+          <div className="mt-10 grid gap-4 lg:grid-cols-4">
+            {[
+              {
+                icon: Headphones,
+                title: "Intake",
+                detail: "Capture patient intent, call reason, and key details.",
+              },
+              {
+                icon: Route,
+                title: "Route",
+                detail: "Send urgent, billing, and scheduling needs to the right path.",
+              },
+              {
+                icon: CalendarClock,
+                title: "Book",
+                detail: "Coordinate appointment demand without extra manual steps.",
+              },
+              {
+                icon: GitBranch,
+                title: "Follow up",
+                detail: "Trigger reminders, recalls, and recovery workflows.",
+              },
+            ].map((item, index) => {
               const Icon = item.icon;
+
               return (
                 <article
                   key={item.title}
-                  className="group flex gap-4 rounded-[16px] border border-black/10 bg-white p-5 text-left shadow-[0_14px_44px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-300 hover:shadow-[0_20px_70px_rgba(88,28,135,0.12)]"
+                  className="group relative min-h-[210px] overflow-hidden rounded-lg border border-black/10 bg-[#fbfbfd] p-5 text-left transition-all duration-300 hover:-translate-y-1 hover:border-purple-200 hover:bg-white hover:shadow-[0_24px_70px_rgba(15,23,42,0.08)]"
                 >
-                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-[14px] bg-purple-50 text-purple-700 transition-colors duration-300 group-hover:bg-purple-600 group-hover:text-white">
+                  <span className="absolute right-4 top-4 text-[42px] font-semibold leading-none text-purple-100 transition-colors duration-300 group-hover:text-purple-200">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div className="relative z-10 flex h-11 w-11 items-center justify-center rounded-lg bg-white text-purple-700 ring-1 ring-purple-100 transition-colors duration-300 group-hover:bg-purple-700 group-hover:text-white">
                     <Icon className="h-5 w-5" strokeWidth={1.7} />
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-black">
-                      <HighlightClinicText text={item.title} />
-                    </h3>
-                    <p className="mt-2 text-sm leading-6 text-gray-700">
-                      {item.description}
-                    </p>
-                  </div>
+                  <h3 className="relative z-10 mt-6 text-xl font-semibold text-black">
+                    {item.title}
+                  </h3>
+                  <p className="relative z-10 mt-3 text-sm leading-6 text-gray-700">
+                    {item.detail}
+                  </p>
                 </article>
               );
             })}
+          </div>
+
+          <div className="mt-5 grid gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="rounded-lg border border-black/10 bg-white p-6 text-left shadow-[0_18px_60px_rgba(15,23,42,0.06)] sm:p-7">
+              <div className="flex items-start gap-4">
+                <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg bg-black text-white">
+                  <ShieldCheck className="h-5 w-5" strokeWidth={1.7} />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-semibold leading-tight text-black">
+                    Mature automation that stays under control
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-gray-700 sm:text-base">
+                    Workflows are planned around secure intake, staff escalation,
+                    appointment demand, and the daily rhythm of real clinics.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+              {principles.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <article
+                    key={item.title}
+                    className="group flex gap-4 rounded-lg border border-black/10 bg-white p-5 text-left shadow-[0_14px_44px_rgba(15,23,42,0.05)] transition-all duration-300 hover:-translate-y-1 hover:border-purple-200 hover:shadow-[0_22px_60px_rgba(124,58,237,0.12)]"
+                  >
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-purple-50 text-purple-700 transition-colors duration-300 group-hover:bg-purple-700 group-hover:text-white">
+                      <Icon className="h-5 w-5" strokeWidth={1.7} />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold leading-snug text-black">
+                        <HighlightClinicText text={item.title} />
+                      </h3>
+                      <p className="mt-2 text-sm leading-6 text-gray-700">
+                        {item.description}
+                      </p>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
