@@ -7,6 +7,11 @@ import { useTranslation } from "react-i18next";
 
 export default function CallNotification() {
   const { t } = useTranslation();
+  const problemImages: Record<number, string> = {
+    1: "/images/Pain point/overload front desk.png",
+    2: "/images/Pain point/miss call.png",
+    3: "/images/Pain point/dashboard.jpg",
+  };
 
   return (
     <div className="w-full max-w-[1200px] mx-auto flex flex-col items-center justify-center px-4 py-12 sm:px-6 md:py-14 lg:px-2 overflow-x-hidden">
@@ -119,31 +124,38 @@ export default function CallNotification() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {[1, 2, 3].map((num) => (
+          {[1, 2, 3].map((num) => {
+            const imageClass = "h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]";
+            const imagePosition =
+              num === 1
+                ? "object-[68%_center]"
+                : num === 2
+                  ? "object-[center_72%]"
+                  : "object-[center_35%]";
+
+            return (
             <div
               key={num}
-              className="group relative flex min-h-[300px] flex-col items-center justify-between rounded-[16px] border border-black bg-black p-4 text-left text-white shadow-[0_12px_35px_rgba(15,23,42,0.16)] sm:min-h-[340px]"
+              className="group relative flex min-h-[330px] flex-col overflow-hidden rounded-[16px] border border-black bg-black p-4 text-left text-white shadow-[0_12px_35px_rgba(15,23,42,0.16)] sm:min-h-[350px]"
             >
-              <div className="w-full">
+              <img
+                src={problemImages[num]}
+                alt={`Problem ${num}`}
+                className={`${imageClass} ${imagePosition} absolute inset-0`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/88 via-black/58 to-black/20" />
+              <div className="relative z-10 w-full">
                 <h3 className="mb-2 whitespace-nowrap text-left text-[18px] font-medium leading-snug text-white sm:text-[19px] lg:text-[20px]">
                   {t(`vocalchat.problem${num}Title`) || `Problem ${num}`}
                 </h3>
-                <p className="whitespace-pre-line text-left text-sm leading-6 text-gray-400">
+                <p className="whitespace-pre-line text-left text-sm leading-6 text-white/86">
                   {t(`vocalchat.problem${num}Desc`) ||
                     `Description of problem ${num}.`}
                 </p>
               </div>
-              <img
-                src={`/images/agents/${num}.png`}
-                alt={`Problem ${num}`}
-                className={`mt-4 rounded-xl object-cover scale-[1.2] transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-[1.24] ${
-                  num === 3
-                    ? "w-36 h-36 sm:w-48 sm:h-48"
-                    : "w-32 h-32 sm:w-40 sm:h-40"
-                }`}
-              />
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
