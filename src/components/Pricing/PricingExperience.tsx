@@ -27,19 +27,20 @@ type PlanName = "Free" | "Middle" | "Enterprise";
 
 const plans: Array<{
   name: PlanName;
-  label: string;
   description: string;
   icon: typeof Sparkles;
   featured?: boolean;
   inclusions: string[];
   details: string[];
+  ribbon: string;
+  trustNote: string;
   cta: string;
   tone: string;
   iconTone: string;
+  ribbonTone: string;
 }> = [
   {
     name: "Free",
-    label: "Explore the workflow",
     description:
       "A clean starting point for small teams evaluating AI reception, intake, and clinic automation before a rollout.",
     icon: Sparkles,
@@ -50,13 +51,15 @@ const plans: Array<{
       "Launch readiness checklist",
     ],
     details: ["1 location", "Starter workflows", "Email guidance"],
+    ribbon: "Starter Access",
+    trustNote: "Pilot-ready for teams validating patient communication flow.",
     cta: "Start with Free",
-    tone: "border-violet-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ff_100%)]",
-    iconTone: "bg-violet-50 text-violet-700",
+    tone: "border-black/10 bg-white text-black shadow-[0_22px_70px_rgba(15,23,42,0.08)]",
+    iconTone: "bg-violet-50 text-violet-700 ring-1 ring-violet-100",
+    ribbonTone: "border-violet-100 bg-white text-violet-800 shadow-[0_12px_32px_rgba(88,28,135,0.12)]",
   },
   {
     name: "Middle",
-    label: "Most clinics start here",
     description:
       "For clinics ready to automate patient calls, reminders, missed-call recovery, and scheduling coordination.",
     icon: Zap,
@@ -68,13 +71,15 @@ const plans: Array<{
       "Calendar and CRM handoff rules",
     ],
     details: ["Multi-channel", "Expanded workflows", "Launch support"],
+    ribbon: "Most Trusted",
+    trustNote: "Designed for clinics moving from manual follow-up to live automation.",
     cta: "Plan Middle Rollout",
-    tone: "border-black bg-[linear-gradient(180deg,#111111_0%,#050505_100%)] text-white shadow-[0_26px_70px_rgba(17,17,17,0.24)]",
-    iconTone: "bg-white text-black",
+    tone: "border-black bg-[linear-gradient(145deg,#050505_0%,#111111_52%,#201738_100%)] text-white shadow-[0_30px_95px_rgba(17,17,17,0.34)]",
+    iconTone: "bg-white text-black ring-1 ring-white/30",
+    ribbonTone: "border-violet-300/40 bg-violet-200 text-black shadow-[0_14px_38px_rgba(124,58,237,0.28)]",
   },
   {
     name: "Enterprise",
-    label: "Scale across teams",
     description:
       "Custom automation for multi-location clinics, deeper integrations, advanced reporting, and higher operating volume.",
     icon: Building2,
@@ -85,9 +90,12 @@ const plans: Array<{
       "Security review and success planning",
     ],
     details: ["Custom volume", "Advanced controls", "Priority planning"],
+    ribbon: "Governed Scale",
+    trustNote: "Built for executive visibility, advanced controls, and multi-location rollout.",
     cta: "Talk to Sales",
-    tone: "border-violet-200 bg-[linear-gradient(180deg,#ffffff_0%,#faf7ff_100%)]",
-    iconTone: "bg-violet-50 text-violet-700",
+    tone: "border-violet-200 bg-[linear-gradient(180deg,#ffffff_0%,#f8f5ff_100%)] text-black shadow-[0_22px_70px_rgba(88,28,135,0.12)]",
+    iconTone: "bg-violet-50 text-violet-700 ring-1 ring-violet-100",
+    ribbonTone: "border-black/10 bg-black text-white shadow-[0_14px_38px_rgba(17,17,17,0.24)]",
   },
 ];
 
@@ -216,6 +224,7 @@ export default function PricingExperience() {
   const [selectedPlan, setSelectedPlan] = useState<PlanName>("Middle");
   const [locations, setLocations] = useState(2);
   const [monthlyCalls, setMonthlyCalls] = useState(1200);
+  const [monthlyMinutes, setMonthlyMinutes] = useState(2400);
   const [integrations, setIntegrations] = useState(1);
   const [afterHours, setAfterHours] = useState(true);
   const [smsFollowUp, setSmsFollowUp] = useState(true);
@@ -225,6 +234,7 @@ export default function PricingExperience() {
     const score =
       locations * 7 +
       Math.round(monthlyCalls / 120) +
+      Math.round(monthlyMinutes / 180) +
       integrations * 9 +
       (afterHours ? 10 : 0) +
       (smsFollowUp ? 8 : 0) +
@@ -236,6 +246,7 @@ export default function PricingExperience() {
       selectedPlan === "Enterprise" ||
       locations >= 5 ||
       monthlyCalls >= 4200 ||
+      monthlyMinutes >= 10000 ||
       integrations >= 4 ||
       advancedAnalytics
     ) {
@@ -243,6 +254,7 @@ export default function PricingExperience() {
     } else if (
       selectedPlan === "Middle" ||
       monthlyCalls >= 700 ||
+      monthlyMinutes >= 1500 ||
       integrations > 0 ||
       afterHours ||
       smsFollowUp
@@ -251,13 +263,33 @@ export default function PricingExperience() {
     }
 
     const scope =
-      score >= 72 ? "Advanced rollout" : score >= 38 ? "Growth rollout" : "Starter rollout";
+      score >= 86 ? "Advanced rollout" : score >= 46 ? "Growth rollout" : "Starter rollout";
+
+    const baseByPlan: Record<PlanName, number> = {
+      Free: 0,
+      Middle: 299,
+      Enterprise: 899,
+    };
+
+    const monthlyPrice =
+      Math.ceil(
+        (baseByPlan[recommendedPlan] +
+          monthlyMinutes * 0.12 +
+          monthlyCalls * 0.04 +
+          Math.max(0, locations - 1) * 75 +
+          integrations * 110 +
+          (afterHours ? 150 : 0) +
+          (smsFollowUp ? 90 : 0) +
+          (advancedAnalytics ? 180 : 0)) /
+          10
+      ) * 10;
 
     return {
       score,
+      monthlyPrice,
       recommendedPlan,
       scope,
-      summary: `${formatNumber(monthlyCalls)} monthly conversations across ${locations} ${
+      summary: `${formatNumber(monthlyCalls)} conversations and ${formatNumber(monthlyMinutes)} AI minutes across ${locations} ${
         locations === 1 ? "location" : "locations"
       }`,
     };
@@ -267,6 +299,7 @@ export default function PricingExperience() {
     integrations,
     locations,
     monthlyCalls,
+    monthlyMinutes,
     selectedPlan,
     smsFollowUp,
   ]);
@@ -276,7 +309,6 @@ export default function PricingExperience() {
   return (
     <main className="w-full overflow-hidden bg-[#fbfbfd] text-black">
       <section className="relative w-full overflow-hidden border-b border-black/10 bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-2">
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(108,71,255,0.08)_1px,transparent_1px),linear-gradient(180deg,rgba(17,17,17,0.045)_1px,transparent_1px)] bg-[size:48px_48px]" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,#fbfbfd_100%)]" />
 
         <div className="relative z-10 mx-auto grid w-full max-w-[1200px] items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
@@ -385,7 +417,7 @@ export default function PricingExperience() {
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid items-stretch gap-7 lg:auto-rows-fr lg:grid-cols-3">
           {plans.map((plan) => {
             const Icon = plan.icon;
             const isFeatured = Boolean(plan.featured);
@@ -393,38 +425,65 @@ export default function PricingExperience() {
             return (
               <article
                 key={plan.name}
-                className={`relative flex min-h-[620px] flex-col rounded-lg border p-6 transition-all duration-300 hover:-translate-y-1 sm:p-7 ${plan.tone}`}
+                className={`group relative flex h-full min-h-[720px] flex-col overflow-hidden rounded-[10px] border p-6 transition-all duration-300 hover:-translate-y-1.5 sm:p-7 ${plan.tone}`}
               >
-                {isFeatured && (
-                  <div className="absolute right-5 top-5 rounded-full bg-violet-200 px-3 py-1 text-xs font-semibold text-black">
-                    Recommended
-                  </div>
-                )}
+                <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/70 to-transparent" />
+                <div className="pointer-events-none absolute -right-10 top-16 h-28 w-28 rotate-45 border border-violet-200/60 bg-violet-100/20" />
 
-                <div className={`flex h-12 w-12 items-center justify-center rounded-md ${plan.iconTone}`}>
-                  <Icon className="h-6 w-6" strokeWidth={1.6} />
+                <div className="absolute left-6 right-6 top-5 flex items-start justify-between gap-3">
+                  <div
+                    className={`inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] ${plan.ribbonTone}`}
+                  >
+                    <BadgeCheck className="h-3.5 w-3.5" strokeWidth={1.8} />
+                    {plan.ribbon}
+                  </div>
+                  {isFeatured && (
+                    <div className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/85">
+                      Recommended
+                    </div>
+                  )}
                 </div>
 
-                <div className="mt-6">
-                  <p className={`text-sm font-semibold ${isFeatured ? "text-violet-200" : "text-violet-700"}`}>
-                    {plan.label}
-                  </p>
-                  <h3 className="mt-2 text-3xl font-semibold">{plan.name} plan</h3>
-                  <p className={`mt-4 min-h-[84px] text-sm leading-7 ${isFeatured ? "text-white/72" : "text-gray-700"}`}>
+                <div className="mt-16 min-h-[44px]">
+                  <div className="flex items-center gap-3">
+                    <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-[8px] ${plan.iconTone}`}>
+                      <Icon className="h-5 w-5" strokeWidth={1.6} />
+                    </div>
+                    <h3 className="min-w-0 whitespace-nowrap text-[30px] font-semibold leading-tight">
+                      {plan.name} plan
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="mt-5 min-h-[92px]">
+                  <p className={`text-sm leading-7 ${isFeatured ? "text-white/72" : "text-gray-700"}`}>
                     {plan.description}
                   </p>
                 </div>
 
-                <div className={`mt-7 border-y py-6 ${isFeatured ? "border-white/14" : "border-black/10"}`}>
-                  <p className={`text-sm ${isFeatured ? "text-white/62" : "text-gray-500"}`}>
-                    Pricing
-                  </p>
-                  <p className="mt-2 text-[28px] font-semibold leading-tight">
-                    Not Decided Yet
+                <div className={`mt-6 min-h-[158px] rounded-[8px] border px-5 py-5 ${
+                  isFeatured ? "border-white/14 bg-white/[0.06]" : "border-black/10 bg-black/[0.025]"
+                }`}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <p className={`text-xs font-semibold uppercase tracking-[0.16em] ${isFeatured ? "text-white/50" : "text-gray-500"}`}>
+                        Pricing
+                      </p>
+                      <p className="mt-2 text-[27px] font-semibold leading-tight">
+                        Not Decided Yet
+                      </p>
+                    </div>
+                    <ShieldCheck
+                      className={`mt-1 h-6 w-6 flex-shrink-0 ${isFeatured ? "text-violet-200" : "text-violet-700"}`}
+                      strokeWidth={1.6}
+                    />
+                  </div>
+                  <p className={`mt-4 text-xs leading-5 ${isFeatured ? "text-white/58" : "text-gray-600"}`}>
+                    {plan.trustNote}
                   </p>
                 </div>
 
-                <div className="mt-6 space-y-4">
+                <div className="mt-6 min-h-[152px] space-y-4">
                   {plan.inclusions.map((feature) => (
                     <div key={feature} className="flex items-start gap-3">
                       <CheckCircle2
@@ -440,25 +499,36 @@ export default function PricingExperience() {
                   ))}
                 </div>
 
-                <div className={`mt-7 grid gap-2 border-t pt-5 ${isFeatured ? "border-white/14" : "border-black/10"}`}>
+                <div className={`mt-7 min-h-[152px] space-y-1 border-t pt-5 ${isFeatured ? "border-white/14" : "border-black/10"}`}>
                   {plan.details.map((detail) => (
-                    <p
+                    <div
                       key={detail}
-                      className={`rounded-md px-3 py-2 text-xs font-semibold ${
-                        isFeatured ? "bg-white/10 text-white/76" : "bg-black/[0.035] text-gray-700"
+                      className={`flex items-center gap-3 rounded-[8px] px-1 py-2.5 ${
+                        isFeatured ? "text-white/76" : "text-gray-700"
                       }`}
                     >
-                      {detail}
-                    </p>
+                      <span
+                        className={`flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border ${
+                          isFeatured
+                            ? "border-white/12 bg-white/[0.08] text-violet-200"
+                            : "border-violet-100 bg-violet-50 text-violet-700"
+                        }`}
+                      >
+                        <Check className="h-3.5 w-3.5" strokeWidth={2} />
+                      </span>
+                      <span className="text-[13px] font-semibold leading-5">
+                        {detail}
+                      </span>
+                    </div>
                   ))}
                 </div>
 
                 <Link
                   href="/contactus"
-                  className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 ${
+                  className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-all duration-300 ${
                     isFeatured
-                      ? "bg-white text-black hover:bg-violet-100"
-                      : "bg-black text-white hover:bg-violet-700"
+                      ? "bg-white text-black shadow-[0_14px_32px_rgba(255,255,255,0.12)] hover:bg-violet-100"
+                      : "bg-black text-white shadow-[0_14px_32px_rgba(17,17,17,0.16)] hover:bg-violet-700"
                   }`}
                 >
                   {plan.cta} <ArrowRight className="h-4 w-4" />
@@ -545,12 +615,12 @@ export default function PricingExperience() {
         <div className="relative z-10 mx-auto w-full max-w-[1200px]">
           <div className="mx-auto mb-8 max-w-3xl text-center">
             <h2 className="text-[30px] font-semibold leading-tight text-black sm:text-[40px]">
-              Estimate the right package without showing final amounts.
+              Estimate monthly usage and planning price.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-700 sm:text-base">
               Adjust usage, locations, and automation needs. The calculator keeps
-              pricing marked as Not Decided Yet while still producing a realistic
-              scope recommendation.
+              pricing marked as an estimate while producing a realistic scope,
+              minutes, and monthly number for planning.
             </p>
           </div>
 
@@ -559,7 +629,11 @@ export default function PricingExperience() {
               className="rounded-lg border border-black/10 bg-white p-5 shadow-[0_22px_74px_rgba(15,23,42,0.08)] sm:p-7"
               onSubmit={(event) => {
                 event.preventDefault();
-                alert(`Estimate ready: ${estimate.recommendedPlan} plan. Pricing: Not Decided Yet.`);
+                alert(
+                  `Estimate ready: ${estimate.recommendedPlan} plan. Estimated monthly price: $${formatNumber(
+                    estimate.monthlyPrice
+                  )}. Final pricing requires workflow review.`
+                );
               }}
             >
               <div className="mb-7 flex items-start justify-between gap-5 border-b border-black/10 pb-6">
@@ -615,6 +689,15 @@ export default function PricingExperience() {
                   onChange={setMonthlyCalls}
                 />
                 <RangeField
+                  label="Monthly AI minutes"
+                  value={monthlyMinutes}
+                  min={100}
+                  max={20000}
+                  step={100}
+                  suffix="minutes"
+                  onChange={setMonthlyMinutes}
+                />
+                <RangeField
                   label="System integrations"
                   value={integrations}
                   min={0}
@@ -648,8 +731,8 @@ export default function PricingExperience() {
 
               <div className="mt-7 flex flex-col gap-3 border-t border-black/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
                 <p className="text-sm leading-6 text-gray-600">
-                  The calculator stores no payment data and displays no final
-                  price until pricing is approved.
+                  The calculator stores no payment data. Numbers are planning
+                  estimates and final pricing is confirmed after workflow review.
                 </p>
                 <button
                   type="submit"
@@ -663,10 +746,11 @@ export default function PricingExperience() {
             <aside className="rounded-lg border border-black bg-black p-5 text-white shadow-[0_28px_86px_rgba(0,0,0,0.26)] sm:p-7">
               <div className="flex items-start justify-between gap-5">
                 <div>
-                  <p className="text-sm text-violet-200">Estimated quote</p>
+                  <p className="text-sm text-violet-200">Estimated monthly price</p>
                   <h3 className="mt-2 text-[32px] font-semibold leading-tight">
-                    Not Decided Yet
+                    ${formatNumber(estimate.monthlyPrice)}
                   </h3>
+                  <p className="mt-2 text-xs text-white/48">Planning estimate, not final pricing.</p>
                 </div>
                 <span className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-black">
                   <BadgeCheck className="h-6 w-6" strokeWidth={1.6} />
@@ -687,8 +771,9 @@ export default function PricingExperience() {
               <div className="mt-5 grid gap-3">
                 <EstimateRow label="Selected plan" value={`${selectedPlanData.name} plan`} />
                 <EstimateRow label="Scope score" value={`${estimate.score} points`} />
+                <EstimateRow label="AI minutes" value={formatNumber(monthlyMinutes)} />
                 <EstimateRow label="Integrations" value={formatNumber(integrations)} />
-                <EstimateRow label="Pricing status" value="Not Decided Yet" />
+                <EstimateRow label="Final pricing" value="Review required" />
               </div>
 
               <div className="mt-7 border-t border-white/12 pt-6">

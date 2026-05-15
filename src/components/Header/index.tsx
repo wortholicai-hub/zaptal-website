@@ -13,7 +13,6 @@ export default function Header() {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const showDemoButton = pathname !== "/contactus";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,18 +70,16 @@ export default function Header() {
             ))}
           </div>
 
-          {showDemoButton && (
-            <div className="hidden items-center justify-self-end md:flex">
-              <motion.a
-                href="https://calendar.google.com/calendar/u/0/r"
-                target="_blank"
-                rel="noopener"
-                className={sharedButtonStyle}
-              >
-                Book Demo
-              </motion.a>
-            </div>
-          )}
+          <div className="hidden items-center justify-self-end md:flex">
+            <motion.a
+              href="https://calendar.google.com/calendar/u/0/r"
+              target="_blank"
+              rel="noopener"
+              className={sharedButtonStyle}
+            >
+              Book Demo
+            </motion.a>
+          </div>
 
           <div className="flex items-center justify-self-end md:hidden">
             <button
@@ -122,19 +119,17 @@ export default function Header() {
                 ))}
               </div>
 
-              {showDemoButton && (
-                <div className="mt-4 flex items-center">
-                  <motion.a
-                    href="https://calendly.com/angelo-vocalchat/consultationcall"
-                    target="_blank"
-                    rel="noopener"
-                    className={sharedButtonStyle}
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    Book Demo
-                  </motion.a>
-                </div>
-              )}
+              <div className="mt-4 flex items-center">
+                <motion.a
+                  href="https://calendly.com/angelo-vocalchat/consultationcall"
+                  target="_blank"
+                  rel="noopener"
+                  className={sharedButtonStyle}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  Book Demo
+                </motion.a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>

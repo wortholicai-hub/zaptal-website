@@ -156,7 +156,7 @@ li {
   position: relative;
   display: block;
   width: 100%;
-  height: 34px;
+  height: 26px;
 }
 
 .pricing-range-track {
@@ -164,9 +164,9 @@ li {
   top: 50%;
   right: 0;
   left: 0;
-  height: 14px;
+  height: 6px;
   transform: translateY(-50%);
-  border: 1.5px solid #111111;
+  border: 1px solid #111111;
   border-radius: 999px;
   background: #ffffff;
   box-shadow:
@@ -179,7 +179,7 @@ li {
   inset: 0;
   z-index: 1;
   width: 100%;
-  height: 34px;
+  height: 26px;
   cursor: pointer;
   appearance: none;
   -webkit-appearance: none;
@@ -193,7 +193,7 @@ li {
 
 .pricing-range-input::-webkit-slider-runnable-track {
   width: 100%;
-  height: 34px;
+  height: 26px;
   border-radius: 999px;
   background: transparent;
 }
@@ -201,10 +201,10 @@ li {
 .pricing-range-input::-webkit-slider-thumb {
   appearance: none;
   -webkit-appearance: none;
-  width: 26px;
-  height: 26px;
+  width: 18px;
+  height: 18px;
   margin-top: 4px;
-  border: 4px solid #ffffff;
+  border: 3px solid #ffffff;
   border-radius: 999px;
   background: #111111;
   box-shadow:
@@ -214,16 +214,16 @@ li {
 
 .pricing-range-input::-moz-range-track {
   width: 100%;
-  height: 34px;
+  height: 26px;
   border: 0;
   border-radius: 999px;
   background: transparent;
 }
 
 .pricing-range-input::-moz-range-thumb {
-  width: 26px;
-  height: 26px;
-  border: 4px solid #ffffff;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #ffffff;
   border-radius: 999px;
   background: #111111;
   box-shadow:
